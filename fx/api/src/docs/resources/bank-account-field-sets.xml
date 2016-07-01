@@ -1,0 +1,61 @@
+<resource type="bank-account-field-sets" xmlns="http://tradeconfo.com/ns/api">
+
+	<description>
+		Defines a set of fields that are required to create a new bank
+		account.
+	</description>
+
+	<comment>A field set defines a set of attributes that need to be included on
+		POSTed customer-bank-account resource together with suggest display information
+		for presenting a completion form to a user.
+	</comment>
+
+	<attribute name="name" type="string" required="true">
+		<comment>
+			The display name of the field set
+		</comment>
+	</attribute>
+	<attribute name="description" type="string" required="false">
+		<comment>
+			A brief description of the field set
+		</comment>
+	</attribute>
+	<attribute name="fields" type="object" many="true" required="true">
+		<comment>
+			<p>An array of field definitions. Each definition ...</p>
+			<ul>
+				<li>MUST contain a string 'attribute'
+					property that specifies the attribute
+					name that must
+					be
+					included in the POSTED
+					resource</li>
+				<li>MUST contain a string 'label' attribute containing a suggested display
+					name</li>
+				<li>MUST contain a boolean
+					required field
+					that indicates if the attribute must
+					be provided</li>
+				<li>MAY contain a string 'description'
+					attribute containing suggested
+					explanation of the
+					field</li>
+				<li>MAY contain a string 'regex'
+					attribute containing an input validation rule</li>
+			</ul>
+		</comment>
+	</attribute>
+
+	<relationship name="currency" resource="currencies" required="true" />
+	<relationship name="country" resource="countries" required="true" />
+
+	<url method="GET" url="bank-account-field-sets">
+		<parameter key="currency" value=":id" comment="A valid currency id" />
+		<parameter key="country" value=":id" comment="A valid country id" />
+		<example file="bank-account-field-sets.json" />
+		<comment>
+			Returns a collection of field sests for a currency/country pair.
+		</comment>
+	</url>
+
+</resource>

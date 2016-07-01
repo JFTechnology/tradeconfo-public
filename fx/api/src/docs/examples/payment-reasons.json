@@ -1,0 +1,32 @@
+<example title="Get resource" method="GET" url="/fx-customer-api/bank-account-field-sets?country=GB&amp;currency=GBP" xmlns="http://tradeconfo.com/ns/api">
+<response>
+{
+    "data":[
+        {
+            "id":"0",
+            "type":"payment-reasons",
+            "attributes":{
+                "name":"Other",
+                "requires-comment": true
+            }
+        },
+        {
+            "id":"1",
+            "type":"payment-reasons",
+            "attributes":{
+                "name":"Payment of invoice",
+                "requires-comment": false
+            }
+        },
+        {
+            "id":"2",
+            "type":"payment-reasons",
+            "attributes":{
+                "name":"Property purchase",
+                "requires-comment": false
+            }
+        }
+    ]
+}
+</response>
+</example>

@@ -1,0 +1,45 @@
+<resource type="fx-transactions" xmlns="http://tradeconfo.com/ns/api">
+
+	<description>Represents a single transaction of one or more blocks</description>
+
+	<attribute name="status" type="enum" required="true" />
+	<attribute name="type" type="enum" required="true" />
+	<attribute name="trade-date" type="date" required="true">
+		<comment>
+			The business day of the trade.
+		</comment>
+	</attribute>
+	<attribute name="trade-time" type="timestamp" required="true">
+		<comment>
+			The time of trade.
+		</comment>
+	</attribute>
+	<attribute name="object-status" type="enum" enum="object-status"
+		required="false" />
+
+	<relationship name="ticket" resource="fx-tickets" required="true">
+		<comment>
+			The parent of this transaction
+		</comment>
+	</relationship>
+
+	<relationship name="blocks" resource="fx-transaction-blocks"
+		required="true" many="true"
+	>
+		<comment>
+			The related transaction blocks
+		</comment>
+	</relationship>
+
+	<url method="GET" url="journal/fx-transactions/:id">
+		<example file="fx-transaction.json" />
+	</url>
+
+	<url method="GET" url="journal/fx-transactions">
+		<parameter key="query" value="customer" />
+		<parameter key="customer" value=":id" comment="A valid customer id" />
+		<parameter key="start-date" value="yyyy-mm-dd" />
+		<parameter key="end-date" value="yyyy-mm-dd" />
+	</url>
+
+</resource>

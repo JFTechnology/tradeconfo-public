@@ -1,0 +1,34 @@
+<example title="Get resource" method="GET" url="/fx-customer-api/fx-transactions/TE15T000000001-00" xmlns="http://tradeconfo.com/ns/api">
+<response>
+{
+    "data":{
+        "id":"TE15T000000001-00",
+        "type":"fx-transactions",
+        "attributes":{
+            "trade-date":"2015-09-12",
+            "trade-time":"2016-01-27T11:44:12"
+        },
+        "relationships":{
+            "ticket":{
+                "data":{
+                    "id":"TE15T000000001",
+                    "type":"fx-tickets"
+                }
+            },
+            "blocks":{
+                "data":[
+                    {
+                        "id":"TE15T000000001-00",
+                        "type":"fx-transaction-blocks"
+                    },
+                    {
+                        "id":"TE15T000000001-01",
+                        "type":"fx-transaction-blocks"
+                    }
+                ]
+            }
+        }
+    }
+}
+</response>
+</example>

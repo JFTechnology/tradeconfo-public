@@ -1,0 +1,30 @@
+<resource type="customer-subaccounts" xmlns="http://tradeconfo.com/ns/api">
+
+	<description>Represents a customer subaccount</description>
+
+	<attribute name="name" type="string" required="true" />
+	<attribute name="description" type="string" required="false" />
+	<attribute name="object-status" type="enum" enum="object-status"
+		required="false" />
+
+	<relationship name="domain" resource="domains" required="false" />
+	<relationship name="domain-group" resource="domain-groups" required="false" />
+	<relationship name="parent-account" resource="customer-accounts"
+		required="true" />
+	<relationship name="master-account" resource="customer-accounts"
+		required="true" />
+
+	<url method="GET" url="customer-subaccounts/:id">
+		<example file="customer-account.json" />
+		<comment>
+			Returns a single resource.
+		</comment>
+	</url>
+	<url method="GET" url="customer-accounts/:id/subaccounts">
+		<example file="customer-accounts.json" />
+		<comment>
+			Returns collection of all subaccounts for a customer account.
+		</comment>
+	</url>
+
+</resource>

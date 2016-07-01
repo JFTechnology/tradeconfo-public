@@ -1,0 +1,71 @@
+<example title="Get resource" method="GET" url="/fx-customer-api/customer-account-profiles/1002" xmlns="http://tradeconfo.com/ns/api">
+<response>
+{
+    "data":{
+        "id":"1002",
+        "type":"customer-account-profiles",
+        "attributes":{
+            "trading-limit":20000.00
+        },
+        "relationships":{
+            "customer-account":{
+                "data":{
+                    "id":"TE9500001002",
+                    "type":"customer-accounts"
+                }
+            },
+            "base-currency":{
+                "data":{
+                    "id":"GBP",
+                    "type":"currencies"
+                }
+            },
+            "beneficiaries":{
+                "data":[
+                    {
+                        "id":"1003",
+                        "type":"customer-beneficiaries"
+                    },
+                    {
+                        "id":"1004",
+                        "type":"customer-beneficiaries"
+                    }
+                ]
+            },
+            "remittable-currencies":{
+                "data":[
+                    {
+                        "id":"GBP",
+                        "type":"currencies"
+                    }
+                ]
+            },
+            "deliverable-currencies":{
+                "data":[
+                    {
+                        "id":"EUR",
+                        "type":"currencies"
+                    }
+                ]
+            },
+            "deliverable-countries":{
+                "data":[
+                    {
+                        "id":"US",
+                        "type":"countries"
+                    },
+                    {
+                        "id":"ES",
+                        "type":"countries"
+                    },
+                    {
+                        "id":"DE",
+                        "type":"countries"
+                    }
+                ]
+            }
+        }
+    }
+}
+</response>
+</example>

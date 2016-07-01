@@ -1,0 +1,16 @@
+<resource type="domains" xmlns="http://tradeconfo.com/ns/api">
+
+	<description>A resource representing a tradeconfo.com top-level domain. Typically
+		an FX brokerage.
+	</description>
+
+	<attribute name="name" type="string" required="true" />
+	<attribute name="description" type="string" required="false" />
+	<attribute name="object-status" type="enum" enum="object-status"
+		required="false" />
+
+	<url method="GET" url="domains">
+		<example file="domains.json" />
+	</url>
+
+</resource>

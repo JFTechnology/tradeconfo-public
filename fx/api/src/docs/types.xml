@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="api.xsl"?>
+<types xmlns="http://tradeconfo.com/ns/api">
+
+	<type name="currency-amount" json="number">
+		<comment>
+			An exact currency amount to the related currency's standard decimal
+			places (usually, but not always, two).
+		</comment>
+	</type>
+
+	<type name="date" json="string">
+		<comment>
+			<p>ISO Format : YYYY-MM-DD</p>
+		</comment>
+	</type>
+
+	<type name="timestamp" json="string">
+		<comment>
+			<p>ISO Format : YYYY-MM-DDTHH:MM:SS</p>
+		</comment>
+	</type>
+
+</types>

@@ -1,0 +1,39 @@
+<example title="By currency report" method="GET" url="/fx-domain-api/fx-positions?query=customer-unsettled-by-currency&amp;customer=3" xmlns="http://tradeconfo.com/ns/api">
+<response>
+{
+    "data":{
+        "id":"TE15T000000001:2015-10-12:2015-12-12:false",
+        "type":"fx-positions",
+        "attributes":{
+            "settlement-date":"2015-10-12",
+            "value-date":"2015-12-12",
+            "base-amount":10000.00,
+            "counter-amount":-15000.00,
+            "base-fee":8.50,
+            "settled":false,
+            "count":1
+        },
+        "relationships":{
+             "customer-account":{
+                "data":{
+                    "id":"3",
+                    "type":"customer-accounts"
+                }
+            },
+            "base-currency":{
+                "data":{
+                    "id":"GBP",
+                    "type":"currencies"
+                }
+            },
+            "counter-currency":{
+                "data":{
+                    "id":"EUR",
+                    "type":"currencies"
+                }
+            }
+        }
+    }
+}
+</response>
+</example>

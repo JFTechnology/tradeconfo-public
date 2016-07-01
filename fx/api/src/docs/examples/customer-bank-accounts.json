@@ -1,0 +1,60 @@
+<example title="Get collection" method="GET" url="/fx-domain-api/customer-accounts/TE9500001002/beneficiaries" xmlns="http://tradeconfo.com/ns/api">
+<response>
+{
+    "data":[
+        {
+            "id":"TE9500001002-3",
+            "type":"customer-bank-accounts",
+            "attributes":{
+                "default-charge-code":"SHA",
+                "source":true,
+                "review-status":"ACCEPTED",
+                "last-reviewed":"2016-03-12T01:02:32"
+            },
+            "relationships":{
+                "bank-account":{
+                    "data":{
+                        "id":"3",
+                        "type":"bank-accounts"
+                    }
+                },
+                "customer-account":{
+                    "data":{
+                        "id":"TE9500001002",
+                        "type":"customer-accounts"
+                    }
+                }
+            }
+        },
+        {
+            "id":"TE9500001002-4",
+            "type":"customer-bank-accounts",
+            "attributes":{
+                "email-address":"stephen.flynn@jftechnology.com",
+                "default-charge-code":"OUR",
+                "default-remittance-information":"Invoice 345",
+                "comment":"test!",
+                "source":false,
+                "review-status":"UNDER_REVIEW",
+                "last-reviewed":"2016-03-12T01:02:32",
+                "customer-reference":"ref123"
+            },
+            "relationships":{
+                "bank-account":{
+                    "data":{
+                        "id":"4",
+                        "type":"bank-accounts"
+                    }
+                },
+                "customer-account":{
+                    "data":{
+                        "id":"TE9500001002",
+                        "type":"customer-accounts"
+                    }
+                }
+            }
+        }
+    ]
+}
+</response>
+</example>

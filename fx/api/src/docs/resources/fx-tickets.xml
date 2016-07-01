@@ -1,0 +1,33 @@
+<resource type="fx-tickets" xmlns="http://tradeconfo.com/ns/api">
+
+	<description>Parent of a collection of fx-transactions</description>
+
+	<attribute name="deliverable" type="boolean" required="false">
+		<comment>
+			Whether transaction is deliverable - defaults to true.
+		</comment>
+	</attribute>
+
+	<relationship name="base-currency" resource="currencies" required="true">
+		<comment>
+			First currency of pair
+		</comment>
+	</relationship>
+	<relationship name="counter-currency" resource="currencies"
+		required="true"
+	>
+		<comment>
+			Second currency of pair
+		</comment>
+	</relationship>
+	<relationship name="margin-currency" resource="currencies" required="false" />
+	<relationship name="customer-account" resource="customer-accounts"
+		required="true" />
+	<relationship name="customer-subaccount" resource="customer-subaccounts"
+		required="false" />
+
+	<url method="GET" url="journal/fx-tickets/:id">
+		<example file="fx-tickets.json" />
+	</url>
+
+</resource>

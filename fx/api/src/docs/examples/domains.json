@@ -1,0 +1,15 @@
+<example title="Get collection" method="GET" url="/fx-domain-api/domains" xmlns="http://tradeconfo.com/ns/api">
+<response>
+{
+    "data":[
+        {
+            "id":"3",
+            "type":"domains",
+            "attributes":{
+                "name":"Test"
+            }
+        }
+    ]
+}
+</response>
+</example>

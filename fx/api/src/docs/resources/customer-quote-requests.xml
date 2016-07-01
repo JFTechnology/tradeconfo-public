@@ -1,0 +1,86 @@
+<resource type="customer-quote-requests" xmlns="http://tradeconfo.com/ns/api">
+
+	<description>
+		Represent a quote request. Contains one or more customer-quotes.
+	</description>
+
+	<attribute name="settlement" type="enum" enum="rfq.settlement"
+		required="true" />
+	<attribute name="ttl" type="number" required="false">
+		<comment>
+			The time in seconds during which this quote can be accepted. MUST be
+			included if the status attribute is 'OPEN' and has no meaning otherwise.
+		</comment>
+	</attribute>
+	<attribute name="status" type="enum" enum="rfq.status" required="true">
+		<comment>
+			The overall status of this quote request. Note that each of the related
+			customer-quotes
+			each have a status attribute that indicates whether that
+			individual quote is
+			tradeable. Client applications should take both into
+			account.
+		</comment>
+	</attribute>
+	<attribute name="margin-amount" type="number" required="false">
+		<comment>
+			The amount of margin the customer is required to post to support all
+			the amounts quoted in this request. This will typically only apply to
+			forward
+			trades. If this field is present it will be a positive currency amount and the
+			margin-currency relationship MUST be present.
+		</comment>
+	</attribute>
+	<attribute name="update-time" type="timestamp" required="true" />
+
+	<relationship name="update-user" resource="people" required="true" />
+	<relationship name="customer-quotes" resource="customer-quotes"
+		required="true" many="true"
+	>
+		<comment>
+			One or more quotes related to this request.
+		</comment>
+	</relationship>
+	<relationship name="margin-currency" resource="currencies" required="false">
+		<comment>
+			The currency the customer is required to post the margin-amount to
+			support all
+			the amounts quoted in this request. This will typically only apply
+			to forward
+			trades. If this field is present the margin-amount attribute MUST be
+			present.
+		</comment>
+	</relationship>
+	<relationship name="transactions" resource="fx-transactions"
+		required="false"
+	>
+		<comment>
+			Transactions that have been booked to the customer-account as a result
+			of accepting the quotes related to this quote request. This
+			relationship will
+			only be present when the status attribute is set to TRADED.
+		</comment>
+	</relationship>
+	<relationship name="payment-instructions" resource="payment-instructions"
+		required="false"
+	>
+		<comment>
+			Payment instructions that have been booked to the customer-account as a
+			result of accepting the quotes related to this quote request. This relationship
+			will only be present when the status attribute is set to TRADED.
+		</comment>
+	</relationship>
+
+	<url method="POST" url="customer-quote-requests">
+		<example file="customer-quote-request.json" />
+		<comment>Create a new quote request</comment>
+	</url>
+	<url method="PATCH" url="customer-quote-requests/:id">
+		<example file="customer-quote-request-accept.json" />
+		<comment>Update an existing quote request</comment>
+	</url>
+	<url method="GET" url="customer-quote-requests/:id">
+		<comment>Get resource</comment>
+	</url>
+
+</resource>

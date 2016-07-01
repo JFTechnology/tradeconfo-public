@@ -1,0 +1,90 @@
+<example title="Get resource" method="GET" url="/fx-customer-api/bank-account-field-sets?country=GB&amp;currency=GBP" xmlns="http://tradeconfo.com/ns/api">
+<response>
+{
+    "data":[
+        {
+            "id":"GBP-GB-IBAN+SWIFT",
+            "type":"bank-account-field-sets",
+            "attributes":{
+                "name":"IBAN+SWIFT",
+                "description":"Preferred format",
+                "fields":[
+                    {
+                        "attribute":"beneficiary",
+                        "label":"Beneficiary",
+                        "description":"The full name of the account",
+                        "required":true
+                    },
+                    {
+                        "attribute":"iban",
+                        "label":"IBAN",
+                        "description":"International Bank Account Identifier",
+                        "required":true
+                    },
+                    {
+                        "attribute":"bic",
+                        "label":"SWIFT",
+                        "description":"Swift institution identifier",
+                        "required":true
+                    }
+                ]
+            },
+            "relationships":{
+                "currency":{
+                    "data":{
+                        "id":"GBP",
+                        "type":"currencies"
+                    }
+                },
+                "country":{
+                    "data":{
+                        "id":"GB",
+                        "type":"countries"
+                    }
+                }
+            }
+        },
+        {
+            "id":"GBP-GB-Sort code + account number",
+            "type":"bank-account-field-sets",
+            "attributes":{
+                "name":"Sort code + account number",
+                "description":"Legacy format",
+                "fields":[
+                    {
+                        "attribute":"beneficiary",
+                        "label":"Beneficiary",
+                        "description":"The full name of the account",
+                        "required":true
+                    },
+                    {
+                        "attribute":"national-clearing-code",
+                        "label":"Sort code",
+                        "required":true
+                    },
+                    {
+                        "attribute":"account-number",
+                        "label":"Account number",
+                        "required":true
+                    }
+                ]
+            },
+            "relationships":{
+                "currency":{
+                    "data":{
+                        "id":"GBP",
+                        "type":"currencies"
+                    }
+                },
+                "country":{
+                    "data":{
+                        "id":"GB",
+                        "type":"countries"
+                    }
+                }
+            }
+        }
+    ]
+}
+</response>
+</example>

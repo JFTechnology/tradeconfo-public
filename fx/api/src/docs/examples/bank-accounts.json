@@ -1,0 +1,49 @@
+<example title="Get collection" method="GET" url="/fx-customer-api/bank-accounts" xmlns="http://tradeconfo.com/ns/api">
+<response>
+{
+    "data":[
+        {
+            "id":"3",
+            "type":"bank-accounts",
+            "attributes":{
+                "beneficiary":"Beneficiary 1",
+                "iban":"GB31 NWBK 6000 0140 4647 33",
+                "bic":"NWBKGB2LXXX"
+            },
+            "relationships":{
+                "domain":{
+                    "data":{
+                        "id":"1",
+                        "type":"domains"
+                    }
+                },
+                "currency":{
+                    "data":{
+                        "id":"EUR",
+                        "type":"currencies"
+                    }
+                }
+            }
+        }
+    ],
+    "included":[
+        {
+            "id":"EUR",
+            "type":"currencies",
+            "attributes":{
+                "code":2,
+                "name":"EUR",
+                "description":"EUR"
+            }
+        },
+        {
+            "id":"1",
+            "type":"domains",
+            "attributes":{
+                "name":"Test"
+            }
+        }
+    ]
+}
+</response>
+</example>

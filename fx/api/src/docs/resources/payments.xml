@@ -1,0 +1,41 @@
+<resource type="payments" xmlns="http://tradeconfo.com/ns/api">
+
+	<description>
+		Represents a processing payment instruction - allows tracking of
+		currency delivery from payment instruction through to a reconciled bank
+		transaction.
+	</description>
+
+	<attribute name="booking-date" type="date" required="true" />
+	<attribute name="value-date" type="date" required="true" />
+	<attribute name="side" type="enum" enum="payment.side" required="true" />
+	<attribute name="type" type="enum" enum="payment.type" required="true" />
+	<attribute name="status" type="enum" enum="payment.status" required="true" />
+	<attribute name="comment" type="string" required="false" />
+	<attribute name="remittance-information" type="string" required="false">
+		<comment>
+			Message intended for the beneficiary. Limited to 35 characters.
+		</comment>
+	</attribute>
+	<attribute name="charge-code" type="enum" enum="charge.code" required="false" />
+	<attribute name="amount" type="number" required="true" />
+	<attribute name="update-time" type="timestamp" required="false" />
+
+	<relationship name="source-bank-account" resource="bank-accounts"
+		required="false" />
+	<relationship name="charge-bank-account" resource="bank-accounts"
+		required="false" />
+	<relationship name="beneficiary-bank-account" resource="bank-accounts"
+		required="true" />
+	<relationship name="customer-account" resource="customer-accounts"
+		required="true" />
+	<relationship name="customer-subaccount" resource="customer-subaccounts"
+		required="false" />
+	<relationship name="currency" resource="currencies" required="true" />
+	<relationship name="update-user" resource="people" required="false" />
+
+	<url method="GET" url="journal/payments?start-date=yyyy-mm-dd&amp;end-date=yyyy-mm-dd">
+		<example file="payments.json" />
+	</url>
+
+</resource>

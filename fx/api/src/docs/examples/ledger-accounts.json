@@ -1,0 +1,40 @@
+<example title="Get collection" method="GET" url="/fx-domain-api/ledger-accounts" xmlns="http://tradeconfo.com/ns/api">
+<response>
+{
+    "data":[
+        {
+            "id":"3",
+            "type":"ledger-accounts",
+            "attributes":{
+                "name":"Customer funds",
+                "type":"LIABILITY"
+            },
+            "relationships":{
+                "domain":{
+                    "data":{
+                        "id":"66",
+                        "type":"domains"
+                    }
+                }
+            }
+        },
+        {
+            "id":"5",
+            "type":"ledger-accounts",
+            "attributes":{
+                "name":"Customer margin",
+                "type":"LIABILITY"
+            },
+            "relationships":{
+                "domain":{
+                    "data":{
+                        "id":"66",
+                        "type":"domains"
+                    }
+                }
+            }
+        }
+    ]
+}
+</response>
+</example>

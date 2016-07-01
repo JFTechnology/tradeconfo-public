@@ -1,0 +1,39 @@
+<example title="Get resource" method="GET" url="/fx-domain-api/customer-accounts/TE9500001002" xmlns="http://tradeconfo.com/ns/api">
+<response>
+{
+    "data":{
+        "id":"TE9500001002",
+        "type":"customer-accounts",
+        "attributes":{
+            "name":"Customer 1",
+            "type":"CORPORATE",
+            "review-status":"DATA_REQUIRED",
+            "last-reviewed":"2016-01-27T09:03:18"
+        },
+        "relationships":{
+            "domain":{
+                "data":{
+                    "id":"1",
+                    "type":"domains"
+                }
+            },
+            "domain-group":{
+                "data":{
+                    "id":"2",
+                    "type":"domain-groups"
+                }
+            }
+        }
+    },
+    "included":[
+        {
+            "id":"1",
+            "type":"domains",
+            "attributes":{
+                "name":"Test"
+            }
+        }
+    ]
+}
+</response>
+</example>

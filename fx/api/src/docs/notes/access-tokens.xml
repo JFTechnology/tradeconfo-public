@@ -1,0 +1,74 @@
+<api:note title="Obtaining an access token" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:api="http://tradeconfo.com/ns/api"
+>
+
+	<p>
+		The APIs are secured by OAuth2. In order to access an API resource the resource
+		owner (a user with credentials) must obtain an
+		<em>access token</em>
+		and present it as a header with each call to to the API. OAuth2 specifies
+		several ways to obtain an access token but the simplest way is via the
+		<em>Resource Owner Password Credentials Grant flow</em>
+		. This is documented here :
+		<a href="http://tools.ietf.org/html/rfc6749#section-4.3">tools.ietf.org/html/rfc6749#section-4.3</a>
+		.
+	</p>
+
+	<p>
+		In this case the client calls the OAuth2 server token end point with a username
+		and password and, if the credentials are valid, receives a short lived
+		<em>access token,</em>
+		a long lived
+		<em>refresh token,</em>
+		and an indication of the time to live of both tokens.
+	</p>
+	<p>Here is a request...</p>
+	<pre>
+		POST /auth/realms/a-realm-name/protocol/openid-connect/token HTTP/1.1
+		Host:
+		auth.tradeconfo.com
+		Content-Type: application/x-www-form-urlencoded
+		Origin:https://api.host.tradeconfo.com
+
+		grant_type=password&amp;client_id=ember-test&amp;username=a.user@tradeconfo.com&amp;password=secret
+	</pre>
+	<p>And a successful response...</p>
+	<pre>
+		{
+		"access_token": "eyJhbGciOiJ[...]",
+		"expires_in": 60,
+		"refresh_expires"_in:
+		1800,
+		"refresh_token": "eyJhbGci9[...]",
+		"token_type": "bearer"
+		}
+	</pre>
+	<p>The access token can then be used in a call to an API resource...</p>
+	<pre>
+		GET /user-profile/self HTTP/1.1
+		Host: api.host.tradeconfo.com
+		Authorization:Bearer eyJhbGciOiJ[...]
+		Accept:application/vnd.api+json
+	</pre>
+	<p>The refresh token can be used to obtain a new access token after expiry...</p>
+	<pre>
+		POST /auth/realms/a-realm-name/protocol/openid-connect/token HTTP/1.1
+		Host:
+		auth.tradeconfo.com
+		Content-Type: application/x-www-form-urlencoded
+		Origin:https://api.host.tradeconfo.com
+
+		grant_type=refresh_token&amp;client_id=ember-test&amp;refresh_token="eyJhbGci9[...]"
+	</pre>
+	<pre>
+		{
+		"access_token": "eyJhbGciOiJ[...]",
+		"expires_in": 60,
+		"token_type":"bearer",
+		"refresh_expires_in": 1800,
+		"refresh_token":
+		"eyJhbGci9[...]"
+		}
+	</pre>
+</api:note>
+ 

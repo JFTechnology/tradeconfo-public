@@ -1,0 +1,46 @@
+<resource type="payment-instructions" xmlns="http://tradeconfo.com/ns/api">
+
+	<description>
+		Represents a client instruction to make a currency delivery to a
+		given bank account of a beneficiary.
+	</description>
+
+	<attribute name="update-time" type="timestamp" required="false" />
+	<attribute name="amount" type="number" required="true" />
+	<attribute name="booking-date" type="date" required="true" />
+	<attribute name="status" type="enum" enum="payment.instruction.status"
+		required="true" />
+	<attribute name="comment" type="string" required="false" />
+	<attribute name="remittance-information" type="string" required="false">
+		<comment>
+			Message intended for the beneficiary. Limited to 35 characters.
+		</comment>
+	</attribute>
+	<attribute name="charge-code" type="enum" enum="charge.code" required="false" />
+
+	<relationship name="beneficiary-bank-account" resource="bank-accounts"
+		required="true" />
+	<relationship name="customer-account" resource="customer-accounts"
+		required="true" />
+	<relationship name="customer-subaccount" resource="customer-subaccounts"
+		required="false" />
+	<relationship name="update-user" resource="people" required="false" />
+	<relationship name="currency" resource="currencies" required="true" />
+
+	<url method="GET" url="journal/payment-instructions">
+		<parameter key="start-date" value="yyyy-mm-dd" />
+		<parameter key="end-date" value="yyyy-mm-dd" />
+		<example file="payment-instructions.json" />
+		<comment>Instruction search</comment>
+	</url>
+
+	<url method="GET" url="journal/payment-instructions">
+		<parameter key="query" value="customer" />
+		<parameter key="customer" value=":id" comment="A valid customer id" />
+		<parameter key="start-date" value="yyyy-mm-dd" />
+		<parameter key="end-date" value="yyyy-mm-dd" />
+		<example file="payment-instructions.json" />
+		<comment>Instruction search for single customer account</comment>
+	</url>
+
+</resource>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="
+	   http://xmlns.jcp.org/xml/ns/javaee 
+	   http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd
+	   "
+	version="3.1"
+>
+
+	<session-config>
+		<session-timeout>15</session-timeout>
+	</session-config>
+
+	<display-name>Ember app distros</display-name>
+	<description>${pom.description}</description>
+
+	<filter>
+		<filter-name>plfx</filter-name>
+		<filter-class>com.jftechnology.ticketing.fx.customer.ember.Application</filter-class>
+		<init-param>
+			<param-name>index</param-name>
+			<param-value>/plfx/index.html</param-value>
+		</init-param>
+	</filter>
+
+	<filter>
+		<filter-name>demo</filter-name>
+		<filter-class>com.jftechnology.ticketing.fx.customer.ember.Application</filter-class>
+		<init-param>
+			<param-name>index</param-name>
+			<param-value>/demo/index.html</param-value>
+		</init-param>
+	</filter>
+
+	<filter>
+		<filter-name>tradeconfo</filter-name>
+		<filter-class>com.jftechnology.ticketing.fx.customer.ember.Application</filter-class>
+		<init-param>
+			<param-name>index</param-name>
+			<param-value>/tradeconfo/index.html</param-value>
+		</init-param>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>plfx</filter-name>
+		<url-pattern>/plfx/keycloak/*</url-pattern>
+		<url-pattern>/plfx/user-profile/*</url-pattern>
+		<url-pattern>/plfx/sandbox/*</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>demo</filter-name>
+		<url-pattern>/demo/keycloak/*</url-pattern>
+		<url-pattern>/demo/user-profile/*</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>tradeconfo</filter-name>
+		<url-pattern>/tradeconfo/keycloak/*</url-pattern>
+		<url-pattern>/tradeconfo/user-profile/*</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+	</filter-mapping>
+
+</web-app>

@@ -1,0 +1,16 @@
+<resource type="domain-groups" xmlns="http://tradeconfo.com/ns/api">
+
+	<description>A resource a domains internal silo or business unit</description>
+
+	<attribute name="name" type="string" required="true" />
+	<attribute name="description" type="string" required="false" />
+	<attribute name="object-status" type="enum" enum="object-status"
+		required="false" />
+
+	<relationship name="domain" resource="domains" />
+
+	<url method="GET" url="domain-groups">
+		<example file="domain-groups.json" />
+	</url>
+
+</resource>

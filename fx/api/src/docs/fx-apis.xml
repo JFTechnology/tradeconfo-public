@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="api.xsl"?>
+<api xmlns="http://tradeconfo.com/ns/api">
+
+	<note src="supported-applications.xml" />
+	<note src="access-tokens.xml" />
+	<note src="bootstrapping.xml" />
+	<note src="versioning.xml" />
+
+	<application name="fx-customer-api">
+		<description></description>
+
+		<resource name="bank-accounts" />
+		<resource name="bank-account-field-sets" />
+		<resource name="bank-transactions" />
+		<resource name="countries" />
+		<resource name="currencies" />
+		<resource name="ledger-accounts" />
+		<resource name="ledger-entries" />
+		<resource name="ledger-balances" />
+
+		<resource name="customer-accounts" />
+		<resource name="customer-subaccounts" />
+		<resource name="customer-bank-accounts" />
+		<resource name="customer-account-profiles" />
+		<resource name="customer-quote-requests" />
+		<resource name="customer-quotes" />
+
+		<resource name="fx-tickets" />
+		<resource name="fx-transactions" />
+		<resource name="fx-transaction-blocks" />
+		<resource name="fx-positions" />
+
+		<resource name="payment-instructions" />
+		<resource name="payment-reasons" />
+		<resource name="people" />
+
+		<resource name="user-profiles" />
+
+	</application>
+
+	<application name="fx-domain-api">
+
+		<resource name="bank-accounts" />
+		<resource name="bank-account-field-sets" />
+		<resource name="bank-transactions" />
+		<resource name="countries" />
+		<resource name="currencies" />
+		<resource name="ledger-accounts" />
+		<resource name="ledger-postings" />
+		<resource name="ledger-entries" />
+		<resource name="ledger-balances" />
+
+		<resource name="customer-accounts" />
+		<resource name="customer-subaccounts" />
+		<resource name="customer-bank-accounts" />
+		<resource name="customer-account-profiles" />
+		<resource name="customer-quote-requests" />
+		<resource name="customer-quotes" />
+
+		<resource name="domain-groups" />
+
+		<resource name="fx-tickets" />
+		<resource name="fx-transactions" />
+		<resource name="fx-transaction-blocks" />
+		<resource name="fx-positions" />
+
+		<resource name="payments" />
+		<resource name="payment-instructions" />
+		<resource name="payment-reasons" />
+		<resource name="people" />
+
+		<resource name="domain-profiles" />
+		<resource name="user-profiles" />
+
+	</application>
+
+</api>

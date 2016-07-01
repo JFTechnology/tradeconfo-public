@@ -1,0 +1,34 @@
+<example title="Get resource" method="GET" url="/fx-customer-api/fx-transaction-blocks?query=customer-outstanding&amp;customer=:id&amp;date=2015-12-10" xmlns="http://tradeconfo.com/ns/api">
+<response>
+{
+    "data":[
+        {
+            "id":"TE15T000000001-00",
+            "type":"fx-transaction-blocks",
+            "attributes":{
+                "settlement-date":"2015-10-12",
+                "value-date":"2015-12-12",
+                "base-amount":10000.00,
+                "counter-amount":-15000.00,
+                "base-fee":8.50,
+                "settled":false
+            },
+            "relationships":{
+                "ticket":{
+                    "data":{
+                        "id":"TE15T000000001",
+                        "type":"fx-tickets"
+                    }
+                },
+                "transaction":{
+                    "data":{
+                        "id":"TE15T000000001-00",
+                        "type":"fx-transactions"
+                    }
+                }
+            }
+        }
+    ]
+}
+</response>
+</example>

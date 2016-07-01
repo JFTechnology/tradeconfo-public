@@ -1,0 +1,31 @@
+<resource type="currencies" xmlns="http://tradeconfo.com/ns/api">
+
+	<description>A resource representing a currency.</description>
+
+	<attribute name="name" type="string" required="true">
+		<comment>
+			Three character curency code - GBP, USD, etc.
+		</comment>
+	</attribute>
+	<attribute name="description" type="string" required="true">
+		<comment>
+			User friendly name
+		</comment>
+	</attribute>
+	<attribute name="object-status" type="enum" enum="object-status"
+		required="false" />
+
+	<url method="GET" url="currencies">
+		<example file="currencies.json" />
+        <comment>
+            Returns a listing of all resources available to caller.
+        </comment>
+	</url>
+
+	<url method="GET" url="currencies/:id">
+		<comment>
+			Returns a single resource.
+		</comment>
+	</url>
+
+</resource>

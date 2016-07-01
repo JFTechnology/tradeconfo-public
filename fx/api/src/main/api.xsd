@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://tradeconfo.com/ns/api"
+	xmlns:tns="http://tradeconfo.com/ns/api" elementFormDefault="qualified"
+>
+
+	<element name="resource">
+		<annotation>
+			<documentation>Container for html note</documentation>
+		</annotation>
+		<complexType>
+			<sequence>
+				<element name="description" />
+				<element name="comment" minOccurs="0" maxOccurs="unbounded" />
+				<element name="attribute" minOccurs="0" maxOccurs="unbounded">
+					<complexType>
+						<sequence>
+							<element name="comment" minOccurs="0" maxOccurs="unbounded" />
+						</sequence>
+						<attribute name="name" use="required" />
+						<attribute name="type" use="required" />
+						<attribute name="many" type="boolean" default="false" />
+						<attribute name="enum" />
+						<attribute name="required" type="boolean" use="required" />
+					</complexType>
+				</element>
+				<element name="relationship" minOccurs="0" maxOccurs="unbounded">
+					<complexType>
+						<sequence>
+							<element name="comment" minOccurs="0" maxOccurs="unbounded" />
+						</sequence>
+						<attribute name="name" use="required" />
+						<attribute name="resource" use="required" />
+						<attribute name="required" type="boolean" default="false" />
+						<attribute name="many" type="boolean" default="false" />
+					</complexType>
+				</element>
+				<element name="url" minOccurs="0" maxOccurs="unbounded">
+					<complexType>
+						<sequence>
+							<element name="parameter" minOccurs="0" maxOccurs="unbounded">
+								<complexType>
+									<attribute name="key" use="required" />
+									<attribute name="value" use="required" />
+									<attribute name="comment" />
+								</complexType>
+							</element>
+							<element name="example" minOccurs="0" maxOccurs="unbounded">
+								<complexType>
+									<attribute name="response" />
+								</complexType>
+							</element>
+							<element name="comment" minOccurs="0" maxOccurs="unbounded" />
+						</sequence>
+						<attribute name="method" use="required" type="tns:url.method" />
+						<attribute name="url" use="required" />
+					</complexType>
+				</element>
+			</sequence>
+			<attribute name="type" use="required" />
+		</complexType>
+	</element>
+
+	<element name="note">
+		<annotation>
+			<documentation>Container for html note</documentation>
+		</annotation>
+		<complexType>
+			<sequence>
+				<any processContents="lax" maxOccurs="unbounded" />
+			</sequence>
+			<attribute name="title" use="required" />
+		</complexType>
+	</element>
+
+	<complexType name="api">
+
+	</complexType>
+
+	<simpleType name="url.method">
+		<restriction base="string">
+			<enumeration value="GET" />
+			<enumeration value="POST" />
+			<enumeration value="PATCH" />
+			<enumeration value="DELETE" />
+		</restriction>
+	</simpleType>
+
+</schema>

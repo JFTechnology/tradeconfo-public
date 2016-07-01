@@ -1,0 +1,71 @@
+<example title="Get collection" method="GET" url="/fx-customer-api/fx-tickets" xmlns="http://tradeconfo.com/ns/api">
+<response>
+{
+    "data":[
+        {
+            "id":"TE15T000000001",
+            "type":"fx-tickets",
+            "relationships":{
+                "base-currency":{
+                    "data":{
+                        "id":"GBP",
+                        "type":"currencies"
+                    }
+                },
+                "counter-currency":{
+                    "data":{
+                        "id":"EUR",
+                        "type":"currencies"
+                    }
+                },
+                "margin-currency":{
+                    "data":{
+                        "id":"GBP",
+                        "type":"currencies"
+                    }
+                },
+                "customer-account":{
+                    "data":{
+                        "id":"3",
+                        "type":"customer-accounts"
+                    }
+                }
+            }
+        },
+        {
+            "id":"TE85T000000002",
+            "type":"fx-tickets",
+            "attributes":{
+                "deliverable":false
+            },
+            "relationships":{
+                "base-currency":{
+                    "data":{
+                        "id":"GBP",
+                        "type":"currencies"
+                    }
+                },
+                "counter-currency":{
+                    "data":{
+                        "id":"INR",
+                        "type":"currencies"
+                    }
+                },
+                "margin-currency":{
+                    "data":{
+                        "id":"GBP",
+                        "type":"currencies"
+                    }
+                },
+                "customer-account":{
+                    "data":{
+                        "id":"3",
+                        "type":"customer-accounts"
+                    }
+                }
+            }
+        }
+    ]
+}
+</response>
+</example>

@@ -1,0 +1,53 @@
+<resource type="bank-accounts" xmlns="http://tradeconfo.com/ns/api">
+
+	<description>
+		Represents a bank account. Required for delivery of currency.
+	</description>
+
+	<attribute name="beneficiary" type="string" required="true">
+		<comment>
+			The name of the account to be used for interbank instruction
+		</comment>
+	</attribute>
+	<attribute name="beneficiary-address" type="string" required="false">
+		<comment>
+			Address of account holder. Some destination payment systems require
+			this for some account types
+		</comment>
+	</attribute>
+	<attribute name="iban" type="string" required="false">
+		<comment>
+			A valid IBAN
+		</comment>
+	</attribute>
+	<attribute name="bic" type="string" required="false">
+		<comment>
+			A valid swift institution identifier
+		</comment>
+	</attribute>
+	<attribute name="account-number" type="string" required="false">
+		<comment>
+			A valid account number for the destination country's payment system.
+		</comment>
+	</attribute>
+	<attribute name="national-clearing-code" type="string" required="false">
+		<comment>
+			A valid clearing code for the destination country's payment system. UK
+			sort code, US ABA routing number etc.
+		</comment>
+	</attribute>
+	<attribute name="object-status" type="enum" enum="object-status"
+		required="false" />
+
+	<relationship name="domain" resource="domains" required="false" />
+	<relationship name="currency" resource="currencies" required="true" />
+	<relationship name="country" resource="countries" required="true" />
+
+	<url method="GET" url="bank-accounts/:id">
+		<example file="bank-account.json" />
+		<comment>
+			Returns a single resource.
+		</comment>
+	</url>
+
+</resource>

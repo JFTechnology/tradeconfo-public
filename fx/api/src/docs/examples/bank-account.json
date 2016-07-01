@@ -1,0 +1,29 @@
+<example title="Get resource" method="GET" url="/fx-customer-api/bank-accounts/3" xmlns="http://tradeconfo.com/ns/api">
+<response>
+{
+    "data":{
+        "id":"3",
+        "type":"bank-accounts",
+        "attributes":{
+            "beneficiary":"Beneficiary 1",
+            "iban":"GB31 NWBK 6000 0140 4647 33",
+            "bic":"NWBKGB2LXXX"
+        },
+        "relationships":{
+            "country":{
+                "data":{
+                    "id":"GB",
+                    "type":"countries"
+                }
+            },
+            "currency":{
+                "data":{
+                    "id":"EUR",
+                    "type":"currencies"
+                }
+            }
+        }
+    }
+}
+</response>
+</example>

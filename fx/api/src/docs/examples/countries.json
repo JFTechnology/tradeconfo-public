@@ -1,0 +1,24 @@
+<example title="Get collection" method="GET" url="/fx-customer-api/countries" xmlns="http://tradeconfo.com/ns/api">
+<response>
+{
+    "data":[
+        {
+            "id":"GB",
+            "type":"countries",
+            "attributes":{
+                "name":"GB",
+                "description":"Great Britain"
+            }
+        },
+        {
+            "id":"DE",
+            "type":"countries",
+            "attributes":{
+                "name":"DE",
+                "description":"Germany"
+            }
+        }
+    ]
+}
+</response>
+</example>

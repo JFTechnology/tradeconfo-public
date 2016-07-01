@@ -1,0 +1,138 @@
+<resource type="fx-positions" xmlns="http://tradeconfo.com/ns/api">
+
+	<description>
+		Aggregate of a collection of fx-transaction-blocks 'grouped' by
+		one
+		or more relationship. The grouping is dependent on the query.
+	</description>
+
+	<attribute name="base-amount" type="currency-amount" required="true">
+		<comment>
+			The aggregate amount of the base currency paid or received.
+		</comment>
+		<comment>
+			Amount is signed from the point of view of the
+			domain, so a positive
+			number represents
+			the customer paying, domain receiving
+			and vice versa.
+		</comment>
+	</attribute>
+	<attribute name="base-fee" type="currency-amount" required="false">
+		<comment>
+			The aggregate amount of the base currency charged as fee to the
+			customer account.
+		</comment>
+		<comment>
+			Amount is signed from the point of view of the
+			domain, so a positive
+			number represents the customer paying, domain receiving
+			and vice versa.
+		</comment>
+	</attribute>
+	<attribute name="counter-amount" type="currency-amount" required="true">
+		<comment>
+			The aggregate amount of the counter currency paid or received.
+		</comment>
+		<comment>
+			Amount is signed from the point of view of the
+			domain, so a positive
+			number represents the customer paying, domain receiving
+			and vice versa.
+		</comment>
+	</attribute>
+	<attribute name="counter-fee" type="currency-amount" required="false">
+		<comment>
+			The aggregate amount of the counter currency charged as fee to the
+			customer
+			account.
+		</comment>
+		<comment>
+			Amount is signed from the point of view of the
+			domain, so a positive
+			number represents the customer paying, domain receiving
+			and vice versa.
+		</comment>
+	</attribute>
+	<attribute name="settlement-date" type="date" required="true">
+		<comment>
+			Settlement date common to all blocks contributing to this
+			position.
+			Indeterminate if not present.
+		</comment>
+	</attribute>
+	<attribute name="value-date" type="date" required="false">
+		<comment>
+			Value date common to all blocks contributing to this
+			position.
+			Indeterminate if not present.
+		</comment>
+	</attribute>
+	<attribute name="settled" type="boolean" required="false">
+		<comment>
+			Whether contributing blocks have been settled. Indeterminate if not
+			present.
+		</comment>
+	</attribute>
+	<attribute name="count" type="number" required="false">
+		<comment>
+			Number of transactions contributing to this position.
+		</comment>
+	</attribute>
+
+	<relationship name="ticket" resource="fx-tickets" required="false">
+		<comment>
+			The parent of all blocks contributing to this position.
+		</comment>
+	</relationship>
+
+	<relationship name="customer-account" resource="customer-accounts"
+		required="false"
+	>
+		<comment>
+			The customer account common to all blocks contributing to this
+			position.
+		</comment>
+	</relationship>
+	<relationship name="customer-subaccount" resource="customer-subaccounts"
+		required="false"
+	>
+		<comment>
+			The customer subaccount common to all blocks contributing to this
+			position.
+		</comment>
+	</relationship>
+	<relationship name="base-currency" resource="currencies" required="true">
+		<comment>
+			First currency of pair common to all blocks contributing to this
+			position.
+		</comment>
+	</relationship>
+	<relationship name="counter-currency" resource="currencies"
+		required="true"
+	>
+		<comment>
+			Second currency of pair common to all blocks contributing to this
+			position.
+		</comment>
+	</relationship>
+
+	<url method="GET" url="journal/fx-positions">
+		<parameter key="query" value="customer-unsettled-by-trade" />
+		<parameter key="customer" value=":id" comment="A valid customer id" />
+		<example file="fx-positions-1.json" />
+		<comment>
+			Aggregates fx-transaction-blocks by customer-account and fx-ticket.
+		</comment>
+	</url>
+
+	<url method="GET" url="journal/fx-positions">
+		<parameter key="query" value="customer-unsettled-by-currency" />
+		<parameter key="customer" value=":id" comment="A valid customer id" />
+		<example file="fx-positions-2.json" />
+		<comment>
+			Aggregates fx-transaction-blocks by customer-account and currency.
+		</comment>
+	</url>
+
+</resource>

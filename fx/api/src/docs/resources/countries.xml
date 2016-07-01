@@ -1,0 +1,31 @@
+<resource type="countries" xmlns="http://tradeconfo.com/ns/api">
+
+	<description>A resource representing a country.</description>
+
+	<attribute name="name" type="string" required="true">
+		<comment>
+			Two character country code - GB, US, etc
+		</comment>
+	</attribute>
+	<attribute name="description" type="string" required="true">
+		<comment>
+			User friendly name
+		</comment>
+	</attribute>
+	<attribute name="object-status" type="enum" enum="object-status"
+		required="false" />
+
+	<url method="GET" url="countries">
+		<example file="countries.json" />
+		<comment>
+			Returns a listing of all resources available to caller.
+		</comment>
+	</url>
+
+	<url method="GET" url="countries/:id">
+		<comment>
+			Returns a single resource.
+		</comment>
+	</url>
+
+</resource>

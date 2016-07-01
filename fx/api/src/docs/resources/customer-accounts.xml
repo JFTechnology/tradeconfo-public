@@ -1,0 +1,38 @@
+<resource type="customer-accounts" xmlns="http://tradeconfo.com/ns/api">
+
+	<description>Represents a customer account</description>
+
+	<attribute name="name" type="string" required="true">
+		<comment>
+			Account Title eg WILLIAM NEWTON
+		</comment>
+	</attribute>
+	<attribute name="description" type="string" required="false" />
+	<attribute name="type" type="enum" enum="customer-accounts.type"
+		required="true" />
+	<attribute name="review-status" type="enum" enum="review.status"
+		required="false" />
+	<attribute name="last-reviewed" type="timestamp" required="false" />
+	<attribute name="object-status" type="enum" enum="object-status"
+		required="false" />
+	<attribute name="purpose" type="enum" enum="customer-accounts.purpose"
+		required="false" />
+
+	<relationship name="domain" resource="domains" required="false" />
+	<relationship name="domain-group" resource="domain-groups" required="false" />
+	<relationship name="account-manager" resource="people" required="false" />
+
+	<url method="GET" url="customer-accounts">
+		<example file="customer-accounts.json" />
+		<comment>
+			Returns a listing of all resources available to caller.
+		</comment>
+	</url>
+	<url method="GET" url="customer-accounts/:id">
+		<example file="customer-account.json" />
+		<comment>
+			Returns a single resource.
+		</comment>
+	</url>
+
+</resource>

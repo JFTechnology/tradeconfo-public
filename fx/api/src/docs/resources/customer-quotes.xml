@@ -1,0 +1,95 @@
+<resource type="customer-quotes" xmlns="http://tradeconfo.com/ns/api">
+
+	<description>
+		Represent a set of terms and conditions for a single currency quote.
+	</description>
+
+	<comment>
+		<ul xmlns="http://www.w3.org/1999/xhtml">
+			<li>A valid customer-quote-request MUST contain one or more customer-quote
+				resources.</li>
+			<li>The initial customer-quote-request resource that POSTed to the
+				service by a
+				client application MUST contains either a positive remittance-amount attribute
+				or a
+				positive delivery-amount attribute but NOT both. The service will ignore
+				any null or zero values for these attributes</li>
+			<li>Each customer-quote resource MUST reference a remittance-currency and MUST
+				reference either a delivery-currency or a
+				beneficiary but NOT both.</li>
+			<li>If the customer accepts a customer-quote-request the server will execute
+				the least number of fx-transactions required to fulfil that requests related
+				customer-quotes.
+			</li>
+			<li>If the customer accepts a customer-quote-request that contains
+				customer-quotes referencing a beneficiary then
+				server will enter a
+				payment-instruction for the delivery-amount to each such beneficiary.</li>
+		</ul>
+	</comment>
+
+	<attribute name="remittance-amount" type="currency-amount" required="true" />
+	<attribute name="remittance-fee" type="currency-amount" required="false" />
+	<attribute name="remittance-information" type="string" required="false">
+		<comment>
+			Message intended for the beneficiary. Limited to 35 characters.
+		</comment>
+	</attribute>
+	<attribute name="delivery-amount" type="currency-amount" required="true" />
+	<attribute name="delivery-fee" type="currency-amount" required="false" />
+	<attribute name="deliverable" type="boolean" required="false" />
+	<attribute name="settlement-time" type="timestamp" required="false" />
+	<attribute name="value-date" type="date" required="false" />
+	<attribute name="status" type="enum" enum="customer.quotes.status"
+		required="true"
+	>
+		<comment>
+			The tradeable status of this quote. This quote may only be accepted by
+			the customer when the value of this attribute is TRADEABLE.
+		</comment>
+	</attribute>
+	<attribute name="comment" type="string" required="false">
+		<comment>
+			May contain additional info as to why this quote's status is not
+			TRADEABLE.
+		</comment>
+	</attribute>
+	<attribute name="reason-comment" type="string" required="false">
+		<comment>
+			If a payment-reason is present additional information MAY be provided to
+			facilitate compliance checking.
+		</comment>
+	</attribute>
+
+	<relationship name="remittance-currency" resource="currencies"
+		required="true"
+	>
+		<comment>
+			Currency the customer will remit to the domain.
+		</comment>
+	</relationship>
+	<relationship name="delivery-currency" resource="currencies"
+		required="true"
+	>
+		<comment>
+			Currency the domain will deliver on behalf of the customer.
+		</comment>
+	</relationship>
+	<relationship name="beneficiary" resource="bank-accounts" required="true">
+		<comment>
+			The bank account to which the domain will deliver currency on behalf
+			of
+			the customer.
+		</comment>
+	</relationship>
+	<relationship name="payment-reason" resource="payment-reason"
+		required="false"
+	>
+		<comment>
+			If beneficiary is present a reason for the resulting payment MAY be
+			provided to
+			facilitate compliance checking.
+		</comment>
+	</relationship>
+
+</resource>

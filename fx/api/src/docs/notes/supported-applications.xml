@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="api.xsl"?>
+<api:note title="Supported applications" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:api="http://tradeconfo.com/ns/api"
+>
+	<p>
+		Tradeconfo.com is a multitenancy service. It supports multiple
+		<em>
+			<a href="#domains">'domains'</a>
+		</em>
+		each
+		representing an customer firm (typically an FX brokerage). Each
+		<a href="#domains">domain</a>
+		contains
+		data segregated into
+		<em>
+			<a href="domain-groups">'domain-groups'</a>
+		</em>
+		or silos. These are typically used to
+		represent business units within a firm.
+		This documentation set covers resources
+		that are
+		made available via three APIs...
+	</p>
+	<dl>
+		<dt>fx-customer-api</dt>
+		<dd>
+			Application that supports access to one or more
+			<a href="#customer-accounts">customer-accounts</a>
+			by a
+			single
+			<a href="#people">user</a>
+			. This application is intended to face a customer of an FX brokerage.
+		</dd>
+		<dt>fx-domain-api</dt>
+		<dd>
+			Application that supports access to one or more
+			<a href="#domain-groups">domain-groups</a>
+			within single
+			<a href="#domains">domain</a>
+			. This application is intended to face an employee or agent of an FX
+			brokerage.
+		</dd>
+		<dt>fx-admin-api</dt>
+		<dd>
+			Application that supports user access to multiple
+			<a href="#domains">domains</a>
+			.
+		</dd>
+	</dl>
+	<p>
+		Several of the resources documented below include relationships that are
+		only
+		relevant to certain applications. In particular resources such as
+		<a href="#customer-accounts">customer accounts</a>
+		optionally contain a
+		<a href="#domains">domain</a>
+		and a
+		<a href="#domain-groups">domain-group</a>
+		relationship. Clients of the fx-customer-api should not rely on these
+		relationships being included in responses (and have no
+		need of them). Likewise
+		clients of
+		the fx-domain-api can expect responses to include
+		<a href="#domain-groups">domain-group</a>
+		relationships but not
+		<a href="#domains">domain</a>
+		relationships.
+	</p>
+
+</api:note>

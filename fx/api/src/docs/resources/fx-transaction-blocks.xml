@@ -1,0 +1,95 @@
+<resource type="fx-transaction-blocks" xmlns="http://tradeconfo.com/ns/api">
+
+	<description>Represents a single exchange of currency</description>
+
+	<attribute name="base-amount" type="currency-amount" required="true">
+		<comment>
+			The amount of the base currency paid or received.
+		</comment>
+		<comment>
+			Amount is signed from the point of view of the
+			domain, so a positive
+			number represents the customer paying, domain receiving
+			and vice versa.
+		</comment>
+	</attribute>
+	<attribute name="base-fee" type="currency-amount" required="false">
+		<comment>
+			The amount of the base currency charged as fee to the customer
+			account.
+		</comment>
+		<comment>
+			Amount is signed from the point of view of the
+			domain, so a positive
+			number represents the customer paying, domain receiving
+			and vice versa.
+		</comment>
+	</attribute>
+	<attribute name="counter-amount" type="currency-amount" required="true">
+		<comment>
+			The amount of the counter currency paid or received.
+		</comment>
+		<comment>
+			Amount is signed from the point of view of the
+			domain, so a positive
+			number represents the customer paying, domain receiving
+			and vice versa.
+		</comment>
+	</attribute>
+	<attribute name="counter-fee" type="currency-amount" required="false">
+		<comment>
+			The amount of the counter currency charged as fee to the customer
+			account.
+		</comment>
+		<comment>
+			Amount is signed from the point of view of the
+			domain, so a positive
+			number represents the customer paying, domain receiving
+			and vice versa.
+		</comment>
+	</attribute>
+	<attribute name="margin-amount" type="number" required="false" />
+	<attribute name="settlement-date" type="date" required="true" />
+	<attribute name="value-date" type="date" required="true" />
+	<attribute name="closing" type="boolean" required="false">
+		<comment>
+			Whether block is the closing side of a customer roll or drawdown.
+			False
+			if not present.
+		</comment>
+	</attribute>
+	<attribute name="settled" type="boolean" required="false">
+		<comment>
+			Whether block has been settled. True if not present.
+		</comment>
+	</attribute>
+
+	<relationship name="ticket" resource="fx-tickets" required="true">
+		<comment>
+			The parent of this block
+		</comment>
+	</relationship>
+
+	<relationship name="transaction" resource="fx-transactions"
+		required="true"
+	>
+		<comment>
+			The transaction this block formed part of
+		</comment>
+	</relationship>
+
+	<url method="GET" url="journal/fx-transaction-blocks">
+		<parameter key="query" value="customer-unsettled" />
+		<parameter key="customer" value=":id" comment="A valid customer id" />
+		<parameter key="date" value="yyyy-mm-dd" comment="As of date" />
+		<example file="fx-transaction-blocks.json" />
+	</url>
+
+	<url method="GET" url="journal/fx-transaction-blocks">
+		<parameter key="query" value="customer-outstanding" />
+		<parameter key="customer" value=":id" comment="A valid customer id" />
+		<parameter key="date" value="yyyy-mm-dd" comment="As of date" />
+		<example file="fx-transaction-blocks.json" />
+	</url>
+
+</resource>

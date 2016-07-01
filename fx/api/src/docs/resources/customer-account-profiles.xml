@@ -1,0 +1,73 @@
+<resource type="customer-account-profiles" xmlns="http://tradeconfo.com/ns/api">
+
+	<description>Profile for a single customer account</description>
+
+	<attribute name="trading-limit" type="number" required="true">
+		<comment>
+			Amount available for transactions expressed in the base currency.
+		</comment>
+	</attribute>
+
+	<attribute name="trading-limit-utilised" type="number" required="false">
+		<comment>
+			Amount of trading limit currently used - assumed to be zero if not
+			present.
+		</comment>
+	</attribute>
+
+	<relationship name="customer-account" resource="customer-accounts"
+		required="true"
+	>
+		<comment>
+			The parent of this profile.
+		</comment>
+	</relationship>
+	<relationship name="base-currency" resource="currencies" required="true">
+		<comment>
+			Calculation currency for this account.
+		</comment>
+	</relationship>
+	<relationship name="beneficiaries" resource="customer-benficiaries"
+		required="true" many="true"
+	>
+		<comment>
+			Beneficiary bank accounts to which currency may delivered on behalf of
+			the customer.
+		</comment>
+	</relationship>
+	<relationship name="remittable-currencies" resource="currencies"
+		required="true" many="true"
+	>
+		<comment>
+			Currencies which may be accepted from the customer.
+		</comment>
+	</relationship>
+	<relationship name="deliverable-currencies" resource="currencies"
+		required="true" many="true"
+	>
+		<comment>
+			Currencies which may be delivered on behalf of the customer.
+		</comment>
+	</relationship>
+	<relationship name="deliverable-countries" resource="countries"
+		required="true" many="true"
+	>
+		<comment>
+			Countries to which currency may be delivered on behalf of the
+			customer.
+		</comment>
+	</relationship>
+	<relationship name="payment-reasons" resource="payment-reasons"
+		required="true" many="true"
+	>
+		<comment>
+			The set of possible resonas that this account may give when requesting a payment
+			to a beneficiary.
+		</comment>
+	</relationship>
+
+	<url method="GET" url="customer-account-profiles/:id">
+		<example file="customer-account-profile.json" />
+	</url>
+
+</resource>

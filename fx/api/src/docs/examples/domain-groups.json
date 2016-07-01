@@ -1,0 +1,33 @@
+<example title="Get collection" method="GET" url="/fx-domain-api/domain-groups" xmlns="http://tradeconfo.com/ns/api">
+<response>
+{
+    "data":[
+        {
+            "id":"2",
+            "type":"domain-groups",
+            "attributes":{
+                "name":"Test group",
+                "description":"Test group silo"
+            },
+            "relationships":{
+                "domain":{
+                    "data":{
+                        "id":"1",
+                        "type":"domains"
+                    }
+                }
+            }
+        }
+    ],
+    "included":[
+        {
+            "id":"1",
+            "type":"domains",
+            "attributes":{
+                "name":"Test"
+            }
+        }
+    ]
+}
+</response>
+</example>

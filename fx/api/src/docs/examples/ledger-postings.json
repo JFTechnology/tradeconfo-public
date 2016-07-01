@@ -1,0 +1,62 @@
+<example title="Get collection" method="GET" url="/fx-domain-api/ledger-postings" xmlns="http://tradeconfo.com/ns/api">
+<response>
+{
+    "data":[
+        {
+            "id":"1",
+            "type":"ledger-postings",
+            "attributes":{
+                "name":"Reserve margin"
+            },
+            "relationships":{
+                "domain":{
+                    "data":{
+                        "id":"66",
+                        "type":"domains"
+                    }
+                },
+                "credit-account":{
+                    "data":{
+                        "id":"3",
+                        "type":"ledger-accounts"
+                    }
+                },
+                "debit-account":{
+                    "data":{
+                        "id":"5",
+                        "type":"ledger-accounts"
+                    }
+                }
+            }
+        },
+        {
+            "id":"2",
+            "type":"ledger-postings",
+            "attributes":{
+                "name":"Release margin"
+            },
+            "relationships":{
+                "domain":{
+                    "data":{
+                        "id":"66",
+                        "type":"domains"
+                    }
+                },
+                "credit-account":{
+                    "data":{
+                        "id":"5",
+                        "type":"ledger-accounts"
+                    }
+                },
+                "debit-account":{
+                    "data":{
+                        "id":"3",
+                        "type":"ledger-accounts"
+                    }
+                }
+            }
+        }
+    ]
+}
+</response>
+</example>

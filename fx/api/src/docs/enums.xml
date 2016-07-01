@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="api.xsl"?>
+<enums xmlns="http://tradeconfo.com/ns/api">
+
+	<enum name="object-status" description="Included in fx-admin-api payloads only">
+		<value value="ACTIVE" description="Default value" />
+		<value value="INACTIVE" description="Logical delete - can be recovered" />
+		<value value="DELETED" description="Will be removed from the system at some stage" />
+	</enum>
+
+	<enum name="ledger.account.type" description="Ledger account type">
+		<value value="ASSET" description="Asset account" />
+		<value value="LIABILITY" description="Liability account" />
+		<value value="REVENUE" description="Revenue account" />
+		<value value="EXPENSE" description="Expense account" />
+	</enum>
+
+	<enum name="payment.instruction.status" description="Instruction status">
+		<value value="UNCONFIRMED" description="Payment requires client confirmation" />
+		<value value="CONFIRMED" description="Payment confirmed by client waiting for acceptance" />
+		<value value="ACCEPTED" description="Instruction accpted, payment queued for processing" />
+		<value value="CANCELLED" description="Payment was cancelled" />
+	</enum>
+
+	<enum name="payment.side" description="Payment side">
+		<value value="DEPOSIT" description="Payment added to a customer account" />
+		<value value="WITHDRAWAL" description="Payment deducted from a customer account" />
+	</enum>
+
+	<enum name="payment.type" description="Payment type">
+		<value value="PRINCIPAL" description="Default value" />
+		<value value="AGENT" description="Payment made on dehalf of a third party" />
+	</enum>
+
+	<enum name="payment.status" description="Payment status">
+		<value value="SCHEDULED" description="Payment queued for processing" />
+		<value value="CANCELLED" description="Payment was cancelled" />
+		<value value="COMPLETED" description="Payment completed" />
+		<value value="COMPLIANCE_PENDING" description="Payment requires further compliance review" />
+		<value value="COMPLIANCE_FAILED" description="Payment failed compliance review" />
+		<value value="FUNDS_PENDING" description="Payment blocked due to lack of customer funds" />
+		<value value="PROCESSING_PENDING" description="Payment queued for processing" />
+		<value value="PROCESSING" description="Payment submitted to bank" />
+		<value value="PROCESSING_FAILED" description="Payment failed processing" />
+		<value value="RECONCILED" description="Payment completed and reconciled against a bank transaction" />
+	</enum>
+
+	<enum name="bank.transaction.status" description="Transaction status">
+		<value value="PENDING" description="Transaction not reconciled, funds in suspense" />
+		<value value="RECONCILED" description="Transaction reconciled against customer account" />
+	</enum>
+
+	<enum name="review.status" description="Compliance state">
+		<value value="DATA_REQUIRED" description="Further data needed to review this resource" />
+		<value value="UNDER_REVIEW" description="Resource in compliance review process" />
+		<value value="ACCEPTED" description="Resource reviewed and approved" />
+		<value value="REJECTED" description="Resource reviewed and declined" />
+		<value value="NOT_REQUIRED" description="No review process required for this resource" />
+		<value value="LAPSED"
+			description="Previously ACCEPTED resource that requires re-review due to elapsed time since last review" />
+		<value value="INACTIVE"
+			description="Previously ACCEPTED resource that requires re-review due to elapsed time since last review" />
+		<value value="CLOSED" description="Resource that is no longer under review" />
+		<value value="NOT_REQUIRED" description="No review process required for this resource" />
+	</enum>
+
+	<enum name="customer-accounts.type">
+		<value value="PERSONAL" description="Account for personal use of a named individual only" />
+		<value value="CORPORATE" description="Account for use of a limited liability legal entitiy" />
+		<value value="CHARITY" description="Account for use of a registered charity" />
+	</enum>
+
+	<enum name="customer-accounts.purpose" description="Purpose of the account">
+		<value value="TRADING" />
+		<value value="AFFILIATE" description="For the distribution of IB only" />
+	</enum>
+
+	<enum name="gender">
+		<value value="MALE" />
+		<value value="FEMALE" />
+	</enum>
+
+	<enum name="side">
+		<value value="DEPOSIT" />
+		<value value="WITHDRAWAL" />
+	</enum>
+
+	<enum name="charge.code"
+		description="Indicates what charges are accepted. See Swift MT103 71A for further details."
+	>
+		<value value="SHA" description="Shared - each side pays own fees" />
+		<value value="OUR" description="OUR - payee pays all fees" />
+		<value value="BEN" description="BEN - benficiary pays all fees" />
+	</enum>
+
+	<enum name="rfq.status" description="Status of a quote request">
+		<value value="REQUESTED" />
+		<value value="OPEN" />
+		<value value="TIMED_OUT" />
+		<value value="REJECTED" />
+		<value value="ACCEPTED" />
+		<value value="TRADED" />
+		<value value="CANCELLED" />
+	</enum>
+
+	<enum name="rfq.settlement" description="Settlement period for the request">
+		<value value="TODAY" description="Same day settlement" />
+		<value value="TOMORROW" description="Next good business day settlement" />
+		<value value="SPOT" description="Second good business day settlement" />
+	</enum>
+
+	<enum name="customer.quotes.status" description="Status of a quote request">
+		<value value="TRADEABLE"
+			description="Live price. The server will accept executions on this quote." />
+		<value value="INDICATIVE"
+			description="Indicative price. The server will reject executions on this quote as no live price is currently available." />
+		<value value="CLOSED"
+			description="Indicative price. The server will reject executions on this quote as it is outside of market hours." />
+		<value value="SUSPENDED"
+			description="Indicative price. The server will reject executions on this quote as market is currently suspended." />
+		<value value="NOT_QUOTED"
+			description="Indicative price. The server will reject executions on this quote as it doesn't provide prices in thsi curency pair." />
+	</enum>
+
+</enums>

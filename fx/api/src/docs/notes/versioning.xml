@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api:note title="Version management" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:api="http://tradeconfo.com/ns/api"
+>
+	<p>
+		This API is versioned using the MAJOR.MINOR.PATCH semver convention
+		<a href='http://semver.org'>(http://semver.org)</a>
+		.
+	</p>
+
+	<p>The MAJOR version will be incremented for changes that break backward
+		compatability. As the API can be considered stable this is expected to happen
+		very infrequently.</p>
+	<p>The MINOR version will be incremented for any changes to the API that maintain
+		forward comapatability. Additional resources or the addition of
+		non-required
+		resource attributes and relationships to an existing resource will
+		result in a
+		MINOR version bump only.</p>
+	<p>The PATCH version will be incremented for updates and improvements to
+		documentation that do not affect the API structure in any way.</p>
+	<p>Future MAJOR version increments will be supported using the standard HTTP
+		header mechanism. If no header is present client applications should assume the
+		version is 1.x</p>
+
+</api:note>
+ 

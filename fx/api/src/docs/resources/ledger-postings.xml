@@ -1,0 +1,29 @@
+<resource type="ledger-postings" xmlns="http://tradeconfo.com/ns/api">
+
+	<description>
+		Resource representing a single account in the general ledger.
+	</description>
+
+	<attribute name="name" type="string" required="true" />
+	<attribute name="type" type="enum" required="true" />
+
+	<relationship name="credit-account" resource="ledger-accounts"
+		required="false" />
+	<relationship name="debit-account" resource="ledger-accounts"
+		required="false" />
+	<relationship name="domain" resource="domains" required="false" />
+
+	<url method="GET" url="ledger-postings">
+		<example file="ledger-postings.json" />
+		<comment>
+			Returns a listing of all resources available to caller.
+		</comment>
+	</url>
+
+	<url method="GET" url="ledger-postings/:id">
+		<comment>
+			Returns a single resource.
+		</comment>
+	</url>
+
+</resource>
