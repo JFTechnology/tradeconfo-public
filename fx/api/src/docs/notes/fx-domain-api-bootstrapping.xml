@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api:note title="Bootstrapping an fx-domain-api user" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:api="http://tradeconfo.com/ns/api"
+>
+	<p>
+		Once an access token for a resource owner (user) has been obtained from the
+		OAuth2 server the client can make calls into the API. However the client will
+		not know the
+		<a href="#people">caller</a>
+		resource representing the resource owner on the system or the
+		<a href="#customer-accounts">customer accounts</a>
+		that the resource owner has access to.
+	</p>
+	<p>
+		The client can bootstrap into this information by a call to the
+		<strong>
+			<a href="#domain-profiles">'GET /domain-profiles/self'</a>
+		</strong>
+		end point. The returned resource will contain the details of the
+		<a href="#people">user</a>
+		and will sideload the array of
+		<a href="#customer-accounts">customer-accounts</a>
+		that the resource owner has access to.
+	</p>
+	<p>
+		<strong>
+			NOTE :
+			The call to
+			<a href="#domain-profiles">'GET /domain-profiles/self'</a>
+			is intended to be the only call required by client to obtain all the 'static'
+			data for setting up a client interface.
+		</strong>
+	</p>
+	<p>
+		The complete relationship graph
+		should be sideloaded in the response to
+		<a href="#domain-profiles">'GET /domain-profiles/self'</a>
+		via the JSON API included mechanism. For example recursive calls
+		to
+		<a href="#people">'GET /people/self'</a>
+		(that would return the resource corresponding to the resource owner), or
+		<a href="#customer-accounts">'GET /customer-accounts'</a>
+		(that would return all the customer accounts available to the resource owner),
+		though valid, should never be required.
+	</p>
+
+</api:note>
+ 

@@ -3,101 +3,76 @@
 {
     "data":{
         "type":"customer-quote-requests",
-        "attributes":{
-            "status":"REQUESTED",
-            "settlement":"TODAY",
-            "customer-quotes":[
-                {
-                    "type":"customer-quotes",
-                    "attributes":{
-                        "remittance-amount":6532.12,
-                        "delivery-amount":10000.00,
-                        "value-date":"2016-01-09",
-                        "settlement-time":"2016-01-09T12:00:00"
-                    },
-                    "relationships":{
-                        "remittance-currency":{
-                            "data":{
-                                "id":"GBP",
-                                "type":"currencies"
-                            }
-                        },
-                        "delivery-currency":{
-                            "data":{
-                                "id":"EUR",
-                                "type":"currencies"
-                            }
-                        }
-                    }
-                },
-                {
-                    "type":"customer-quotes",
-                    "attributes":{
-                        "remittance-amount":10000.00,
-                        "delivery-amount":14032.25,
-                        "value-date":"2016-01-08",
-                        "settlement-time":"2016-01-08T16:00:00"
-                    },
-                    "relationships":{
-                        "remittance-currency":{
-                            "data":{
-                                "id":"GBP",
-                                "type":"currencies"
-                            }
-                        },
-                        "delivery-currency":{
-                            "data":{
-                                "id":"USD",
-                                "type":"currencies"
-                            }
-                        }
-                    }
-                }
-            ]
-        },
         "relationships":{
             "customer-account":{
                 "data":{
-                    "id":"1001",
-                    "type":"customer-accounts"
+                    "type":"customer-accounts",
+                    "id":"PL8600020640"
                 }
             }
-        }
-    },
+        },
+        "customer-quotes":[
+            {
+                "data":{
+                    "type":"customer-quotes",
+                    "attributes":{
+                        "remittance-information":"Invoice #1234",
+                        "delivery-amount":500,
+                        "settlement":"TODAY"
+                    },
+                    "relationships":{
+                        "remittance-currency":{
+                            "data":{
+                                "type":"currencies",
+                                "id":"GBP"
+                            }
+                        },
+                        "beneficiary":{
+                            "data":{
+                                "type":"bank-accounts",
+                                "id":"20643"
+                            }
+                        },
+                        "payment-reason":{
+                            "data":{
+                                "type":"payment-reasons",
+                                "id":"1"
+                            }
+                        }
+                    }
+                }
+            }
+        ]
+    }
 }
 </request>
 <response>
 {
     "data":{
-        "id":"0",
+        "id":"8b548fec-4807-4467-a30b-c7c81ee0e819",
         "type":"customer-quote-requests",
         "attributes":{
-            "update-time":"2016-01-08T15:25:11",
+            "update-time":"2016-07-05T04:10:44",
             "status":"OPEN",
-            "settlement":"TODAY",
-            "ttl":30
+            "ttl":15
         },
         "relationships":{
             "customer-account":{
                 "data":{
-                    "id":"1001",
+                    "id":"PL8600020640",
                     "type":"customer-accounts"
                 }
             },
             "update-user":{
                 "data":{
-                    "id":"1002",
+                    "id":"20641",
                     "type":"people"
                 }
             },
             "customer-quotes":{
                 "data":[
                     {
-                        "id":"1",
-                        "type":"customer-quotes"
-                    },
-                    {
-                        "id":"2",
+                        "id":"e2fce90f-5637-4a26-8afa-8c9952a6414d",
                         "type":"customer-quotes"
                     }
                 ]
@@ -106,13 +81,15 @@
     },
     "included":[
         {
-            "id":"1",
+            "id":"e2fce90f-5637-4a26-8afa-8c9952a6414d",
             "type":"customer-quotes",
             "attributes":{
-                "remittance-amount":6532.12,
-                "delivery-amount":10000.00,
-                "value-date":"2016-01-09",
-                "settlement-time":"2016-01-09T12:00:00"
+                "remittance-amount":422.3,
+                "remittance-information":"Invoice #1234",
+                "delivery-amount":500,
+                "value-date":"2016-07-05",
+                "settlement-time":"2016-07-05T12:00:00",
+                "status":"TRADEABLE"
             },
             "relationships":{
                 "remittance-currency":{
@@ -126,29 +103,11 @@
                         "id":"EUR",
                         "type":"currencies"
                     }
-                }
-            }
-        },
-        {
-            "id":"2",
-            "type":"customer-quotes",
-            "attributes":{
-                "remittance-amount":10000.00,
-                "delivery-amount":14032.25,
-                "value-date":"2016-01-08",
-                "settlement-time":"2016-01-08T16:00:00"
-            },
-            "relationships":{
-                "remittance-currency":{
-                    "data":{
-                        "id":"GBP",
-                        "type":"currencies"
-                    }
                 },
-                "delivery-currency":{
+                "beneficiary":{
                     "data":{
-                        "id":"USD",
-                        "type":"currencies"
+                        "id":"20643",
+                        "type":"bank-accounts"
                     }
                 }
             }

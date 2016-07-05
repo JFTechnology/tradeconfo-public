@@ -1,0 +1,26 @@
+<resource type="domain-profiles" xmlns="http://tradeconfo.com/ns/api">
+
+	<description>Profile for an account manager</description>
+
+	<relationship name="user" resource="people" required="true">
+		<comment>
+			The user.
+		</comment>
+	</relationship>
+
+	<url method="GET" url="domain-profiles/:id" />
+
+	<url method="GET" url="domain-profiles/self">
+		<example file="domain-user-profile.json" />
+		<comment>
+			Bootstrap resource that returns the profile of the resource owner.
+			Clients can expect the
+			entire relationship graph of 'static' data required by
+			the user to be
+			sideloaded vie the JSON API included mechanism - therefore this
+			is the only
+			call that should be necessary to set up a customer UI.
+		</comment>
+	</url>
+
+</resource>

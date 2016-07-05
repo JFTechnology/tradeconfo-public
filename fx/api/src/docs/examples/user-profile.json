@@ -1,4 +1,4 @@
-<example title="Get resource" method="GET" url="/fx-customer-api/user-profiles/self" xmlns="http://tradeconfo.com/ns/api">
+<example title="Bootstrap call" method="GET" url="/fx-customer-api/user-profiles/self" xmlns="http://tradeconfo.com/ns/api">
 <response>
 {
     "data":{

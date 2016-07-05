@@ -4,7 +4,8 @@
 
 	<note src="supported-applications.xml" />
 	<note src="access-tokens.xml" />
-	<note src="bootstrapping.xml" />
+	<note src="fx-customer-api-bootstrapping.xml" />
+	<note src="fx-domain-api-bootstrapping.xml" />
 	<note src="versioning.xml" />
 
 	<application name="fx-customer-api">
@@ -70,8 +71,8 @@
 		<resource name="payment-reasons" />
 		<resource name="people" />
 
-		<resource name="domain-profiles" />
 		<resource name="user-profiles" />
+		<resource name="domain-user-profiles" />
 
 	</application>
 

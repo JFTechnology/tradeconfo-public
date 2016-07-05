@@ -38,6 +38,8 @@
 	<attribute name="delivery-amount" type="currency-amount" required="true" />
 	<attribute name="delivery-fee" type="currency-amount" required="false" />
 	<attribute name="deliverable" type="boolean" required="false" />
+	<attribute name="settlement" type="enum" enum="rfq.settlement"
+		required="true" />
 	<attribute name="settlement-time" type="timestamp" required="false" />
 	<attribute name="value-date" type="date" required="false" />
 	<attribute name="status" type="enum" enum="customer.quotes.status"
@@ -54,9 +56,10 @@
 			TRADEABLE.
 		</comment>
 	</attribute>
-	<attribute name="reason-comment" type="string" required="false">
+	<attribute name="payment-reason-comment" type="string" required="false">
 		<comment>
-			If a payment-reason is present additional information MAY be provided to
+			If a payment-reason is present additional information MAY be provided
+			to
 			facilitate compliance checking.
 		</comment>
 	</attribute>
@@ -82,7 +85,7 @@
 			the customer.
 		</comment>
 	</relationship>
-	<relationship name="payment-reason" resource="payment-reason"
+	<relationship name="payment-reason" resource="payment-reasons"
 		required="false"
 	>
 		<comment>

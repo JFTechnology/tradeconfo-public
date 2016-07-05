@@ -1,47 +1,58 @@
-<example title="Accept RFQ" method="PATCH" url="/fx-customer-api/currencies/customer-quote-request/2" xmlns="http://tradeconfo.com/ns/api">
+<example title="Accept RFQ" method="PATCH" url="/fx-customer-api/currencies/customer-quote-request/861267ce-cb8d-4a51-9127-8c4423f33be0" xmlns="http://tradeconfo.com/ns/api">
 <request>
 {
     "data":{
-        "id":"2",
+        "id":"861267ce-cb8d-4a51-9127-8c4423f33be0",
         "type":"customer-quote-requests",
         "attributes":{
             "status":"ACCEPTED"
         }
-    },
+    }
 }
 </request>
 <response>
 {
     "data":{
-        "id":"2",
+        "id":"861267ce-cb8d-4a51-9127-8c4423f33be0",
         "type":"customer-quote-requests",
         "attributes":{
-            "update-time":"2016-01-08T15:25:11",
-            "status":"TRADED",
-            "settlement":"TODAY"
+            "update-time":"2016-07-05T04:53:09",
+            "status":"TRADED"
         },
         "relationships":{
             "customer-account":{
                 "data":{
-                    "id":"1001",
+                    "id":"PL8600020640",
                     "type":"customer-accounts"
                 }
             },
             "update-user":{
                 "data":{
-                    "id":"1002",
+                    "id":"20641",
                     "type":"people"
                 }
             },
             "customer-quotes":{
                 "data":[
                     {
-                        "id":"1",
+                        "id":"21da5647-00bd-470e-8c08-d04c0dfca41b",
                         "type":"customer-quotes"
-                    },
+                    }
+                ]
+            },
+            "transactions":{
+                "data":[
                     {
-                        "id":"2",
-                        "type":"customer-quotes"
+                        "id":"PL37T000067581-00",
+                        "type":"fx-transactions"
+                    }
+                ]
+            },
+            "payment-instructions":{
+                "data":[
+                    {
+                        "id":"PL65P000067601",
+                        "type":"payment-instructions"
                     }
                 ]
             }
@@ -49,48 +60,117 @@
     },
     "included":[
         {
-            "id":"1",
-            "type":"customer-quotes",
+            "id":"PL37T000067581-00",
+            "type":"fx-transactions",
             "attributes":{
-                "remittance-amount":6532.12,
-                "delivery-amount":10000.00,
-                "value-date":"2016-01-09",
-                "settlement-time":"2016-01-09T12:00:00"
+                "trade-date":"2016-07-05",
+                "trade-time":"2016-07-05T04:53:08"
             },
             "relationships":{
-                "remittance-currency":{
+                "ticket":{
+                    "data":{
+                        "id":"PL37T000067581",
+                        "type":"fx-tickets"
+                    }
+                },
+                "blocks":{
+                    "data":[
+                        {
+                            "id":"PL37T000067581-00",
+                            "type":"fx-transaction-blocks"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id":"PL37T000067581",
+            "type":"fx-tickets",
+            "relationships":{
+                "base-currency":{
                     "data":{
                         "id":"GBP",
                         "type":"currencies"
                     }
                 },
-                "delivery-currency":{
+                "counter-currency":{
                     "data":{
                         "id":"EUR",
                         "type":"currencies"
+                    }
+                },
+                "margin-currency":{
+                    "data":{
+                        "id":"GBP",
+                        "type":"currencies"
+                    }
+                },
+                "customer-account":{
+                    "data":{
+                        "id":"PL8600020640",
+                        "type":"customer-accounts"
                     }
                 }
             }
         },
         {
-            "id":"2",
-            "type":"customer-quotes",
+            "id":"PL37T000067581-00",
+            "type":"fx-transaction-blocks",
             "attributes":{
-                "remittance-amount":10000.00,
-                "delivery-amount":14032.25,
-                "value-date":"2016-01-08",
-                "settlement-time":"2016-01-08T16:00:00"
+                "settlement-date":"2016-07-05",
+                "value-date":"2016-07-05",
+                "base-amount":422.30,
+                "counter-amount":-500,
+                "settled":false
             },
             "relationships":{
-                "remittance-currency":{
+                "ticket":{
                     "data":{
-                        "id":"GBP",
-                        "type":"currencies"
+                        "id":"PL37T000067581",
+                        "type":"fx-tickets"
                     }
                 },
-                "delivery-currency":{
+                "transaction":{
                     "data":{
-                        "id":"USD",
+                        "id":"PL37T000067581-00",
+                        "type":"fx-transactions"
+                    }
+                }
+            }
+        },
+        {
+            "id":"PL65P000067601",
+            "type":"payment-instructions",
+            "attributes":{
+                "update-time":"2016-07-05T04:53:09",
+                "amount":500,
+                "booking-date":"2016-07-05",
+                "status":"UNCONFIRMED",
+                "remittance-information":"Invoice #1234",
+                "charge-code":"SHA"
+            },
+            "relationships":{
+                "beneficiary-bank-account":{
+                    "data":{
+                        "id":"20643",
+                        "type":"bank-accounts"
+                    }
+                },
+                "customer-account":{
+                    "data":{
+                        "id":"PL8600020640",
+                        "type":"customer-accounts"
+                    }
+                },
+                "update-user":{
+                    "data":{
+                        "id":"20641",
+                        "type":"people"
+                    }
+                },
+                "currency":{
+                    "data":{
+                        "id":"EUR",
                         "type":"currencies"
                     }
                 }

@@ -50,8 +50,8 @@
 	<relationship name="country" resource="countries" required="true" />
 
 	<url method="GET" url="bank-account-field-sets">
-		<parameter key="currency" value=":id" comment="A valid currency id" />
-		<parameter key="country" value=":id" comment="A valid country id" />
+		<parameter key="currency" value=":currency_id" comment="A valid currency id" />
+		<parameter key="country" value=":country_id" comment="A valid country id" />
 		<example file="bank-account-field-sets.json" />
 		<comment>
 			Returns a collection of field sests for a currency/country pair.

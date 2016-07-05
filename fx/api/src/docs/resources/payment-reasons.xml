@@ -1,7 +1,7 @@
 <resource type="payment-reasons" xmlns="http://tradeconfo.com/ns/api">
 
 	<description>
-		Defines a reason for a payment. Intended to allow the APIuser to
+		Defines a reason for a payment. Intended to allow the API user to
 		declare the reason for a transfer of funds in order to facilitate compliance
 		checks. Used for UI presentation when creating customer-quotes and
 		payment-instructions.
@@ -9,19 +9,20 @@
 
 	<attribute name="name" type="string" required="true">
 		<comment>
-			The display name of the reason. Suitable for presentation to in a UI
+			The display name of the reason. Suitable for presentation in a UI
 			selection control.
 		</comment>
 	</attribute>
 	<attribute name="description" type="string" required="false">
 		<comment>
-			A brief description of the payment reason.
+			A brief description of the payment reason. Suitable for presentation in
+			a UI as explanation.
 		</comment>
 	</attribute>
-	<attribute name="requires-comment" type="boolean" required="true">
+	<attribute name="comment-required" type="boolean" required="false">
 		<comment>
 			True if the UI should offer user a comment field for input of
-			additional information
+			additional information. Default value : false
 		</comment>
 	</attribute>
 

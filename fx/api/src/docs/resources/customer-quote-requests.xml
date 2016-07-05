@@ -4,8 +4,6 @@
 		Represent a quote request. Contains one or more customer-quotes.
 	</description>
 
-	<attribute name="settlement" type="enum" enum="rfq.settlement"
-		required="true" />
 	<attribute name="ttl" type="number" required="false">
 		<comment>
 			The time in seconds during which this quote can be accepted. MUST be
