@@ -8,7 +8,7 @@ All you need to build this project is Java 7.0 (Java SDK 1.7) or better, Maven 3
 Configure Maven
 ---------------
 
-If you have not yet done so, you must [Configure Maven](https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/CONFIGURE_MAVEN.md) before testing the quickstarts.
+If you have not yet done so, you must [Configure Maven](https://github.com/jboss-developer/jboss-developer-shared-resources/blob/master/guides/CONFIGURE_MAVEN.md) before running the relay server.
 
 
 
@@ -18,3 +18,6 @@ Run the relay server
 From the root of the project (where the pom.xml is) run the following cmd...
 
     mvn clean install tomcat7:run
+
+The relay server should now be reachable at http://localhost:9090.
+    
