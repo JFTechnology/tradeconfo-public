@@ -1,0 +1,29 @@
+<example title="Get resource" method="GET" url="/fx-domain-api/customer-subaccounts/4" xmlns="http://tradeconfo.com/ns/api">
+<response>
+{
+    "data":{
+        "id":"4",
+        "type":"customer-contacts",
+        "attributes":{
+            "relationship":"ACCOUNT_HOLDER",
+            "accepted":true,
+            "trader":true
+        },
+        "relationships":{
+            "customer-account":{
+                "data":{
+                    "id":"3",
+                    "type":"customer-accounts"
+                }
+            },
+            "person":{
+                "data":{
+                    "id":"3",
+                    "type":"people"
+                }
+            }
+        }
+    }
+}
+</response>
+</example>

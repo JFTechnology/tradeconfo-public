@@ -1,0 +1,62 @@
+<resource type="customer-contacts" xmlns="http://tradeconfo.com/ns/api">
+
+	<description>
+		A resouce representing association of an individual with a customer
+		account.
+	</description>
+
+	<attribute name="relationship" type="enum" enum="customer-contact.relationship"
+		required="true"
+	>
+		<comment>
+			Describes the relationship between the customer-account and the person.
+		</comment>
+	</attribute>
+	<attribute name="accepted" type="boolean" required="false">
+		<comment>
+			Indicates whether the contact has accepted the terms and conditions for
+			the
+			customer-account.
+		</comment>
+	</attribute>
+	<attribute name="trader" type="boolean" required="false">
+		<comment>
+			Indicates whether the contact is allowed to place orders on behalf of
+			the
+			customer-account.
+		</comment>
+	</attribute>
+	<attribute name="comment" type="string" required="false" />
+	<attribute name="review-status" type="enum" enum="review.status"
+		required="false" />
+	<attribute name="last-reviewed" type="timestamp" required="false" />
+
+	<relationship name="domain" resource="domains" required="false" />
+	<relationship name="domain-group" resource="domain-groups" required="false" />
+	<relationship name="customer-account" resource="customer-accounts"
+		required="true"
+	>
+		<comment>
+			The customer account that this resource relates to.
+		</comment>
+	</relationship>
+	<relationship name="person" resource="people" required="true">
+		<comment>
+			The individual that this resource relates to.
+		</comment>
+	</relationship>
+
+	<url method="GET" url="customer-contacts/:id">
+		<example file="customer-contact.json" />
+		<comment>
+			Returns a single resource.
+		</comment>
+	</url>
+	<url method="GET" url="customer-accounts/:id/contacts">
+		<example file="customer-contacts.json" />
+		<comment>
+			Returns collection of all contacts for a customer account.
+		</comment>
+	</url>
+
+</resource>
