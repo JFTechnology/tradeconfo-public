@@ -1,0 +1,22 @@
+<example title="Get resource" method="GET" url="/fx-domain-api/customer-subaccounts/4" xmlns="http://tradeconfo.com/ns/api">
+<response>
+{
+    "data":{
+        "id":"4",
+        "type":"customer-subaccounts",
+        "attributes":{
+            "name":"Subaccount (Widgets)",
+            "description":"Isolates all trades for the Widget division"
+        },
+        "relationships":{
+            "customer-account":{
+                "data":{
+                    "id":"3",
+                    "type":"customer-accounts"
+                }
+            }
+        }
+    }
+}
+</response>
+</example>

@@ -1,0 +1,40 @@
+<example title="Get resource" method="GET" url="/fx-domain-api/customer-accounts/TE9500001002/subaccounts" xmlns="http://tradeconfo.com/ns/api">
+<response>
+{
+    "data":[
+        {
+            "id":"4",
+            "type":"customer-subaccounts",
+            "attributes":{
+                "name":"Subaccount (Widgets)",
+                "description":"Isolates all trades for the Widget division"
+            },
+            "relationships":{
+                "customer-account":{
+                    "data":{
+                        "id":"TE9500001002",
+                        "type":"customer-accounts"
+                    }
+                }
+            }
+        },
+        {
+            "id":"5",
+            "type":"customer-subaccounts",
+            "attributes":{
+                "name":"Subaccount (Grommets)",
+                "description":"Isolates all trades for the Grommet division"
+            },
+            "relationships":{
+                "customer-account":{
+                    "data":{
+                        "id":"TE9500001002",
+                        "type":"customer-accounts"
+                    }
+                }
+            }
+        }
+    ]
+}
+</response>
+</example>
