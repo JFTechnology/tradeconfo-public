@@ -3,22 +3,30 @@
 	<description>Represents an individual</description>
 
 	<attribute name="id" type="string" required="true" />
-	<attribute name="name" type="string" required="true" />
 	<attribute name="first-name" type="string" required="true" />
-	<attribute name="title" type="string" required="false" />
-	<attribute name="name" type="string" required="true">
+	<attribute name="middle-name" type="string" required="false" />
+	<attribute name="last-name" type="string" required="true">
 		<comment>
-			Family name
+			Family name.
 		</comment>
 	</attribute>
+	<attribute name="title" type="string" required="false" />
 	<attribute name="gender" type="enum" enum="gender" required="false" />
-	<attribute name="review-status" type="enum" enum="review.status" required="false" />
+	<attribute name="date-of-birth" type="date" required="false" />
+	<attribute name="review-status" type="enum" enum="review.status"
+		required="false" />
 	<attribute name="last-reviewed" type="timestamp" required="false" />
 	<attribute name="object-status" type="enum" enum="object-status"
 		required="false" />
 
 	<relationship name="domain" resource="domains" required="false" />
 
+	<url method="GET" url="people">
+		<example file="persons.json" />
+		<comment>
+			Returns a listing of all resources available to caller.
+		</comment>
+	</url>
 	<url method="GET" url="people/:id">
 		<example file="person.json" />
 		<comment>
@@ -26,7 +34,7 @@
 		</comment>
 	</url>
 	<url method="GET" url="people/self">
-		<example file="person.json" />
+		<example file="person-self.json" />
 		<comment>
 			Bootstrap endpoint that returns the resource corresponding to the
 			resource owner. Think 'whoami' ?

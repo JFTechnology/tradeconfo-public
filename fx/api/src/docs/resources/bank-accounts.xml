@@ -30,14 +30,22 @@
 			A valid account number for the destination country's payment system.
 		</comment>
 	</attribute>
+	<attribute name="national-bank-code" type="string" required="false">
+		<comment>
+			A valid bank code for the destination country's payment system.
+		</comment>
+	</attribute>
+	<attribute name="national-branch-code" type="string" required="false">
+		<comment>
+			A valid branch code for the destination country's payment system.
+		</comment>
+	</attribute>
 	<attribute name="national-clearing-code" type="string" required="false">
 		<comment>
 			A valid clearing code for the destination country's payment system. UK
 			sort code, US ABA routing number etc.
 		</comment>
 	</attribute>
-	<attribute name="object-status" type="enum" enum="object-status"
-		required="false" />
 
 	<relationship name="domain" resource="domains" required="false" />
 	<relationship name="currency" resource="currencies" required="true" />

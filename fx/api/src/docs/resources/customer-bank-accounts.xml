@@ -1,80 +1,67 @@
 <resource type="customer-bank-accounts" xmlns="http://tradeconfo.com/ns/api">
 
 	<description>
-		A resouce representing association of a
-		<a href="#bank-accounts">bank account</a>
-		to a
-		<a href="#customer-accounts">customer account</a>
-		. Required for delivery of currency.
+		A resouce representing association of a bank account resource to a
+		customer account. Required for delivery of currency.
 	</description>
 
-	<attribute name="name" type="string" required="true">
+	<attribute name="nickname" type="string" required="false">
 		<comment>
-			A short nickname for this bank account
+			A short nickname for this bank account particular to the customer.
 		</comment>
 	</attribute>
-	<attribute name="comment" type="string" required="false" />
-	<attribute name="review-status" type="enum" enum="review.status"
-		required="false" />
-	<attribute name="last-reviewed" type="timestamp" required="false" />
+	<attribute name="comment" type="string" required="false">
+		<comment>
+			A brief description of the account that can be used by the customer.
+		</comment>
+	</attribute>
+	<attribute name="email-address" type="string" required="false">
+		<comment>
+			An email address belonging to the beneficiary to send notification
+			emails to.
+		</comment>
+	</attribute>
+	<attribute name="customer-reference" type="string" required="false">
+		<comment>
+			A reference that can be used by the customer to identify this
+			beneficiary. The
+			customer is responsible for guaranteeing its uniqueness.
+		</comment>
+	</attribute>
 	<attribute name="default-charge-code" type="enum" enum="charge.code"
 		required="false" />
 	<attribute name="default-remittance-information" type="string"
+		required="false"
+	>
+		<comment>
+			Default text to be included in any payment to this beneficiary if no
+			payment specific text is provided. Limited to 35 characters.
+		</comment>
+	</attribute>
+	<attribute name="source" type="boolean" required="false">
+		<comment>
+			Indicates whether the customer is the beneficial owner of this account.
+			Assumed false if not present.
+		</comment>
+	</attribute>
+	<attribute name="review-status" type="enum" enum="review.status"
 		required="false" />
-	<attribute name="object-status" type="enum" enum="object-status"
-		required="false" />
+	<attribute name="last-reviewed" type="timestamp" required="false" />
 
-	<attribute name="beneficiary" type="string" required="true">
+	<relationship name="customer-account" resource="customer-accounts"
+		required="true"
+	>
 		<comment>
-			<strong>Used in POST requests for resource creation only.</strong>
-			The name of the account to be used for interbank instruction
+			The customer account that this resource relates to.
 		</comment>
-	</attribute>
-	<attribute name="beneficiary-address" type="string" required="false">
+	</relationship>
+	<relationship name="bank-account" resource="bank-accounts" required="true">
 		<comment>
-			<strong>Used in POST requests for resource creation only.</strong>
-			Address of account holder. Some
-			destination
-			payment systems require
-			this for some
-			account types
+			The bank account that this resource relates to.
 		</comment>
-	</attribute>
-	<attribute name="iban" type="string" required="false">
-		<comment>
-			<strong>Used in POST requests for resource creation only.</strong>
-			A valid IBAN
-		</comment>
-	</attribute>
-	<attribute name="bic" type="string" required="false">
-		<comment>
-			<strong>Used in POST requests for resource creation only.</strong>
-			A valid swift institution identifier
-		</comment>
-	</attribute>
-	<attribute name="account-number" type="string" required="false">
-		<comment>
-			<strong>Used in POST requests for resource creation only.</strong>
-			A valid account number for the destination
-			country's payment system.
-		</comment>
-	</attribute>
-	<attribute name="national-clearing-code" type="string" required="false">
-		<comment>
-			<strong>Used in POST requests for resource creation only.</strong>
-			A valid clearing code for the destination
-			country's payment system. UK sort
-			code, US ABA routing number, etc.
-		</comment>
-	</attribute>
-
-	<relationship name="customer-account" resource="customer-account"
-		required="true" />
-	<relationship name="currency" resource="currencies" required="true" />
-	<relationship name="country" resource="countries" required="false" />
+	</relationship>
 
 	<url method="GET" url="customer-bank-accounts/:id">
-		<example file="customer-account.json" />
 		<comment>
 			Returns a single resource.
 		</comment>

@@ -24,11 +24,11 @@
                 "data":[
                     {
                         "id":"1003",
-                        "type":"customer-beneficiaries"
+                        "type":"customer-bank-accounts"
                     },
                     {
                         "id":"1004",
-                        "type":"customer-beneficiaries"
+                        "type":"customer-bank-accounts"
                     }
                 ]
             },

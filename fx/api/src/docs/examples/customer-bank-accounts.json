@@ -7,7 +7,7 @@
             "type":"customer-bank-accounts",
             "attributes":{
                 "default-charge-code":"SHA",
-                "source":true,
+                "source":false,
                 "review-status":"ACCEPTED",
                 "last-reviewed":"2016-03-12T01:02:32"
             },
@@ -30,12 +30,13 @@
             "id":"TE9500001002-4",
             "type":"customer-bank-accounts",
             "attributes":{
+                "nickname":"JF Technology (EUR)",
                 "email-address":"stephen.flynn@jftechnology.com",
                 "default-charge-code":"OUR",
-                "default-remittance-information":"Invoice 345",
+                "default-remittance-information":"Acc# 12345",
                 "comment":"test!",
-                "source":false,
-                "review-status":"UNDER_REVIEW",
+                "source":true,
+                "review-status":"ACCEPTED",
                 "last-reviewed":"2016-03-12T01:02:32",
                 "customer-reference":"ref123"
             },

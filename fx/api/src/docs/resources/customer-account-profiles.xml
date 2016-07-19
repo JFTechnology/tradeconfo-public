@@ -2,16 +2,23 @@
 
 	<description>Profile for a single customer account</description>
 
-	<attribute name="trading-limit" type="number" required="true">
+	<attribute name="trading-limit" type="currency-amount" required="true">
 		<comment>
 			Amount available for transactions expressed in the base currency.
 		</comment>
+		<comment>
+			Always a positive number.
+		</comment>
 	</attribute>
 
-	<attribute name="trading-limit-utilised" type="number" required="false">
+	<attribute name="trading-limit-utilised" type="currency-amount"
+		required="false"
+	>
 		<comment>
-			Amount of trading limit currently used - assumed to be zero if not
-			present.
+			Amount of trading limit currently used.
+		</comment>
+		<comment>
+			Always a positive number, zero if absent.
 		</comment>
 	</attribute>
 
@@ -27,7 +34,7 @@
 			Calculation currency for this account.
 		</comment>
 	</relationship>
-	<relationship name="beneficiaries" resource="customer-benficiaries"
+	<relationship name="beneficiaries" resource="customer-bank-accounts"
 		required="true" many="true"
 	>
 		<comment>
@@ -61,7 +68,8 @@
 		required="true" many="true"
 	>
 		<comment>
-			The set of possible resonas that this account may give when requesting a payment
+			The set of possible resonas that this account may give when requesting
+			a payment
 			to a beneficiary.
 		</comment>
 	</relationship>

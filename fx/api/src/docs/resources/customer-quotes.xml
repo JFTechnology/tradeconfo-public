@@ -6,25 +6,31 @@
 
 	<comment>
 		<ul xmlns="http://www.w3.org/1999/xhtml">
-			<li>A valid customer-quote-request MUST contain one or more customer-quote
-				resources.</li>
-			<li>The initial customer-quote-request resource that POSTed to the
-				service by a
-				client application MUST contains either a positive remittance-amount attribute
-				or a
-				positive delivery-amount attribute but NOT both. The service will ignore
-				any null or zero values for these attributes</li>
-			<li>Each customer-quote resource MUST reference a remittance-currency and MUST
-				reference either a delivery-currency or a
-				beneficiary but NOT both.</li>
-			<li>If the customer accepts a customer-quote-request the server will execute
+			<li>
+				A valid customer-quote-request MUST contain one or more customer-quote
+				resources.
+			</li>
+			<li>
+				Each initial customer-quote resource that is POSTed to the service by a
+				client application MUST contain either a positive remittance-amount attribute
+				or a positive delivery-amount attribute but NOT both. The service will ignore
+				any null or zero values for these attributes.
+			</li>
+			<li>
+				Each initial customer-quote resource that is POSTed to the service MUST
+				contain a reference to a remittance-currency and MUST reference either a
+				delivery-currency or a beneficiary but NOT both.
+			</li>
+			<li>
+				If the customer accepts a customer-quote-request the server will execute
 				the least number of fx-transactions required to fulfil that requests related
 				customer-quotes.
 			</li>
-			<li>If the customer accepts a customer-quote-request that contains
-				customer-quotes referencing a beneficiary then
-				server will enter a
-				payment-instruction for the delivery-amount to each such beneficiary.</li>
+			<li>
+				If the customer accepts a customer-quote-request that contains
+				customer-quotes referencing a beneficiary then server will enter a
+				payment-instruction for the delivery-amount to each such beneficiary.
+			</li>
 		</ul>
 	</comment>
 
@@ -78,11 +84,11 @@
 			Currency the domain will deliver on behalf of the customer.
 		</comment>
 	</relationship>
-	<relationship name="beneficiary" resource="bank-accounts" required="true">
+	<relationship name="beneficiary" resource="bank-accounts" required="false">
 		<comment>
-			The bank account to which the domain will deliver currency on behalf
-			of
-			the customer.
+			The bank account to which the domain will deliver purchased currency on
+			behalf
+			of the customer.
 		</comment>
 	</relationship>
 	<relationship name="payment-reason" resource="payment-reasons"
@@ -90,8 +96,7 @@
 	>
 		<comment>
 			If beneficiary is present a reason for the resulting payment MAY be
-			provided to
-			facilitate compliance checking.
+			provided to facilitate compliance checking.
 		</comment>
 	</relationship>
 

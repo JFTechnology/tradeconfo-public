@@ -32,6 +32,13 @@
 	<attribute name="update-time" type="timestamp" required="true" />
 
 	<relationship name="update-user" resource="people" required="true" />
+	<relationship name="customer-account" resource="customer-accounts"
+		required="true"
+	>
+		<comment>
+			The customer account for the quote.
+		</comment>
+	</relationship>
 	<relationship name="customer-quotes" resource="customer-quotes"
 		required="true" many="true"
 	>

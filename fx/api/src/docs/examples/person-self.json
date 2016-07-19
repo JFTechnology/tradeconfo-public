@@ -1,0 +1,17 @@
+<example title="Get self" method="GET" url="/fx-domain-api/people/self" xmlns="http://tradeconfo.com/ns/api">
+<response>
+{
+    "data":{
+        "id":"2",
+        "type":"people",
+        "attributes":{
+            "last-name":"Flynn",
+            "first-name":"Steve",
+            "gender":"MALE",
+            "date-of-birth":"1965-10-04 ",
+            "review-status":"ACCEPTED"
+        }
+    }
+}
+</response>
+</example>
