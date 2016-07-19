@@ -21,6 +21,7 @@
 		<resource name="ledger-balances" />
 
 		<resource name="customer-accounts" />
+		<resource name="customer-contacts" />
 		<resource name="customer-subaccounts" />
 		<resource name="customer-bank-accounts" />
 		<resource name="customer-account-profiles" />
@@ -53,6 +54,7 @@
 		<resource name="ledger-balances" />
 
 		<resource name="customer-accounts" />
+		<resource name="customer-contacts" />
 		<resource name="customer-subaccounts" />
 		<resource name="customer-bank-accounts" />
 		<resource name="customer-account-profiles" />

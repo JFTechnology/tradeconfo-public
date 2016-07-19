@@ -66,13 +66,22 @@
 
 	<enum name="customer-accounts.type">
 		<value value="PERSONAL" description="Account for personal use of a named individual only" />
-		<value value="CORPORATE" description="Account for use of a limited liability legal entitiy" />
+		<value value="CORPORATE" description="Account for use of a limited liability legal entity" />
 		<value value="CHARITY" description="Account for use of a registered charity" />
 	</enum>
 
 	<enum name="customer-accounts.purpose" description="Purpose of the account">
 		<value value="TRADING" />
 		<value value="AFFILIATE" description="For the distribution of IB only" />
+	</enum>
+
+	<enum name="customer-contact.relationship">
+		<value value="UNKNOWN"
+			description="Relationship not yet defined. Only expected if review status is 'DATA_REQUIRED'" />
+		<value value="ACCOUNT_HOLDER" description="Individual is the beneficial owner of a PERSONAL account" />
+		<value value="CORPORATE_OFFICER" description="Individual is a director of a CORPORATE account" />
+		<value value="CORPORATE_EMPLOYEE" description="Individual is an employee of a CORPORATE account" />
+		<value value="FINANCIAL_ADVISOR" description="Individual is an advisor to the account" />
 	</enum>
 
 	<enum name="gender">
