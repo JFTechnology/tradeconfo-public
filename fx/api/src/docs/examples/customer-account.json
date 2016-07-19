@@ -24,16 +24,7 @@
                 }
             }
         }
-    },
-    "included":[
-        {
-            "id":"1",
-            "type":"domains",
-            "attributes":{
-                "name":"Test"
-            }
-        }
-    ]
+    }
 }
 </response>
 </example>

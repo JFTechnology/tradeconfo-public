@@ -5,11 +5,11 @@
         "id":"2",
         "type":"people",
         "attributes":{
-            "name":"Flynn",
-            "description":"Flynn",
+            "last-name":"Flynn",
             "first-name":"Steve",
             "gender":"MALE",
-            "review-status":"DATA_REQUIRED"
+            "date-of-birth":"1965-10-04 ",
+            "review-status":"ACCEPTED"
         },
         "relationships":{
             "domain":{
@@ -19,16 +19,7 @@
                 }
             }
         }
-    },
-    "included":[
-        {
-            "id":"1",
-            "type":"domains",
-            "attributes":{
-                "name":"Test"
-            }
-        }
-    ]
+    }
 }
 </response>
 </example>
