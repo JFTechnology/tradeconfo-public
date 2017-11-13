@@ -1,71 +1,126 @@
 <example title="Get resource" method="GET" url="/fx-customer-api/customer-account-profiles/1002" xmlns="http://tradeconfo.com/ns/api">
 <response>
 {
-    "data":{
-        "id":"1002",
-        "type":"customer-account-profiles",
-        "attributes":{
-            "trading-limit":20000.00
-        },
-        "relationships":{
-            "customer-account":{
-                "data":{
-                    "id":"TE9500001002",
-                    "type":"customer-accounts"
-                }
-            },
-            "base-currency":{
-                "data":{
-                    "id":"GBP",
-                    "type":"currencies"
-                }
-            },
-            "beneficiaries":{
-                "data":[
-                    {
-                        "id":"1003",
-                        "type":"customer-bank-accounts"
-                    },
-                    {
-                        "id":"1004",
-                        "type":"customer-bank-accounts"
-                    }
-                ]
-            },
-            "remittable-currencies":{
-                "data":[
-                    {
-                        "id":"GBP",
-                        "type":"currencies"
-                    }
-                ]
-            },
-            "deliverable-currencies":{
-                "data":[
-                    {
-                        "id":"EUR",
-                        "type":"currencies"
-                    }
-                ]
-            },
-            "deliverable-countries":{
-                "data":[
-                    {
-                        "id":"US",
-                        "type":"countries"
-                    },
-                    {
-                        "id":"ES",
-                        "type":"countries"
-                    },
-                    {
-                        "id":"DE",
-                        "type":"countries"
-                    }
-                ]
-            }
-        }
-    }
+	"data": {
+		"id": "PL5000080167",
+		"type": "customer-account-profiles",
+		"attributes": {
+			"trading-limit": 10000.00,
+			"trading-limit-utilised": 1256.15,
+			"average-transaction-size": 1000,
+			"average-transaction-count": 1,
+			"average-transaction-frequency": "QUARTERLY",
+			"relationship": "ACCOUNT_HOLDER",
+			"credit-notification": "TO",
+			"debit-notification": "TO",
+			"confirmation-notification": "CC",
+			"trader-notification": "TO",
+			"requires-kyc": false,
+			"requires-acceptance": false
+		},
+		"relationships": {
+			"customer-account": {
+				"data": {
+					"id": "PL5000080167",
+					"type": "customer-accounts"
+				}
+			},
+			"base-currency": {
+				"data": {
+					"id": "GBP",
+					"type": "currencies"
+				}
+			},
+			"beneficiaries": {
+				"data": [
+					{
+						"id": "PL5000080167-61741",
+						"type": "customer-bank-accounts"
+					},
+					{
+						"id": "PL5000080167-84561",
+						"type": "customer-bank-accounts"
+					},
+					{
+						"id": "PL5000080167-87721",
+						"type": "customer-bank-accounts"
+					},
+					{
+						"id": "PL5000080167-87722",
+						"type": "customer-bank-accounts"
+					}
+				]
+			},
+			"remittable-currencies": {
+				"data": [
+					{
+						"id": "EUR",
+						"type": "currencies"
+					},
+					{
+						"id": "GBP",
+						"type": "currencies"
+					}
+				]
+			},
+			"deliverable-currencies": {
+				"data": [
+					{
+						"id": "USD",
+						"type": "currencies"
+					},
+					{
+						"id": "EUR",
+						"type": "currencies"
+					},
+					{
+						"id": "GBP",
+						"type": "currencies"
+					}
+				]
+			},
+			"deliverable-countries": {
+				"data": [
+					{
+						"id": "ZA",
+						"type": "countries"
+					},
+					{
+						"id": "GB",
+						"type": "countries"
+					},
+					{
+						"id": "US",
+						"type": "countries"
+					}
+				]
+			},
+			"payment-reasons": {
+				"data": [
+					{
+						"id": "1",
+						"type": "payment-reasons"
+					},
+					{
+						"id": "2",
+						"type": "payment-reasons"
+					},
+					{
+						"id": "3",
+						"type": "payment-reasons"
+					},
+					{
+						"id": "4",
+						"type": "payment-reasons"
+					},
+					{
+						"id": "0",
+						"type": "payment-reasons"
+					}
+				]
+			}
+		}
+	}
 }
 </response>
 </example>

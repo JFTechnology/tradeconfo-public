@@ -27,7 +27,9 @@
 						<transformationSet>
 							<dir>src/docs</dir>
 							<includes>
-								<include>fx-apis.xml</include>
+                                <include>fx-apis.xml</include>
+                                <include>fx-customer-api.xml</include>
+                                <include>fx-domain-api.xml</include>
 							</includes>
 							<stylesheet>src/main/api.xsl</stylesheet>
 							<fileMappers>

@@ -9,7 +9,8 @@
 		<comment>
 			Amount is signed from the point of view of the
 			domain, so a positive
-			number represents the customer paying, domain receiving
+			number represents the customer paying,
+			domain receiving
 			and vice versa.
 		</comment>
 	</attribute>
@@ -21,7 +22,8 @@
 		<comment>
 			Amount is signed from the point of view of the
 			domain, so a positive
-			number represents the customer paying, domain receiving
+			number represents the customer paying,
+			domain receiving
 			and vice versa.
 		</comment>
 	</attribute>
@@ -32,7 +34,8 @@
 		<comment>
 			Amount is signed from the point of view of the
 			domain, so a positive
-			number represents the customer paying, domain receiving
+			number represents the customer paying,
+			domain receiving
 			and vice versa.
 		</comment>
 	</attribute>
@@ -44,7 +47,8 @@
 		<comment>
 			Amount is signed from the point of view of the
 			domain, so a positive
-			number represents the customer paying, domain receiving
+			number represents the customer paying,
+			domain receiving
 			and vice versa.
 		</comment>
 	</attribute>
@@ -70,13 +74,15 @@
 		</comment>
 	</relationship>
 
-	<relationship name="transaction" resource="fx-transactions"
-		required="true"
-	>
+	<relationship name="transaction" resource="fx-transactions" required="true">
 		<comment>
 			The transaction this block formed part of
 		</comment>
 	</relationship>
+
+	<url method="GET" url="journal/fx-ticket/:id/blocks">
+		<example file="fx-transaction-blocks.json" />
+	</url>
 
 	<url method="GET" url="journal/fx-transaction-blocks">
 		<parameter key="query" value="customer-unsettled" />

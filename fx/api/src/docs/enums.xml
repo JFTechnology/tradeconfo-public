@@ -2,7 +2,7 @@
 <?xml-stylesheet type="text/xsl" href="api.xsl"?>
 <enums xmlns="http://tradeconfo.com/ns/api">
 
-	<enum name="object-status" description="Included in fx-admin-api payloads only">
+	<enum name="resource-state" description="Included in fx-admin-api payloads only">
 		<value value="ACTIVE" description="Default value" />
 		<value value="INACTIVE" description="Logical delete - can be recovered" />
 		<value value="DELETED" description="Will be removed from the system at some stage" />
@@ -15,11 +15,17 @@
 		<value value="EXPENSE" description="Expense account" />
 	</enum>
 
+	<enum name="payment.batch.status" description="Instruction status">
+		<value value="PENDING" description="Batch processing pending" />
+		<value value="PROCESSING" description="Batch in process" />
+		<value value="COMPLETED" description="Batch processing completed" />
+	</enum>
+
 	<enum name="payment.instruction.status" description="Instruction status">
-		<value value="UNCONFIRMED" description="Payment requires client confirmation" />
-		<value value="CONFIRMED" description="Payment confirmed by client waiting for acceptance" />
-		<value value="ACCEPTED" description="Instruction accpted, payment queued for processing" />
-		<value value="CANCELLED" description="Payment was cancelled" />
+		<value value="UNCONFIRMED" description="Onward payment instruction requiring client confirmation" />
+		<value value="CONFIRMED" description="Onward payment instruction confirmed by client - waiting for acceptance" />
+		<value value="ACCEPTED" description="Onward payment instruction accepted - payment queued for processing" />
+		<value value="CANCELLED" description="Onward payment instruction cancelled by client" />
 	</enum>
 
 	<enum name="payment.side" description="Payment side">
@@ -56,10 +62,8 @@
 		<value value="ACCEPTED" description="Resource reviewed and approved" />
 		<value value="REJECTED" description="Resource reviewed and declined" />
 		<value value="NOT_REQUIRED" description="No review process required for this resource" />
-		<value value="LAPSED"
-			description="Previously ACCEPTED resource that requires re-review due to elapsed time since last review" />
-		<value value="INACTIVE"
-			description="Previously ACCEPTED resource that requires re-review due to elapsed time since last review" />
+		<value value="LAPSED" description="Previously ACCEPTED resource that requires re-review due to elapsed time since last review" />
+		<value value="INACTIVE" description="Previously ACCEPTED resource that requires re-review due to elapsed time since last review" />
 		<value value="CLOSED" description="Resource that is no longer under review" />
 		<value value="NOT_REQUIRED" description="No review process required for this resource" />
 	</enum>
@@ -76,8 +80,7 @@
 	</enum>
 
 	<enum name="customer-contact.relationship">
-		<value value="UNKNOWN"
-			description="Relationship not yet defined. Only expected if review status is 'DATA_REQUIRED'" />
+		<value value="UNKNOWN" description="Relationship not yet defined. Only expected if review status is 'DATA_REQUIRED'" />
 		<value value="ACCOUNT_HOLDER" description="Individual is the beneficial owner of a PERSONAL account" />
 		<value value="CORPORATE_OFFICER" description="Individual is a director of a CORPORATE account" />
 		<value value="CORPORATE_EMPLOYEE" description="Individual is an employee of a CORPORATE account" />
@@ -94,41 +97,30 @@
 		<value value="WITHDRAWAL" />
 	</enum>
 
-	<enum name="charge.code"
-		description="Indicates what charges are accepted. See Swift MT103 71A for further details."
-	>
+	<enum name="operation.code" description="Indicates priority of a payment instruction. See Swift MT103 23B for further details.">
+		<value value="SPRI" description="Credit Transfer to be processed according to the Priority Service Level" />
+		<value value="SSTD" description="Credit transfer to be processed according to the Standard Service Level" />
+	</enum>
+
+	<enum name="charge.code" description="Indicates what charges are accepted. See Swift MT103 71A for further details.">
 		<value value="SHA" description="Shared - each side pays own fees" />
 		<value value="OUR" description="OUR - payee pays all fees" />
 		<value value="BEN" description="BEN - benficiary pays all fees" />
 	</enum>
 
-	<enum name="rfq.status" description="Status of a quote request">
-		<value value="REQUESTED" />
-		<value value="OPEN" />
-		<value value="TIMED_OUT" />
-		<value value="REJECTED" />
-		<value value="ACCEPTED" />
-		<value value="TRADED" />
-		<value value="CANCELLED" />
+	<enum name="payment-request.state" description="State of the payment request">
+		<value value="TRADEABLE" description="Quotes are tradeable within given time to live" />
+		<value value="INDICATIVE" description="Quotes are cannot be traded" />
+		<value value="WORKING" description="Quotes are in the process of being ACCEPTED" />
+		<value value="ACCEPTED" description="Tradeable quote was accepted" />
+		<value value="CANCELLED" description="Tradeable quote was cancelled" />
 	</enum>
 
-	<enum name="rfq.settlement" description="Settlement period for the request">
-		<value value="TODAY" description="Same day settlement" />
-		<value value="TOMORROW" description="Next good business day settlement" />
-		<value value="SPOT" description="Second good business day settlement" />
-	</enum>
-
-	<enum name="customer.quotes.status" description="Status of a quote request">
-		<value value="TRADEABLE"
-			description="Live price. The server will accept executions on this quote." />
-		<value value="INDICATIVE"
-			description="Indicative price. The server will reject executions on this quote as no live price is currently available." />
-		<value value="CLOSED"
-			description="Indicative price. The server will reject executions on this quote as it is outside of market hours." />
-		<value value="SUSPENDED"
-			description="Indicative price. The server will reject executions on this quote as market is currently suspended." />
-		<value value="NOT_QUOTED"
-			description="Indicative price. The server will reject executions on this quote as it doesn't provide prices in thsi curency pair." />
+	<enum name="email.directive" description="Email addressing">
+		<value value="NONE" description="No email" />
+		<value value="TO" description="Email addressed To" />
+		<value value="CC" description="Email addressed Cc" />
+		<value value="BCC" description="Email addressed Bcc" />
 	</enum>
 
 </enums>

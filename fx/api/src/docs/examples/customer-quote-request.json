@@ -1,118 +1,93 @@
 <example title="Post initial RFQ" method="POST" url="/fx-customer-api/currencies/customer-quote-request" xmlns="http://tradeconfo.com/ns/api">
 <request>
 {
-    "data":{
-        "type":"customer-quote-requests",
-        "relationships":{
-            "customer-account":{
-                "data":{
-                    "type":"customer-accounts",
-                    "id":"PL8600020640"
-                }
-            }
-        },
-        "customer-quotes":[
-            {
-                "data":{
-                    "type":"customer-quotes",
-                    "attributes":{
-                        "remittance-information":"Invoice #1234",
-                        "delivery-amount":500,
-                        "settlement":"TODAY"
-                    },
-                    "relationships":{
-                        "remittance-currency":{
-                            "data":{
-                                "type":"currencies",
-                                "id":"GBP"
-                            }
-                        },
-                        "beneficiary":{
-                            "data":{
-                                "type":"bank-accounts",
-                                "id":"20643"
-                            }
-                        },
-                        "payment-reason":{
-                            "data":{
-                                "type":"payment-reasons",
-                                "id":"1"
-                            }
-                        }
-                    }
-                }
-            }
-        ]
-    }
+	"data": {
+		"attributes": {
+			"instructions": [
+				{
+					"tenor": "NEXT",
+					"quote": "REMITTANCE_AMOUNT",
+					"remittance-currency-id": "GBP",
+					"delivery-amount": 10000,
+					"beneficiary-id": "87722"
+				}
+			],
+			"update-time": null,
+			"state": "TRADEABLE",
+			"ttl": 0
+		},
+		"relationships": {
+			"customer-account": {
+				"data": {
+					"type": "customer-accounts",
+					"id": "PL5000080167"
+				}
+			}
+		},
+		"type": "payment-requests"
+	}
 }
 </request>
 <response>
 {
-    "data":{
-        "id":"8b548fec-4807-4467-a30b-c7c81ee0e819",
-        "type":"customer-quote-requests",
-        "attributes":{
-            "update-time":"2016-07-05T04:10:44",
-            "status":"OPEN",
-            "ttl":15
+    "data": {
+        "id": "208883",
+        "type": "payment-requests",
+        "attributes": {
+            "state": "TRADEABLE",
+            "ttl": 15,
+            "instructions": [
+                {
+                    "tenor": "NEXT",
+                    "quote": "REMITTANCE_AMOUNT",
+                    "status": "TRADEABLE",
+                    "remittance-currency-id": "GBP",
+                    "remittance-amount": 9017.13,
+                    "remittance-fee": 0,
+                    "delivery-currency-id": "EUR",
+                    "delivery-amount": 10000,
+                    "delivery-fee": 0,
+                    "margin-currency-id": "GBP",
+                    "margin-amount": 0,
+                    "beneficiary-id": "87722",
+                    "charge-code": "SHA",
+                    "operation-code": "SPRI",
+                    "value-date": "2017-10-19",
+                    "settlement-time": "2017-10-19T11:00:00Z"
+                }
+            ],
+            "update-time": "2015-03-18T14:42:18.772Z"
         },
-        "relationships":{
-            "customer-account":{
-                "data":{
-                    "id":"PL8600020640",
-                    "type":"customer-accounts"
+        "relationships": {
+            "customer-account": {
+                "data": {
+                    "id": "PL5000080167",
+                    "type": "customer-accounts"
                 }
             },
-            "update-user":{
-                "data":{
-                    "id":"20641",
-                    "type":"people"
+            "customer-subaccount": {
+                "data": null
+            },
+            "customer-contact": {
+                "data": {
+                    "id": "80168",
+                    "type": "people"
                 }
             },
-            "customer-quotes":{
-                "data":[
-                    {
-                        "id":"e2fce90f-5637-4a26-8afa-8c9952a6414d",
-                        "type":"customer-quotes"
-                    }
-                ]
+            "update-user": {
+                "data": {
+                    "id": "80168",
+                    "type": "people"
+                }
+            },
+            "transactions": {
+                "data": []
+            },
+            "payments": {
+                "data": []
             }
         }
-    },
-    "included":[
-        {
-            "id":"e2fce90f-5637-4a26-8afa-8c9952a6414d",
-            "type":"customer-quotes",
-            "attributes":{
-                "remittance-amount":422.3,
-                "remittance-information":"Invoice #1234",
-                "delivery-amount":500,
-                "value-date":"2016-07-05",
-                "settlement-time":"2016-07-05T12:00:00",
-                "status":"TRADEABLE"
-            },
-            "relationships":{
-                "remittance-currency":{
-                    "data":{
-                        "id":"GBP",
-                        "type":"currencies"
-                    }
-                },
-                "delivery-currency":{
-                    "data":{
-                        "id":"EUR",
-                        "type":"currencies"
-                    }
-                },
-                "beneficiary":{
-                    "data":{
-                        "id":"20643",
-                        "type":"bank-accounts"
-                    }
-                }
-            }
-        }
-    ]
+    }
 }
 </response>
 </example>

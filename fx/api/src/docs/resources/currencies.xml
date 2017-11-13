@@ -7,19 +7,24 @@
 			Three character curency code - GBP, USD, etc.
 		</comment>
 	</attribute>
-	<attribute name="description" type="string" required="true">
+
+	<attribute name="code" type="string">
+		<comment>
+			ISO numeric code.
+		</comment>
+	</attribute>
+
+	<attribute name="description" type="string">
 		<comment>
 			User friendly name
 		</comment>
 	</attribute>
-	<attribute name="object-status" type="enum" enum="object-status"
-		required="false" />
 
 	<url method="GET" url="currencies">
 		<example file="currencies.json" />
-        <comment>
-            Returns a listing of all resources available to caller.
-        </comment>
+		<comment>
+			Returns a listing of all resources available to caller.
+		</comment>
 	</url>
 
 	<url method="GET" url="currencies/:id">

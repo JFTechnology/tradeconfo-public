@@ -5,9 +5,7 @@
 		account.
 	</description>
 
-	<attribute name="relationship" type="enum" enum="customer-contact.relationship"
-		required="true"
-	>
+	<attribute name="relationship" type="enum" enum="customer-contact.relationship" required="true">
 		<comment>
 			Describes the relationship between the customer-account and the person.
 		</comment>
@@ -27,15 +25,15 @@
 		</comment>
 	</attribute>
 	<attribute name="comment" type="string" required="false" />
-	<attribute name="review-status" type="enum" enum="review.status"
-		required="false" />
+	<attribute name="review-state" type="enum" enum="review.status" required="false" />
 	<attribute name="last-reviewed" type="timestamp" required="false" />
 
-	<relationship name="domain" resource="domains" required="false" />
-	<relationship name="domain-group" resource="domain-groups" required="false" />
-	<relationship name="customer-account" resource="customer-accounts"
-		required="true"
-	>
+	<relationship name="last-reviewer" resource="people" required="false">
+		<comment>
+			Last person to review this resource.
+		</comment>
+	</relationship>
+	<relationship name="customer-account" resource="customer-accounts" required="true">
 		<comment>
 			The customer account that this resource relates to.
 		</comment>
@@ -46,16 +44,17 @@
 		</comment>
 	</relationship>
 
-	<url method="GET" url="customer-contacts/:id">
-		<example file="customer-contact.json" />
-		<comment>
-			Returns a single resource.
-		</comment>
-	</url>
 	<url method="GET" url="customer-accounts/:id/contacts">
 		<example file="customer-contacts.json" />
 		<comment>
 			Returns collection of all contacts for a customer account.
+		</comment>
+	</url>
+
+	<url method="GET" url="customer-contacts/:id">
+		<example file="customer-contact.json" />
+		<comment>
+			Returns a single resource.
 		</comment>
 	</url>
 

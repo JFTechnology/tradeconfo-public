@@ -9,16 +9,17 @@
 	<note src="versioning.xml" />
 
 	<application name="fx-customer-api">
-		<description></description>
 
 		<resource name="bank-accounts" />
 		<resource name="bank-account-field-sets" />
 		<resource name="bank-transactions" />
+		<resource name="bank-transaction-logs" />
+
 		<resource name="countries" />
 		<resource name="currencies" />
 		<resource name="ledger-accounts" />
-		<resource name="ledger-entries" />
-		<resource name="ledger-balances" />
+		<resource name="ledger-entries-customer" />
+		<resource name="ledger-balances-customer" />
 
 		<resource name="customer-accounts" />
 		<resource name="customer-contacts" />
@@ -33,8 +34,12 @@
 		<resource name="fx-transaction-blocks" />
 		<resource name="fx-positions" />
 
-		<resource name="payment-instructions" />
+		<resource name="payments" />
+		<resource name="payment-batches" />
+		<resource name="payment-logs" />
+		<resource name="payment-notifications" />
 		<resource name="payment-reasons" />
+
 		<resource name="people" />
 
 		<resource name="user-profiles" />
@@ -46,12 +51,14 @@
 		<resource name="bank-accounts" />
 		<resource name="bank-account-field-sets" />
 		<resource name="bank-transactions" />
+		<resource name="bank-transaction-logs" />
+
 		<resource name="countries" />
 		<resource name="currencies" />
 		<resource name="ledger-accounts" />
 		<resource name="ledger-postings" />
-		<resource name="ledger-entries" />
-		<resource name="ledger-balances" />
+		<resource name="ledger-entries-domain" />
+		<resource name="ledger-balances-domain" />
 
 		<resource name="customer-accounts" />
 		<resource name="customer-contacts" />
@@ -61,6 +68,7 @@
 		<resource name="customer-quote-requests" />
 		<resource name="customer-quotes" />
 
+		<resource name="domains" />
 		<resource name="domain-groups" />
 
 		<resource name="fx-tickets" />
@@ -69,9 +77,10 @@
 		<resource name="fx-positions" />
 
 		<resource name="payments" />
-		<resource name="payment-instructions" />
+		<resource name="payment-batches" />
+		<resource name="payment-logs" />
+		<resource name="payment-notifications" />
 		<resource name="payment-reasons" />
-		<resource name="people" />
 
 		<resource name="user-profiles" />
 		<resource name="domain-user-profiles" />

@@ -1,0 +1,191 @@
+<resource type="payment-requests" xmlns="http://tradeconfo.com/ns/api">
+
+	<description>
+		Represents a request for tradeable quote for one or more multi-currency payments priced in a single
+		remittance currency. If accepted this will result in one or more fx-transactions and zero or more payments.
+	</description>
+
+	<attribute name="ttl" type="number" required="false">
+		<comment>
+			<b>Time to live.</b>
+			Duration in seconds during which the payment instructions may be accepted. MUST be
+			included if the status
+			attribute is
+			'TRADEABLE' and has no meaning otherwise. Window of acceptance is calculated from the update-time
+			attribute as
+			provided by the service -
+			client code is responsible for calclated the effects on network latency.
+		</comment>
+	</attribute>
+	<attribute name="state" type="enum" enum="payment-request.state" required="true">
+	</attribute>
+	<attribute name="instructions" type="array" enum="payment-request.state" required="true">
+		<comment>
+			Array of payment instructions for this request. Each array element MAY contain the following attributes...
+		</comment>
+		<comment>
+			<ul>
+				<li>
+					<b>tenor : </b>
+					Required for initial POST operation. Must be one of...
+					<ul>
+						<li>TOD - Today. Request will reject if not possible (today not a trading date, past cut-off time, etc).</li>
+						<li>NEXT - Earliest. Will be TOD if possible, else TOM.</li>
+						<li>TOM - Tomorrow. Value date and settlement time based on next good business day.</li>
+						<li>SPOT - Tomorrow. Value date and settlement time based on market convetion spot date.</li>
+						<li>OTHER - Explict value date. If this is chosen then the value-date attribute MUST be present on a POST
+							operation.
+						</li>
+					</ul>
+				</li>
+				<li>
+					<b>quote : </b>
+					Required for initial POST operation. Must be one of...
+					<ul>
+						<li>REMITTANCE_AMOUNT - quote will calculate the remittance amount for the instruction. If this is chosen then the
+							delivery-amount attribute MUST be present on a POST operation.</li>
+						<li>DELIVERY_AMOUNT - quote will calculate the delivery amount for the instruction. If this is chosen then the
+							remittance-amount attribute MUST be present on a POST operation.</li>
+					</ul>
+				</li>
+				<li>
+					<b>status : </b>
+					Indicates the status of the underlying fx price. One of...
+					<ul>
+						<li>TRADEABLE - price available within ttl</li>
+						<li>INDICATIVE - not available. Detail will be given in comment attribute</li>
+						<li>CLOSED - no market in underlying currency pair.</li>
+						<li>SUSPENDED - no market in underlying currency pair.</li>
+						<li>NOT_QUOTED - currency pair not supported by service</li>
+					</ul>
+				</li>
+				<li>
+					<b>comment : </b>
+				</li>
+				<li>
+					<b>remittance-currency-id : </b>
+					Required for initial POST operation. The currency to be delivered to the broker account.
+				</li>
+				<li>
+					<b>remittance-amount : </b>
+					Cost of payment. If the required quote attribute value is DELIVERY_AMOUNT then this attribute MUST be present on a
+					POST operation, otherwise this attribute value will be populated by the service.
+				</li>
+				<li>
+					<b>remittance-fee : </b>
+				</li>
+				<li>
+					<b>delivery-amount : </b>
+					If the required quote attribute value is REMITTANCE_AMOUNT then this attribute MUST be present on a POST operation,
+					otherwise this attribute value will be populated by the service.
+				</li>
+				<li>
+					<b>delivery-fee : </b>
+				</li>
+				<li>
+					<b>delivery-currency-id : </b>
+				</li>
+				<li>
+					<b>delivery-information : </b>
+					Optional. Narrative to be included in the onward payment. If not included in initial POST operation this value will
+					be populated by the default value from the related
+					customer-bank-account resource.
+				</li>
+				<li>
+					<b>margin-amount : </b>
+					Populated by service. Required collateral.
+				</li>
+				<li>
+					<b>margin-currency-id : </b>
+					Populated by service. Usually same as remittance-currency-id.
+				</li>
+				<li>
+					<b>beneficiary-id : </b>
+					Optional. Resource id of the bank-account resource that the delivery amount will be sent to. Will be used if
+					beneficiary-customer-ref attribute is not populated. If both beneficiary-id and beneficiary-customer-reference are
+					missing then the request will be handled as a trade on account and payment instructions can be submitted post
+					trade.
+				</li>
+				<li>
+					<b>beneficiary-customer-reference : </b>
+					Optional. A customer-reference included in a customer-bank-accounts resource that the delivery amount will be sent
+					to.
+					User is responsible for providing unique customer references. Non-unique or missing reference will result in an
+					error.
+					This attribute will be used in preference to the beneficiary-id if both are present.
+				</li>
+				<li>
+					<b>charge-code : </b>
+					Optional. Indicates what charges are accepted. See Swift MT103 71A for further details. One of...
+					<ul>
+						<li>SHA - sending fees paid by broker, receiving fees paid by beneficiary.</li>
+						<li>BEN - sending and receiving fees paid by beneficiary</li>
+						<li>OUR - sending and receiving fees paid by broker</li>
+					</ul>
+					If not included in initial POST operation this value will be populated by
+					the default value from the related
+					customer-bank-account resource.
+				</li>
+				<li>
+					<b>operation-code : </b>
+					Optional. Indicates priority of a payment instruction. See Swift MT103 23B for further details. One of...
+					<ul>
+						<li>SPRI - Priority SWIFT transfer</li>
+						<li>SSTD - Standard payment</li>
+					</ul>
+					If not included in initial POST operation this value will be populated by the default value from the related
+					customer-bank-account resource.
+				</li>
+				<li>
+					<b>value-date : </b>
+					Required if tenor set to OTHER, otherwise this value will be populated based on value of the tenor attribute. ISO
+					date format (yyy-mm-dd).
+				</li>
+				<li>
+					<b>settlement-time : </b>
+					Cut-off time for remmittance amount to reach broker account. ISO
+					time format (YYYY-MM-DDTHH:MM:SSZ).
+				</li>
+			</ul>
+		</comment>
+	</attribute>
+	<attribute name="update-time" type="timestamp" required="true" />
+
+	<relationship name="update-user" resource="people" required="true" />
+	<relationship name="customer-account" resource="customer-accounts" required="true">
+		<comment>
+			The customer account for the quote.
+		</comment>
+	</relationship>
+	<relationship name="transactions" resource="fx-transactions" required="false">
+		<comment>
+			Transactions that have been booked to the customer-account as a result of accepting the quotes related to
+			this quote request. This relationship will only be present when the state attribute is set to ACCEPTED.
+		</comment>
+	</relationship>
+	<relationship name="payments" resource="payments" required="false">
+		<comment>
+			Payment instructions that have been booked to the customer-account as a result of accepting this payment
+			request. This relationship will only be present when the state attribute is set to ACCEPTED.
+		</comment>
+	</relationship>
+
+	<url method="POST" url="payment-requests">
+		<example file="payment-request-tradeable-post.json" />
+		<comment>Create a new tradeable payment request</comment>
+	</url>
+	<url method="GET" url="payment-requests/:id">
+		<example file="payment-request-tradeable-get.json" />
+		<comment>Refresh request</comment>
+	</url>
+	<url method="PATCH" url="payment-requests/:id">
+		<example file="payment-request-tradeable-patch.json" />
+		<comment>Accept request pricing</comment>
+	</url>
+
+	<url method="POST" url="payment-requests">
+		<example file="payment-request-market-post.json" />
+		<comment>Market order</comment>
+	</url>
+
+</resource>

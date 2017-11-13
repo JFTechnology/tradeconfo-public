@@ -1,88 +1,76 @@
 <example title="Get resource" method="GET" url="/fx-customer-api/ledger-entries" xmlns="http://tradeconfo.com/ns/api">
 <response>
 {
-    "data":[
-        {
-            "id":"1",
-            "type":"ledger-entries",
-            "attributes":{
-                "trade-date":"2013-07-23",
-                "value-date":"2013-07-23",
-                "debit":3000.00,
-                "balance":-3000.00,
-                "comment":"Ledger entry 1"
-            },
-            "relationships":{
-                "domain":{
-                    "data":{
-                        "id":"66",
-                        "type":"domains"
-                    }
-                },
-                "domain-group":{
-                    "data":{
-                        "id":"0",
-                        "type":"domain-groups"
-                    }
-                },
-                "ledger-account":{
-                    "data":{
-                        "id":"3",
-                        "type":"ledger-accounts"
-                    }
-                },
-                "currency":{
-                    "data":{
-                        "id":"GBP",
-                        "type":"currencies"
-                    }
-                }
-            }
-        },
-        {
-            "id":"2",
-            "type":"ledger-entries",
-            "attributes":{
-                "trade-date":"2013-08-02",
-                "value-date":"2013-08-02",
-                "credit":250000.00,
-                "balance":250000.00,
-                "comment":"Ledger entry 2"
-            },
-            "relationships":{
-                "domain":{
-                    "data":{
-                        "id":"66",
-                        "type":"domains"
-                    }
-                },
-                "domain-group":{
-                    "data":{
-                        "id":"0",
-                        "type":"domain-groups"
-                    }
-                },
-                "customer-account":{
-                    "data":{
-                        "id":"TE9300000068",
-                        "type":"customer-accounts"
-                    }
-                },
-                "ledger-account":{
-                    "data":{
-                        "id":"3",
-                        "type":"ledger-accounts"
-                    }
-                },
-                "currency":{
-                    "data":{
-                        "id":"GBP",
-                        "type":"currencies"
-                    }
-                }
-            }
-        }
-    ]
+	"data": [
+		{
+			"id": "1",
+			"type": "ledger-entries",
+			"attributes": {
+				"trade-date": "2013-07-23",
+				"value-date": "2013-07-23",
+				"debit": 3000.00,
+				"balance": -3000.00,
+				"comment": "Ledger entry 1"
+			},
+			"relationships": {
+				"domain-group": {
+					"data": {
+						"id": "0",
+						"type": "domain-groups"
+					}
+				},
+				"ledger-account": {
+					"data": {
+						"id": "3",
+						"type": "ledger-accounts"
+					}
+				},
+				"currency": {
+					"data": {
+						"id": "GBP",
+						"type": "currencies"
+					}
+				}
+			}
+		},
+		{
+			"id": "2",
+			"type": "ledger-entries",
+			"attributes": {
+				"trade-date": "2013-08-02",
+				"value-date": "2013-08-02",
+				"credit": 250000.00,
+				"balance": 250000.00,
+				"comment": "Ledger entry 2"
+			},
+			"relationships": {
+				"domain-group": {
+					"data": {
+						"id": "0",
+						"type": "domain-groups"
+					}
+				},
+				"customer-account": {
+					"data": {
+						"id": "TE9300000068",
+						"type": "customer-accounts"
+					}
+				},
+				"ledger-account": {
+					"data": {
+						"id": "3",
+						"type": "ledger-accounts"
+					}
+				},
+				"currency": {
+					"data": {
+						"id": "GBP",
+						"type": "currencies"
+					}
+				}
+			}
+		}
+	]
 }
 </response>
 </example>

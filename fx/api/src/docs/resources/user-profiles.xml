@@ -10,27 +10,36 @@
 	<relationship name="caller" resource="people" required="true">
 		<comment>
 			The authenticated caller to the service - will differ from the user
-			only if this resource is requested by an fx-domain-api login 'on behalf' of a
+			only if this resource is requested by an
+			fx-domain-api login 'on behalf' of a
 			customer.
 		</comment>
 	</relationship>
-	<relationship name="customer-account-profiles" resource="customer-account-profiles"
-		required="true" many="true"
-	>
+	<relationship name="customer-account-profiles" resource="customer-account-profiles" required="true" many="true">
 		<comment>
 			Profiles for each of the customer accounts the user has access to.
 		</comment>
 	</relationship>
+	<relationship name="identity" resource="personal-identities">
+		<comment>
+			Personal details relating to the user.
+		</comment>
+	</relationship>
 
-	<url method="GET" url="user-profiles/:id" />
-
-	<url method="GET" url="user-profiles/self">
+	<url method="GET" url="user-profiles/:id">
 		<example file="user-profile.json" />
 		<comment>
 			Bootstrap resource that returns the profile of the resource owner.
-			Clients can expect the entire relationship graph of 'static' data required by
-			the user to be sideloaded vie the JSON API included mechanism - therefore this
-			is the only call that should be necessary to set up a customer UI.
+		</comment>
+	</url>
+
+	<url method="GET" url="user-profiles/self">
+		<example file="user-profile2.json" />
+		<comment>
+			Bootstrap resource that returns the profile of the resource owner.
+			Clients can expect the entire relationship
+			graph of 'static' data required by the user to be sideloaded vie the JSON API included mechanism - therefore this is
+			the only call that should be necessary to set up a customer UI.
 		</comment>
 	</url>
 

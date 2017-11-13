@@ -1,27 +1,24 @@
 <example title="Get collection" method="GET" url="/fx-domain-api/people" xmlns="http://tradeconfo.com/ns/api">
 <response>
 {
-    "data":[
-        {
-            "id":"2",
-            "type":"people",
-            "attributes":{
-                "last-name":"Flynn",
-                "middle-name":"Benedict",
-                "first-name":"Stephen",
-                "gender":"MALE",
-                "review-status":"DATA_REQUIRED"
-            },
-            "relationships":{
-                "domain":{
-                    "data":{
-                        "id":"1",
-                        "type":"domains"
-                    }
-                }
-            }
-        }
-    ]
+	"data": [
+		{
+			"id": "2",
+			"type": "people",
+			"attributes": {
+				"first-name": "Stephen",
+				"last-name": "Flynn"
+			}
+		},
+		{
+			"id": "3",
+			"type": "people",
+			"attributes": {
+				"first-name": "Bill",
+				"last-name": "Newton"
+			}
+		}
+	]
 }
 </response>
 </example>

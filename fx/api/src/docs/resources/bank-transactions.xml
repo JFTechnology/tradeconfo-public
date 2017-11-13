@@ -11,46 +11,20 @@
 	<attribute name="remote-deduction" type="currency-amount" required="true" />
 	<attribute name="type" type="enum" required="true" />
 	<attribute name="charge-code" type="enum" enum="charge.code" required="false" />
-	<attribute name="status" type="enum" enum="bank.transaction.status"
-		required="true" />
+	<attribute name="status" type="enum" enum="bank.transaction.status" required="true" />
 
 	<attribute name="references" type="string" many="true" required="false" />
 	<attribute name="narratives" type="string" many="true" required="false" />
-	<attribute name="advice-date" type="date" required="false" />
-	<attribute name="advice-time" type="timestamp" required="false" />
-	<attribute name="credit-amount" type="currency-amount" required="false" />
-	<attribute name="debit-amount" type="currency-amount" required="false" />
-	<attribute name="requested-amount" type="currency-amount" required="false" />
-	<attribute name="received-amount" type="currency-amount" required="false" />
-	<attribute name="local-charges-amount" type="currency-amount" required="false" />
-	<attribute name="remote-charges-amount" type="currency-amount"
-		required="false" />
-	<attribute name="beneficiary-name" type="string" required="false" />
-	<attribute name="beneficiary-account" type="string" required="false" />
-	<attribute name="beneficiary-address" type="string" many="true"
-		required="false" />
-	<attribute name="beneficiary-bank-name" type="string" required="false" />
-	<attribute name="beneficiary-bank-id" type="string" required="false" />
-	<attribute name="beneficiary-bank-address" type="string" many="true"
-		required="false" />
-	<attribute name="on-behalf-of-name" type="string" required="false" />
-	<attribute name="on-behalf-of-address" type="string" many="true"
-		required="false" />
-	<attribute name="payment-type" type="string" required="false" />
-	<attribute name="payment-detail" type="string" many="true" required="false" />
 
 	<relationship name="bank-account" resource="bank-accounts" required="true" />
-	<relationship name="customer-account" resource="customer-accounts"
-		required="true" />
-	<relationship name="customer-subaccount" resource="customer-subaccounts"
-		required="false" />
-	<relationship name="ledger-account" resource="ledger-accounts"
-		required="true" />
+	<relationship name="customer-account" resource="customer-accounts" required="true" />
+	<relationship name="customer-subaccount" resource="customer-subaccounts" required="false" />
+	<relationship name="ledger-account" resource="ledger-accounts" required="false" />
+	<relationship name="audit-trail" many="true" resource="bank-transaction-logs" required="false" />
 
 	<relationship name="update-user" resource="people" required="false" />
 
-	<url method="GET" url="journal/bank-transactions/:id">
-	</url>
+	<url method="GET" url="journal/bank-transactions/:id" />
 
 	<url method="GET" url="journal/bank-transactions">
 		<parameter key="start-date" value="yyyy-mm-dd" />

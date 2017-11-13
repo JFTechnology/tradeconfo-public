@@ -1,0 +1,281 @@
+<example title="At market order" method="POST" url="/fx-customer-api/payment-requests" xmlns="http://tradeconfo.com/ns/api">
+<request>
+{
+	"data": {
+		"type": "payment-requests",
+		"attributes": {
+			"state": "ACCEPTED",
+			"instructions": [
+				{
+					"tenor": "NEXT",
+					"quote": "REMITTANCE_AMOUNT",
+					"remittance-currency-id": "GBP",
+					"delivery-amount": 10000,
+					"beneficiary-id": "87722"
+				}
+			]
+		},
+		"relationships": {
+			"customer-account": {
+				"data": {
+					"type": "customer-accounts",
+					"id": "PL5000080167"
+				}
+			}
+		}
+	}
+}
+</request>
+<response>
+{
+    "data": {
+        "id": "208885",
+        "type": "payment-requests",
+        "attributes": {
+            "state": "ACCEPTED",
+            "ttl": 0,
+            "update-time": "2015-03-18T15:10:54.148Z",
+            "version": 3,
+            "instructions": [
+                {
+                    "tenor": "NEXT",
+                    "quote": "REMITTANCE_AMOUNT",
+                    "status": "TRADEABLE",
+                    "remittance-currency-id": "GBP",
+                    "remittance-amount": 9017.13,
+                    "remittance-fee": 0,
+                    "delivery-currency-id": "EUR",
+                    "delivery-amount": 10000,
+                    "delivery-fee": 0,
+                    "margin-currency-id": "GBP",
+                    "margin-amount": 0,
+                    "beneficiary-id": "87722",
+                    "charge-code": "SHA",
+                    "operation-code": "SPRI",
+                    "value-date": "2015-03-19",
+                    "settlement-time": "2015-03-19T11:00:00Z",
+                    "transaction-id": "PL59T000208906-00",
+                    "payment-id": "PL63W000208925"
+                }
+            ]
+        },
+        "relationships": {
+            "customer-account": {
+                "data": {
+                    "id": "PL5000080167",
+                    "type": "customer-accounts"
+                }
+            },
+            "customer-subaccount": {
+                "data": null
+            },
+            "customer-contact": {
+                "data": {
+                    "id": "80168",
+                    "type": "people"
+                }
+            },
+            "update-user": {
+                "data": {
+                    "id": "80168",
+                    "type": "people"
+                }
+            },
+            "transactions": {
+                "data": [
+                    {
+                        "id": "PL59T000208906-00",
+                        "type": "fx-transactions"
+                    }
+                ]
+            },
+            "payments": {
+                "data": [
+                    {
+                        "id": "PL63W000208925",
+                        "type": "payments"
+                    }
+                ]
+            }
+        }
+    },
+    "included": [
+        {
+            "id": "PL63W000208925",
+            "type": "payments",
+            "attributes": {
+                "update-time": "2015-03-18T15:10:54.148Z",
+                "review-state": "REVIEW_REQUIRED",
+                "booking-date": "2015-03-19",
+                "value-date": "2015-03-19",
+                "side": "WITHDRAWAL",
+                "type": "PRINCIPAL",
+                "instruction-status": "UNCONFIRMED",
+                "status": "SCHEDULED",
+                "comment": "Inserted",
+                "payment-reason": " : No comment given",
+                "operation-code": "SPRI",
+                "charge-code": "SHA",
+                "amount": 10000
+            },
+            "relationships": {
+                "update-user": {
+                    "data": {
+                        "id": "80168",
+                        "type": "people"
+                    }
+                },
+                "last-reviewer": {
+                    "data": null
+                },
+                "customer-account": {
+                    "data": {
+                        "id": "PL5000080167",
+                        "type": "customer-accounts"
+                    }
+                },
+                "customer-subaccount": {
+                    "data": null
+                },
+                "source-bank-account": {
+                    "data": null
+                },
+                "charge-bank-account": {
+                    "data": null
+                },
+                "beneficiary-bank-account": {
+                    "data": {
+                        "id": "87722",
+                        "type": "bank-accounts"
+                    }
+                },
+                "scheduling-batch": {
+                    "data": null
+                },
+                "processing-batch": {
+                    "data": null
+                },
+                "instruction-placer": {
+                    "data": {
+                        "id": "80168",
+                        "type": "people"
+                    }
+                },
+                "instruction-confirmer": {
+                    "data": null
+                },
+                "currency": {
+                    "data": {
+                        "id": "EUR",
+                        "type": "currencies"
+                    }
+                },
+                "audit-trail": {
+                    "links": {
+                        "related": "audit-trail",
+                        "self": "relationships/audit-trail"
+                    }
+                }
+            }
+        },
+        {
+            "id": "PL59T000208906-00",
+            "type": "fx-transactions",
+            "attributes": {
+                "resource-state": "ACTIVE",
+                "status": "CONFIRMED",
+                "type": "TRADE",
+                "trade-date": "2015-03-18",
+                "trade-time": "2015-03-18T15:10:54.148Z"
+            },
+            "relationships": {
+                "ticket": {
+                    "data": {
+                        "id": "PL59T000208906",
+                        "type": "fx-tickets"
+                    }
+                },
+                "blocks": {
+                    "data": [
+                        {
+                            "id": "PL59T000208906-00-00",
+                            "type": "fx-transaction-blocks"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "id": "PL59T000208906",
+            "type": "fx-tickets",
+            "relationships": {
+                "base-currency": {
+                    "data": {
+                        "id": "GBP",
+                        "type": "currencies"
+                    }
+                },
+                "counter-currency": {
+                    "data": {
+                        "id": "EUR",
+                        "type": "currencies"
+                    }
+                },
+                "margin-currency": {
+                    "data": {
+                        "id": "GBP",
+                        "type": "currencies"
+                    }
+                },
+                "customer-account": {
+                    "data": {
+                        "id": "PL5000080167",
+                        "type": "customer-accounts"
+                    }
+                },
+                "transactions": {
+                    "links": {
+                        "related": "transactions"
+                    }
+                },
+                "blocks": {
+                    "links": {
+                        "related": "blocks"
+                    }
+                },
+                "related-payments": {
+                    "links": {
+                        "related": "related-payments"
+                    }
+                }
+            }
+        },
+        {
+            "id": "PL59T000208906-00-00",
+            "type": "fx-transaction-blocks",
+            "attributes": {
+                "settlement-date": "2015-03-19",
+                "value-date": "2015-03-19",
+                "base-amount": 9017.13,
+                "counter-amount": -10000,
+                "settled": false
+            },
+            "relationships": {
+                "ticket": {
+                    "data": {
+                        "id": "PL59T000208906",
+                        "type": "fx-tickets"
+                    }
+                },
+                "transaction": {
+                    "data": {
+                        "id": "PL59T000208906-00",
+                        "type": "fx-transactions"
+                    }
+                }
+            }
+        }
+    ]
+}
+</response>
+</example>

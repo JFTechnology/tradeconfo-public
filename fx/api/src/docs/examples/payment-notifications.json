@@ -1,0 +1,157 @@
+<example title="Search query" method="GET" url="/fx-customer-api/bank-transactions?start-date=2010-11-01&amp;end-date=2010-11-30" xmlns="http://tradeconfo.com/ns/api">
+<response>
+{
+    "data": [
+        {
+            "id": "1",
+            "type": "payment-notifications",
+            "attributes": {
+                "advice-date": "2010-11-25",
+                "advice-time": "12:31:00",
+                "bank-reference": "1234567",
+                "beneficiary": {
+                    "name": "aName",
+                    "address": [
+                        "Address 1",
+                        "Address 2",
+                        "Address 3"
+                    ]
+                },
+                "beneficiary-account": "12121212",
+                "side": "DEPOSIT"
+            },
+            "relationships": {
+                "additional-charges-currency": {
+                    "data": null
+                },
+                "agent-charges-currency": {
+                    "data": null
+                },
+                "commission-bank-account": {
+                    "data": null
+                },
+                "commission-charges-currency": {
+                    "data": null
+                },
+                "credit-bank-account": {
+                    "data": null
+                },
+                "credit-currency": {
+                    "data": null
+                },
+                "debit-bank-account": {
+                    "data": null
+                },
+                "debit-currency": {
+                    "data": null
+                },
+                "domain": {
+                    "data": {
+                        "id": "66",
+                        "type": "domains"
+                    }
+                },
+                "ordered-currency": {
+                    "data": null
+                },
+                "received-currency": {
+                    "data": null
+                },
+                "requested-currency": {
+                    "data": null
+                },
+                "senders-charges-currency": {
+                    "data": null
+                },
+                "bank-transactions": {
+                    "links": {
+                        "related": "bank-transactions",
+                        "self": "relationships/bank-transactions"
+                    }
+                }
+            }
+        },
+        {
+            "id": "2",
+            "type": "payment-notifications",
+            "attributes": {
+                "advice-date": "2011-10-25",
+                "advice-time": "12:31:00",
+                "bank-reference": "1234567",
+                "beneficiary": {
+                    "name": "aName",
+                    "address": [
+                        "Address 1",
+                        "Address 2",
+                        "Address 3"
+                    ]
+                },
+                "beneficiary-bank": {
+                    "name": "aName",
+                    "address": [
+                        "Address 1",
+                        "Address 2",
+                        "Address 3"
+                    ]
+                },
+                "payment-details": [
+                    "dets 1",
+                    "dets 2"
+                ],
+                "side": "WITHDRAWAL"
+            },
+            "relationships": {
+                "additional-charges-currency": {
+                    "data": null
+                },
+                "agent-charges-currency": {
+                    "data": null
+                },
+                "commission-bank-account": {
+                    "data": null
+                },
+                "commission-charges-currency": {
+                    "data": null
+                },
+                "credit-bank-account": {
+                    "data": null
+                },
+                "credit-currency": {
+                    "data": null
+                },
+                "debit-bank-account": {
+                    "data": null
+                },
+                "debit-currency": {
+                    "data": null
+                },
+                "domain": {
+                    "data": {
+                        "id": "66",
+                        "type": "domains"
+                    }
+                },
+                "ordered-currency": {
+                    "data": null
+                },
+                "received-currency": {
+                    "data": null
+                },
+                "requested-currency": {
+                    "data": null
+                },
+                "senders-charges-currency": {
+                    "data": null
+                },
+                "bank-transactions": {
+                    "links": {
+                        "related": "bank-transactions",
+                        "self": "relationships/bank-transactions"
+                    }
+                }
+            }
+        }
+    ]
+}
+</response>
+</example>

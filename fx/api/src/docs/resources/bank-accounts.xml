@@ -47,7 +47,6 @@
 		</comment>
 	</attribute>
 
-	<relationship name="domain" resource="domains" required="false" />
 	<relationship name="currency" resource="currencies" required="true" />
 	<relationship name="country" resource="countries" required="true" />
 
@@ -55,6 +54,12 @@
 		<example file="bank-account.json" />
 		<comment>
 			Returns a single resource.
+		</comment>
+	</url>
+
+	<url method="POST" url="bank-accounts/:id">
+		<comment>
+			Create a bank account resource.
 		</comment>
 	</url>
 

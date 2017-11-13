@@ -17,8 +17,7 @@
 
 	<type name="timestamp" json="string">
 		<comment>
-			<p>ISO Format : YYYY-MM-DDTHH:MM:SS</p>
+			<p>ISO Format : YYYY-MM-DDTHH:MM:SSZ</p>
 		</comment>
 	</type>
-
 </types>

@@ -12,8 +12,6 @@
 			User friendly name
 		</comment>
 	</attribute>
-	<attribute name="object-status" type="enum" enum="object-status"
-		required="false" />
 
 	<url method="GET" url="countries">
 		<example file="countries.json" />

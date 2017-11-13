@@ -2,36 +2,42 @@
 
 	<description>Represents a customer account</description>
 
-	<attribute name="name" type="string" required="true">
+	<attribute name="review-state" type="enum" enum="review.status" required="false" />
+	<attribute name="last-reviewed" type="timestamp" required="false" />
+
+	<attribute name="name" type="string" required="true" />
+	<attribute name="type" type="enum" enum="customer-accounts.type" required="true" />
+	<attribute name="resource-state" type="enum" enum="resource-state" required="false" />
+	<attribute name="purpose" type="enum" enum="customer-accounts.purpose" required="false" />
+	<attribute name="account-creation-time" type="timerstamp" required="false" />
+	<attribute name="account-reference" type="string" required="false">
 		<comment>
-			Account Title eg WILLIAM NEWTON
+			Should be included in any remittance.
 		</comment>
 	</attribute>
-	<attribute name="description" type="string" required="false" />
-	<attribute name="type" type="enum" enum="customer-accounts.type"
-		required="true" />
-	<attribute name="review-status" type="enum" enum="review.status"
-		required="false" />
-	<attribute name="last-reviewed" type="timestamp" required="false" />
-	<attribute name="object-status" type="enum" enum="object-status"
-		required="false" />
-	<attribute name="purpose" type="enum" enum="customer-accounts.purpose"
-		required="false" />
 
-	<relationship name="domain" resource="domains" required="false" />
-	<relationship name="domain-group" resource="domain-groups" required="false" />
-	<relationship name="account-manager" resource="people" required="false" />
+	<relationship name="last-reviewer" resource="people" required="false">
+		<comment>
+			Last person to review this resource.
+		</comment>
+	</relationship>
+
+	<relationship name="account-manager" resource="people" required="true" />
+	<relationship name="subaccounts" resource="customer-subaccounts" many="true" required="false" />
+	<relationship name="contacts" resource="customer-contacts" many="true" required="false" />
+	<relationship name="beneficiaries" resource="customer-bank-accounts" many="true" required="false" />
+
+	<url method="GET" url="customer-accounts/:id">
+		<example file="customer-account.json" />
+		<comment>
+			Returns a single resource.
+		</comment>
+	</url>
 
 	<url method="GET" url="customer-accounts">
 		<example file="customer-accounts.json" />
 		<comment>
 			Returns a listing of all resources available to caller.
-		</comment>
-	</url>
-	<url method="GET" url="customer-accounts/:id">
-		<example file="customer-account.json" />
-		<comment>
-			Returns a single resource.
 		</comment>
 	</url>
 

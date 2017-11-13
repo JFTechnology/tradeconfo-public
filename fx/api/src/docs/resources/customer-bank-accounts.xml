@@ -2,8 +2,13 @@
 
 	<description>
 		A resouce representing association of a bank account resource to a
-		customer account. Required for delivery of currency.
+		customer account. This resource enables
+		various defaults to be specified for
+		payments from a single customer account to a single beneficiary bank account.
 	</description>
+
+	<attribute name="review-state" type="enum" enum="review.status" required="false" />
+	<attribute name="last-reviewed" type="timestamp" required="false" />
 
 	<attribute name="nickname" type="string" required="false">
 		<comment>
@@ -25,17 +30,36 @@
 		<comment>
 			A reference that can be used by the customer to identify this
 			beneficiary. The
-			customer is responsible for guaranteeing its uniqueness.
+			customer is responsible for
+			guaranteeing its uniqueness.
 		</comment>
 	</attribute>
-	<attribute name="default-charge-code" type="enum" enum="charge.code"
-		required="false" />
-	<attribute name="default-remittance-information" type="string"
-		required="false"
-	>
+	<attribute name="default-operation-code" type="enum" enum="operation.code" required="false">
+		<comment>
+			Default value to be used for any payment instruction to this
+			beneficiary if no
+			payment specific value is
+			provided.
+		</comment>
+	</attribute>
+	<attribute name="default-charge-code" type="enum" enum="charge.code" required="false">
+		<comment>
+			Default value to be used for any payment instruction to this
+			beneficiary if no
+			payment specific value is
+			provided.
+		</comment>
+	</attribute>
+	<attribute name="default-remittance-information" type="string" required="false">
 		<comment>
 			Default text to be included in any payment to this beneficiary if no
-			payment specific text is provided. Limited to 35 characters.
+			payment specific text is provided.
+			Limited to 35 characters.
+		</comment>
+	</attribute>
+	<attribute name="default-intermediary" type="string" required="false">
+		<comment>
+			A valid swift institution identifier
 		</comment>
 	</attribute>
 	<attribute name="source" type="boolean" required="false">
@@ -44,32 +68,34 @@
 			Assumed false if not present.
 		</comment>
 	</attribute>
-	<attribute name="review-status" type="enum" enum="review.status"
-		required="false" />
-	<attribute name="last-reviewed" type="timestamp" required="false" />
 
-	<relationship name="customer-account" resource="customer-accounts"
-		required="true"
-	>
+	<relationship name="last-reviewer" resource="people" required="false">
+		<comment>
+			Last person to review this resource.
+		</comment>
+	</relationship>
+	<relationship name="customer-account" resource="customer-accounts" required="true">
 		<comment>
 			The customer account that this resource relates to.
 		</comment>
 	</relationship>
+	<relationship name="customer-subaccount" resource="customer-subaccounts" required="false" />
 	<relationship name="bank-account" resource="bank-accounts" required="true">
 		<comment>
 			The bank account that this resource relates to.
 		</comment>
 	</relationship>
 
-	<url method="GET" url="customer-bank-accounts/:id">
-		<comment>
-			Returns a single resource.
-		</comment>
-	</url>
 	<url method="GET" url="customer-accounts/:id/beneficiaries">
 		<example file="customer-bank-accounts.json" />
 		<comment>
 			Returns collection of all beneficiaries for a customer account.
+		</comment>
+	</url>
+
+	<url method="GET" url="customer-bank-accounts/:id">
+		<comment>
+			Returns a single resource.
 		</comment>
 	</url>
 

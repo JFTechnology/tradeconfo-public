@@ -1,0 +1,1144 @@
+<example title="Bootstrap call" method="GET" url="/fx-customer-api/user-profiles/self" xmlns="http://tradeconfo.com/ns/api">
+<response>
+{
+	"data": {
+		"id": "80168",
+		"type": "user-profiles",
+		"relationships": {
+			"identity": {
+				"data": {
+					"id": "80168",
+					"type": "personal-identities"
+				}
+			},
+			"user": {
+				"data": {
+					"id": "80168",
+					"type": "people"
+				}
+			},
+			"caller": {
+				"data": {
+					"id": "80168",
+					"type": "people"
+				}
+			},
+			"customer-account-profiles": {
+				"data": [
+					{
+						"id": "PL5000080167",
+						"type": "customer-account-profiles"
+					}
+				]
+			}
+		}
+	},
+	"included": [
+		{
+			"id": "AT",
+			"type": "countries",
+			"attributes": {
+				"name": "Austria",
+				"numeric-code": 40,
+				"alpha-3-code": "AUT"
+			}
+		},
+		{
+			"id": "BE",
+			"type": "countries",
+			"attributes": {
+				"name": "Belgium",
+				"numeric-code": 56,
+				"alpha-3-code": "BEL"
+			}
+		},
+		{
+			"id": "CY",
+			"type": "countries",
+			"attributes": {
+				"name": "Cyprus",
+				"numeric-code": 196,
+				"alpha-3-code": "CYP"
+			}
+		},
+		{
+			"id": "DE",
+			"type": "countries",
+			"attributes": {
+				"name": "Germany",
+				"numeric-code": 276,
+				"alpha-3-code": "DEU"
+			}
+		},
+		{
+			"id": "EE",
+			"type": "countries",
+			"attributes": {
+				"name": "Estonia",
+				"numeric-code": 233,
+				"alpha-3-code": "EST"
+			}
+		},
+		{
+			"id": "ES",
+			"type": "countries",
+			"attributes": {
+				"name": "Spain",
+				"numeric-code": 724,
+				"alpha-3-code": "ESP"
+			}
+		},
+		{
+			"id": "FI",
+			"type": "countries",
+			"attributes": {
+				"name": "Finland",
+				"numeric-code": 246,
+				"alpha-3-code": "FIN"
+			}
+		},
+		{
+			"id": "FR",
+			"type": "countries",
+			"attributes": {
+				"name": "France",
+				"numeric-code": 250,
+				"alpha-3-code": "FRA"
+			}
+		},
+		{
+			"id": "GR",
+			"type": "countries",
+			"attributes": {
+				"name": "Greece",
+				"numeric-code": 300,
+				"alpha-3-code": "GRC"
+			}
+		},
+		{
+			"id": "IE",
+			"type": "countries",
+			"attributes": {
+				"name": "Ireland",
+				"numeric-code": 372,
+				"alpha-3-code": "IRL"
+			}
+		},
+		{
+			"id": "IT",
+			"type": "countries",
+			"attributes": {
+				"name": "Italy",
+				"numeric-code": 380,
+				"alpha-3-code": "ITA"
+			}
+		},
+		{
+			"id": "LV",
+			"type": "countries",
+			"attributes": {
+				"name": "Latvia",
+				"numeric-code": 428,
+				"alpha-3-code": "LVA"
+			}
+		},
+		{
+			"id": "LT",
+			"type": "countries",
+			"attributes": {
+				"name": "Lithuania",
+				"numeric-code": 440,
+				"alpha-3-code": "LTU"
+			}
+		},
+		{
+			"id": "LU",
+			"type": "countries",
+			"attributes": {
+				"name": "Luxembourg",
+				"numeric-code": 442,
+				"alpha-3-code": "LUX"
+			}
+		},
+		{
+			"id": "MT",
+			"type": "countries",
+			"attributes": {
+				"name": "Malta",
+				"numeric-code": 470,
+				"alpha-3-code": "MLT"
+			}
+		},
+		{
+			"id": "NL",
+			"type": "countries",
+			"attributes": {
+				"name": "Netherlands",
+				"numeric-code": 528,
+				"alpha-3-code": "NLD"
+			}
+		},
+		{
+			"id": "PT",
+			"type": "countries",
+			"attributes": {
+				"name": "Portugal",
+				"numeric-code": 620,
+				"alpha-3-code": "PRT"
+			}
+		},
+		{
+			"id": "SK",
+			"type": "countries",
+			"attributes": {
+				"name": "Slovakia",
+				"numeric-code": 703,
+				"alpha-3-code": "SVK"
+			}
+		},
+		{
+			"id": "SI",
+			"type": "countries",
+			"attributes": {
+				"name": "Slovenia",
+				"numeric-code": 705,
+				"alpha-3-code": "SVN"
+			}
+		},
+		{
+			"id": "BG",
+			"type": "countries",
+			"attributes": {
+				"name": "Bulgaria",
+				"numeric-code": 100,
+				"alpha-3-code": "BGR"
+			}
+		},
+		{
+			"id": "HR",
+			"type": "countries",
+			"attributes": {
+				"name": "Croatia",
+				"numeric-code": 191,
+				"alpha-3-code": "HRV"
+			}
+		},
+		{
+			"id": "CZ",
+			"type": "countries",
+			"attributes": {
+				"name": "Czech Republic",
+				"numeric-code": 203,
+				"alpha-3-code": "CZE"
+			}
+		},
+		{
+			"id": "DK",
+			"type": "countries",
+			"attributes": {
+				"name": "Denmark",
+				"numeric-code": 208,
+				"alpha-3-code": "DNK"
+			}
+		},
+		{
+			"id": "HU",
+			"type": "countries",
+			"attributes": {
+				"name": "Hungary",
+				"numeric-code": 348,
+				"alpha-3-code": "HUN"
+			}
+		},
+		{
+			"id": "PL",
+			"type": "countries",
+			"attributes": {
+				"name": "Poland",
+				"numeric-code": 616,
+				"alpha-3-code": "POL"
+			}
+		},
+		{
+			"id": "RO",
+			"type": "countries",
+			"attributes": {
+				"name": "Romania",
+				"numeric-code": 642,
+				"alpha-3-code": "ROU"
+			}
+		},
+		{
+			"id": "SE",
+			"type": "countries",
+			"attributes": {
+				"name": "Sweden",
+				"numeric-code": 752,
+				"alpha-3-code": "SWE"
+			}
+		},
+		{
+			"id": "GB",
+			"type": "countries",
+			"attributes": {
+				"name": "United Kingdom",
+				"numeric-code": 826,
+				"alpha-3-code": "GBR"
+			}
+		},
+		{
+			"id": "IS",
+			"type": "countries",
+			"attributes": {
+				"name": "Iceland",
+				"numeric-code": 352,
+				"alpha-3-code": "ISL"
+			}
+		},
+		{
+			"id": "LI",
+			"type": "countries",
+			"attributes": {
+				"name": "Liechtenstein",
+				"numeric-code": 438,
+				"alpha-3-code": "LIE"
+			}
+		},
+		{
+			"id": "NO",
+			"type": "countries",
+			"attributes": {
+				"name": "Norway",
+				"numeric-code": 578,
+				"alpha-3-code": "NOR"
+			}
+		},
+		{
+			"id": "CH",
+			"type": "countries",
+			"attributes": {
+				"name": "Switzerland",
+				"numeric-code": 756,
+				"alpha-3-code": "CHE"
+			}
+		},
+		{
+			"id": "US",
+			"type": "countries",
+			"attributes": {
+				"name": "United States",
+				"numeric-code": 840,
+				"alpha-3-code": "USA"
+			}
+		},
+		{
+			"id": "CA",
+			"type": "countries",
+			"attributes": {
+				"name": "Canada",
+				"numeric-code": 124,
+				"alpha-3-code": "CAN"
+			}
+		},
+		{
+			"id": "SG",
+			"type": "countries",
+			"attributes": {
+				"name": "Singapore",
+				"numeric-code": 702,
+				"alpha-3-code": "SGP"
+			}
+		},
+		{
+			"id": "JP",
+			"type": "countries",
+			"attributes": {
+				"name": "Japan",
+				"numeric-code": 392,
+				"alpha-3-code": "JPN"
+			}
+		},
+		{
+			"id": "AU",
+			"type": "countries",
+			"attributes": {
+				"name": "Australia",
+				"numeric-code": 36,
+				"alpha-3-code": "AUS"
+			}
+		},
+		{
+			"id": "NZ",
+			"type": "countries",
+			"attributes": {
+				"name": "New Zealand",
+				"numeric-code": 554,
+				"alpha-3-code": "NZL"
+			}
+		},
+		{
+			"id": "AE",
+			"type": "countries",
+			"attributes": {
+				"name": "United Arab Emirates",
+				"numeric-code": 784,
+				"alpha-3-code": "ARE"
+			}
+		},
+		{
+			"id": "GBP",
+			"type": "currencies",
+			"attributes": {
+				"name": "GBP",
+				"code": 1052,
+				"description": "Pound sterling"
+			}
+		},
+		{
+			"id": "EUR",
+			"type": "currencies",
+			"attributes": {
+				"name": "EUR",
+				"code": 1049,
+				"description": "Euro"
+			}
+		},
+		{
+			"id": "DKK",
+			"type": "currencies",
+			"attributes": {
+				"name": "DKK",
+				"code": 1042,
+				"description": "Danish krone"
+			}
+		},
+		{
+			"id": "NOK",
+			"type": "currencies",
+			"attributes": {
+				"name": "NOK",
+				"code": 1109,
+				"description": "Norwegian krone"
+			}
+		},
+		{
+			"id": "SEK",
+			"type": "currencies",
+			"attributes": {
+				"name": "SEK",
+				"code": 1129,
+				"description": "Swedish krona/kronor"
+			}
+		},
+		{
+			"id": "PLN",
+			"type": "currencies",
+			"attributes": {
+				"name": "PLN",
+				"code": 1118,
+				"description": "Polish zÅ¿oty"
+			}
+		},
+		{
+			"id": "CHF",
+			"type": "currencies",
+			"attributes": {
+				"name": "CHF",
+				"code": 1029,
+				"description": "Swiss franc"
+			}
+		},
+		{
+			"id": "USD",
+			"type": "currencies",
+			"attributes": {
+				"name": "USD",
+				"code": 1149,
+				"description": "United States dollar"
+			}
+		},
+		{
+			"id": "CAD",
+			"type": "currencies",
+			"attributes": {
+				"name": "CAD",
+				"code": 1026,
+				"description": "Canadian dollar"
+			}
+		},
+		{
+			"id": "SGD",
+			"type": "currencies",
+			"attributes": {
+				"name": "SGD",
+				"code": 1130,
+				"description": "Singapore dollar"
+			}
+		},
+		{
+			"id": "JPY",
+			"type": "currencies",
+			"attributes": {
+				"name": "JPY",
+				"code": 1073,
+				"description": "Japanese yen"
+			}
+		},
+		{
+			"id": "AUD",
+			"type": "currencies",
+			"attributes": {
+				"name": "AUD",
+				"code": 1007,
+				"description": "Australian dollar"
+			}
+		},
+		{
+			"id": "NZD",
+			"type": "currencies",
+			"attributes": {
+				"name": "NZD",
+				"code": 1111,
+				"description": "New Zealand dollar"
+			}
+		},
+		{
+			"id": "AED",
+			"type": "currencies",
+			"attributes": {
+				"name": "AED",
+				"code": 1000,
+				"description": "United Arab Emirates dirham"
+			}
+		},
+		{
+			"id": "2200",
+			"type": "ledger-accounts",
+			"attributes": {
+				"name": "Customer funds",
+				"type": "LIABILITY"
+			},
+			"relationships": {
+				"domain": {
+					"data": null
+				}
+			}
+		},
+		{
+			"id": "2210",
+			"type": "ledger-accounts",
+			"attributes": {
+				"name": "Initial margin",
+				"type": "LIABILITY"
+			},
+			"relationships": {
+				"domain": {
+					"data": null
+				}
+			}
+		},
+		{
+			"id": "2215",
+			"type": "ledger-accounts",
+			"attributes": {
+				"name": "Variation margin",
+				"type": "LIABILITY"
+			},
+			"relationships": {
+				"domain": {
+					"data": null
+				}
+			}
+		},
+		{
+			"id": "1220",
+			"type": "ledger-accounts",
+			"attributes": {
+				"name": "Unsettled trade receivables",
+				"type": "ASSET"
+			},
+			"relationships": {
+				"domain": {
+					"data": null
+				}
+			}
+		},
+		{
+			"id": "2220",
+			"type": "ledger-accounts",
+			"attributes": {
+				"name": "Unsettled trade payables",
+				"type": "LIABILITY"
+			},
+			"relationships": {
+				"domain": {
+					"data": null
+				}
+			}
+		},
+		{
+			"id": "PL5000080167",
+			"type": "customer-accounts",
+			"attributes": {
+				"review-state": "ACCEPTED",
+				"last-reviewed": "2016-12-15T09:56:30.194Z",
+				"name": "Stephen Flynn",
+				"type": "PERSONAL",
+				"purpose": "TRADING",
+				"account-creation-time": "2016-12-14T15:41:16.661Z",
+				"account-reference": "PL5000080167"
+			},
+			"relationships": {
+				"last-reviewer": {
+					"data": null
+				},
+				"account-manager": {
+					"data": {
+						"id": "15298",
+						"type": "people"
+					}
+				},
+				"subaccounts": {
+					"links": {
+						"related": "subaccounts",
+						"self": "relationships/subaccounts"
+					}
+				},
+				"contacts": {
+					"links": {
+						"related": "contacts",
+						"self": "relationships/contacts"
+					}
+				},
+				"beneficiaries": {
+					"links": {
+						"related": "beneficiaries",
+						"self": "relationships/beneficiaries"
+					}
+				}
+			}
+		},
+		{
+			"id": "15298",
+			"type": "people",
+			"attributes": {
+				"first-name": "Charlie",
+				"last-name": "Thwaytes"
+			},
+			"relationships": {
+				"domain": {
+					"data": null
+				}
+			}
+		},
+		{
+			"id": "PL5000080167-61741",
+			"type": "customer-bank-accounts",
+			"attributes": {
+				"review-state": "DATA_REQUIRED",
+				"default-charge-code": "SHA",
+				"default-operation-code": "SPRI",
+				"comment": "Pay Ferbo s.r.l",
+				"source": false,
+				"confirmation-requirement": "REQUIRED"
+			},
+			"relationships": {
+				"last-reviewer": {
+					"data": null
+				},
+				"customer-account": {
+					"data": {
+						"id": "PL5000080167",
+						"type": "customer-accounts"
+					}
+				},
+				"customer-subaccount": {
+					"data": null
+				},
+				"bank-account": {
+					"data": {
+						"id": "61741",
+						"type": "bank-accounts"
+					}
+				}
+			}
+		},
+		{
+			"id": "PL5000080167-84561",
+			"type": "customer-bank-accounts",
+			"attributes": {
+				"review-state": "DATA_REQUIRED",
+				"default-charge-code": "SHA",
+				"default-operation-code": "SPRI",
+				"comment": "Pay JF Technology (UK) Ltd",
+				"source": false,
+				"confirmation-requirement": "REQUIRED"
+			},
+			"relationships": {
+				"last-reviewer": {
+					"data": null
+				},
+				"customer-account": {
+					"data": {
+						"id": "PL5000080167",
+						"type": "customer-accounts"
+					}
+				},
+				"customer-subaccount": {
+					"data": null
+				},
+				"bank-account": {
+					"data": {
+						"id": "84561",
+						"type": "bank-accounts"
+					}
+				}
+			}
+		},
+		{
+			"id": "PL5000080167-87721",
+			"type": "customer-bank-accounts",
+			"attributes": {
+				"review-state": "DATA_REQUIRED",
+				"default-charge-code": "SHA",
+				"default-operation-code": "SPRI",
+				"comment": "Pay Fino",
+				"source": false,
+				"confirmation-requirement": "REQUIRED"
+			},
+			"relationships": {
+				"last-reviewer": {
+					"data": null
+				},
+				"customer-account": {
+					"data": {
+						"id": "PL5000080167",
+						"type": "customer-accounts"
+					}
+				},
+				"customer-subaccount": {
+					"data": null
+				},
+				"bank-account": {
+					"data": {
+						"id": "87721",
+						"type": "bank-accounts"
+					}
+				}
+			}
+		},
+		{
+			"id": "PL5000080167-87722",
+			"type": "customer-bank-accounts",
+			"attributes": {
+				"review-state": "DATA_REQUIRED",
+				"default-charge-code": "SHA",
+				"default-operation-code": "SPRI",
+				"comment": "Pay Steve Flynn",
+				"source": false,
+				"confirmation-requirement": "REQUIRED"
+			},
+			"relationships": {
+				"last-reviewer": {
+					"data": null
+				},
+				"customer-account": {
+					"data": {
+						"id": "PL5000080167",
+						"type": "customer-accounts"
+					}
+				},
+				"customer-subaccount": {
+					"data": null
+				},
+				"bank-account": {
+					"data": {
+						"id": "87722",
+						"type": "bank-accounts"
+					}
+				}
+			}
+		},
+		{
+			"id": "1",
+			"type": "payment-reasons",
+			"attributes": {
+				"name": "Invoice",
+				"description": "Invoice",
+				"comment-required": false
+			}
+		},
+		{
+			"id": "2",
+			"type": "payment-reasons",
+			"attributes": {
+				"name": "Asset purchase",
+				"description": "Asset purchase",
+				"comment-required": false
+			}
+		},
+		{
+			"id": "3",
+			"type": "payment-reasons",
+			"attributes": {
+				"name": "Living expenses",
+				"description": "Living expenses",
+				"comment-required": false
+			}
+		},
+		{
+			"id": "4",
+			"type": "payment-reasons",
+			"attributes": {
+				"name": "Travel expenses",
+				"description": "Travel expenses",
+				"comment-required": false
+			}
+		},
+		{
+			"id": "0",
+			"type": "payment-reasons",
+			"attributes": {
+				"name": "Other",
+				"description": "Other",
+				"comment-required": true
+			}
+		},
+		{
+			"id": "61741",
+			"type": "bank-accounts",
+			"attributes": {
+				"update-time": "2016-10-10T12:26:54.301Z",
+				"nickname": "Ferbo s.r.l",
+				"beneficiary": "Ferbo s.r.l",
+				"iban": "IT77 N030 6968 6301 0000 0002 341",
+				"bic": "BCITITMMXXX",
+				"account-number": "100000002341",
+				"national-bank-code": "03069",
+				"national-branch-code": "68630"
+			},
+			"relationships": {
+				"update-user": {
+					"data": {
+						"id": "15298",
+						"type": "people"
+					}
+				},
+				"domain": {
+					"data": null
+				},
+				"currency": {
+					"data": {
+						"id": "EUR",
+						"type": "currencies"
+					}
+				},
+				"country": {
+					"data": {
+						"id": "IT",
+						"type": "countries"
+					}
+				},
+				"audit-trail": {
+					"links": {
+						"related": "audit-trail",
+						"self": "relationships/audit-trail"
+					}
+				}
+			}
+		},
+		{
+			"id": "84561",
+			"type": "bank-accounts",
+			"attributes": {
+				"update-time": "2017-04-24T03:03:56.753Z",
+				"nickname": "JF Technology (UK) Ltd",
+				"beneficiary": "JF Technology (UK) Ltd",
+				"iban": "GB20 BARC 2032 0020 1297 20",
+				"bic": "BARCGB22XXX",
+				"account-number": "20129720",
+				"national-bank-code": "BARC",
+				"national-clearing-code": "203200"
+			},
+			"relationships": {
+				"update-user": {
+					"data": {
+						"id": "80168",
+						"type": "people"
+					}
+				},
+				"domain": {
+					"data": null
+				},
+				"currency": {
+					"data": {
+						"id": "GBP",
+						"type": "currencies"
+					}
+				},
+				"country": {
+					"data": {
+						"id": "GB",
+						"type": "countries"
+					}
+				},
+				"audit-trail": {
+					"links": {
+						"related": "audit-trail",
+						"self": "relationships/audit-trail"
+					}
+				}
+			}
+		},
+		{
+			"id": "87721",
+			"type": "bank-accounts",
+			"attributes": {
+				"update-time": "2015-03-13T11:04:32.158Z",
+				"nickname": "Fino",
+				"beneficiary": "Fino",
+				"iban": "PT50 0018 0001 0020 0651 9988 8",
+				"bic": "TOTAPTPLXXX",
+				"account-number": "00200651998",
+				"national-bank-code": "0018",
+				"national-branch-code": "0001"
+			},
+			"relationships": {
+				"update-user": {
+					"data": {
+						"id": "80168",
+						"type": "people"
+					}
+				},
+				"domain": {
+					"data": null
+				},
+				"currency": {
+					"data": {
+						"id": "GBP",
+						"type": "currencies"
+					}
+				},
+				"country": {
+					"data": {
+						"id": "PT",
+						"type": "countries"
+					}
+				},
+				"audit-trail": {
+					"links": {
+						"related": "audit-trail",
+						"self": "relationships/audit-trail"
+					}
+				}
+			}
+		},
+		{
+			"id": "87722",
+			"type": "bank-accounts",
+			"attributes": {
+				"update-time": "2015-03-13T11:08:22.924Z",
+				"nickname": "Steve Flynn",
+				"beneficiary": "Steve Flynn",
+				"account-number": "12123434",
+				"national-clearing-code": "121212"
+			},
+			"relationships": {
+				"update-user": {
+					"data": {
+						"id": "80168",
+						"type": "people"
+					}
+				},
+				"domain": {
+					"data": null
+				},
+				"currency": {
+					"data": {
+						"id": "EUR",
+						"type": "currencies"
+					}
+				},
+				"country": {
+					"data": {
+						"id": "GB",
+						"type": "countries"
+					}
+				},
+				"audit-trail": {
+					"links": {
+						"related": "audit-trail",
+						"self": "relationships/audit-trail"
+					}
+				}
+			}
+		},
+		{
+			"id": "80168",
+			"type": "personal-identities",
+			"attributes": {
+				"update-time": "2017-08-07T01:24:18.757112Z",
+				"update-comment": "Copied from legacy data tables",
+				"review-state": "ACCEPTED",
+				"last-reviewed": "2016-12-15T09:55:42.291Z",
+				"title": "Mr",
+				"first-name": "Stephen",
+				"last-name": "Flynn",
+				"date-of-birth": "1965-10-04",
+				"gender": "MALE"
+			},
+			"relationships": {
+				"update-user": {
+					"data": null
+				},
+				"last-reviewer": {
+					"data": null
+				},
+				"address": {
+					"data": {
+						"id": "80168",
+						"type": "postal-addresses"
+					}
+				},
+				"country-of-birth": {
+					"data": null
+				}
+			}
+		},
+		{
+			"id": "80168",
+			"type": "people",
+			"attributes": {
+				"first-name": "Stephen",
+				"last-name": "Flynn"
+			},
+			"relationships": {
+				"domain": {
+					"data": null
+				}
+			}
+		},
+		{
+			"id": "PL5000080167",
+			"type": "customer-account-profiles",
+			"attributes": {
+				"trading-limit": 10000.00,
+				"average-transaction-size": 1000,
+				"average-transaction-count": 1,
+				"average-transaction-frequency": "QUARTERLY",
+				"accepted": "ACCEPTED",
+				"relationship": "ACCOUNT_HOLDER",
+				"trader": true,
+				"credit-notification": "TO",
+				"debit-notification": "TO",
+				"confirmation-notification": "CC",
+				"trader-notification": "TO",
+				"requires-kyc": false,
+				"requires-acceptance": false
+			},
+			"relationships": {
+				"customer-account": {
+					"data": {
+						"id": "PL5000080167",
+						"type": "customer-accounts"
+					}
+				},
+				"base-currency": {
+					"data": {
+						"id": "GBP",
+						"type": "currencies"
+					}
+				},
+				"beneficiaries": {
+					"data": [
+						{
+							"id": "PL5000080167-61741",
+							"type": "customer-bank-accounts"
+						},
+						{
+							"id": "PL5000080167-84561",
+							"type": "customer-bank-accounts"
+						},
+						{
+							"id": "PL5000080167-87721",
+							"type": "customer-bank-accounts"
+						},
+						{
+							"id": "PL5000080167-87722",
+							"type": "customer-bank-accounts"
+						}
+					]
+				},
+				"remittable-currencies": {
+					"data": [
+						{
+							"id": "EUR",
+							"type": "currencies"
+						},
+						{
+							"id": "GBP",
+							"type": "currencies"
+						}
+					]
+				},
+				"deliverable-currencies": {
+					"data": [
+						{
+							"id": "USD",
+							"type": "currencies"
+						},
+						{
+							"id": "EUR",
+							"type": "currencies"
+						},
+						{
+							"id": "GBP",
+							"type": "currencies"
+						}
+					]
+				},
+				"deliverable-countries": {
+					"data": [
+						{
+							"id": "ZA",
+							"type": "countries"
+						},
+						{
+							"id": "GB",
+							"type": "countries"
+						},
+						{
+							"id": "US",
+							"type": "countries"
+						}
+					]
+				},
+				"payment-reasons": {
+					"data": [
+						{
+							"id": "1",
+							"type": "payment-reasons"
+						},
+						{
+							"id": "2",
+							"type": "payment-reasons"
+						},
+						{
+							"id": "3",
+							"type": "payment-reasons"
+						},
+						{
+							"id": "4",
+							"type": "payment-reasons"
+						},
+						{
+							"id": "0",
+							"type": "payment-reasons"
+						}
+					]
+				}
+			}
+		}
+	]
+}</response>
+</example>

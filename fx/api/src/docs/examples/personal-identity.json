@@ -1,0 +1,41 @@
+<example title="Get resource" method="GET" url="/fx-domain-api/people/2" xmlns="http://tradeconfo.com/ns/api">
+<response>
+{
+	"data": {
+		"id": "80168",
+		"type": "personal-identities",
+		"attributes": {
+			"update-time": "2017-08-07T01:24:18.757112Z",
+			"review-state": "ACCEPTED",
+			"last-reviewed": "2016-12-15T09:55:42.291Z",
+			"title": "Mr",
+			"first-name": "Stephen",
+			"last-name": "Flynn",
+			"date-of-birth": "1965-10-04",
+			"gender": "MALE"
+		},
+		"relationships": {
+			"update-user": {
+				"data": {
+					"id": "80168",
+					"type": "people"
+				}
+			},
+			"last-reviewer": {
+				"data": {
+					"id": "12345",
+					"type": "people"
+				}
+			},
+			"country-of-birth": {
+				"data": {
+					"id": "GB",
+					"type": "countries"
+				}
+			}
+		}
+	}
+}
+}
+</response>
+</example>

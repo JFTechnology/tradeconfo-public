@@ -1,45 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:api="http://tradeconfo.com/ns/api"
-	xmlns="http://www.w3.org/1999/xhtml" exclude-result-prefixes="xsi api"
+<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:api="http://tradeconfo.com/ns/api" xmlns="http://www.w3.org/1999/xhtml" exclude-result-prefixes="xsi api"
 >
 
 	<xsl:output method="html" version="5.0" encoding="UTF-8" indent="yes" />
 
-	<xsl:variable name="TYPES"
-		select="document('../docs/types.xml')/api:types/api:type" />
+	<xsl:variable name="TYPES" select="document('../docs/types.xml')/api:types/api:type" />
 
-	<xsl:variable name="ENUMS"
-		select="document('../docs/enums.xml')/api:enums/api:enum" />
+	<xsl:variable name="ENUMS" select="document('../docs/enums.xml')/api:enums/api:enum" />
 
-	<xsl:param name="api.version" select="'1.1.7'" />
-	<xsl:param name="api.date" select="'2016-Jun-19'" />
+	<xsl:param name="api.version" select="'1.2.4'" />
+	<xsl:param name="api.date" select="'2017-Jun-19'" />
 
 	<xsl:template match="/api:api">
 
 		<html>
 			<head>
-				<link rel="stylesheet"
-					href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
-					integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+				<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
 					crossorigin="anonymous"
 				></link>
 				<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-				<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
-					integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+				<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
 					crossorigin="anonymous"
 				></script>
-				<link
-					href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"
-					rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1"
-					crossorigin="anonymous"
+				<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"
+					integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous"
 				></link>
 			</head>
 			<body>
 				<div class="container-fluid" style="margin:2em;">
-					<div class="row"
-						style="background-color:#eee; margin:2em; padding:2em; border-top:solid #bbb 2pt;"
-					>
+					<div class="row" style="background-color:#eee; margin:2em; padding:2em; border-top:solid #bbb 2pt;">
 						<div class="col-md-12">
 							<h1 id="top">Tradeconfo.com FX Services - public API documentation</h1>
 							<div style="width:40em;padding:1em;" class="text-justify">
@@ -55,7 +45,8 @@
 
 								<h2>Introduction</h2>
 								<p>Tradeconfo.com FX API defines a set of REST based services that support
-									FX brokerages and their agents and customers.</p>
+									FX brokerages and their agents and
+									customers.</p>
 								<p>This document specifies the REST based access to a compliant
 									Tradeconfo.com FX service. This includes ...</p>
 								<ul>
@@ -69,7 +60,8 @@
 									<a href="http://jsonapi.org/">JSON API</a>
 									format for all REST resources. The JSON API format provides a well
 									defined
-									layout for modeling resources and the REST services that support
+									layout for modeling resources and the
+									REST services that support
 									them.
 								</p>
 
@@ -90,8 +82,7 @@
 									<xsl:for-each select="api:note">
 										<li>
 											<a href="#{generate-id()}">
-												<xsl:value-of
-													select="document(concat('../docs/notes/', @src))/api:note/@title" />
+												<xsl:value-of select="document(concat('../docs/notes/', @src))/api:note/@title" />
 											</a>
 										</li>
 									</xsl:for-each>
@@ -108,9 +99,7 @@
 
 	<xsl:template match="api:api/api:application">
 
-		<div id="{generate-id()}" class="row"
-			style="background-color:#eee; margin:2em; padding:2em; border-top:solid #bbb 2pt;"
-		>
+		<div id="{generate-id()}" class="row" style="background-color:#eee; margin:2em; padding:2em; border-top:solid #bbb 2pt;">
 			<div class="col-xs-12">
 				<h1>
 					API application :
@@ -130,8 +119,7 @@
 					</thead>
 					<tbody>
 						<xsl:for-each select="api:resource">
-							<xsl:variable name="resource"
-								select="document(concat('../docs/resources/', @name,'.xml'))/api:resource" />
+							<xsl:variable name="resource" select="document(concat('../docs/resources/', @name,'.xml'))/api:resource" />
 							<xsl:variable name="resourceId" select="concat(../@name, '-', @name)" />
 							<tr>
 								<td class="text-nowrap">
@@ -192,15 +180,12 @@
 
 	<xsl:template match="api:api/api:application/api:resource">
 
-		<xsl:variable name="resource"
-			select="document(concat('../docs/resources/', @name,'.xml'))/api:resource" />
+		<xsl:variable name="resource" select="document(concat('../docs/resources/', @name,'.xml'))/api:resource" />
 
 		<xsl:variable name="applicationId" select="../@name" />
 		<xsl:variable name="resourceId" select="concat(../@name, '-', @name)" />
 
-		<div id="{$resourceId}" class="row"
-			style="background-color:#eee; margin:2em; padding:2em; border-top:solid #bbb 2pt;"
-		>
+		<div id="{$resourceId}" class="row" style="background-color:#eee; margin:2em; padding:2em; border-top:solid #bbb 2pt;">
 			<div class="col-md-12">
 
 				<div class="row">
@@ -210,9 +195,8 @@
 							<xsl:value-of select="../@name" />
 							/
 							<xsl:value-of select="$resource/@type" />
-							<a
-								href="mailto:support@plutusfx.com?subject=API documentation : {../@name}/{@name}"
-								style="float:right;font-size:smaller;" title="Report issue or request support"
+							<a href="mailto:support@plutusfx.com?subject=API documentation : {../@name}/{@name}" style="float:right;font-size:smaller;"
+								title="Report issue or request support"
 							>
 								<i class="fa fa-fw fa-envelope-o"></i>
 							</a>
@@ -332,15 +316,12 @@
 										<ul class="nav nav-tabs" role="tablist">
 											<xsl:for-each select="$resource/api:url/api:example">
 
-												<xsl:variable name="document"
-													select="document(concat('../docs/examples/', @file))" />
+												<xsl:variable name="document" select="document(concat('../docs/examples/', @file))" />
 
 												<xsl:variable name="exampleId" select="generate-id()" />
 
 												<li role="presentation">
-													<a href="#{$resourceId}-{$exampleId}" aria-controls="{$resourceId}-{$exampleId}"
-														role="tab" data-toggle="tab"
-													>
+													<a href="#{$resourceId}-{$exampleId}" aria-controls="{$resourceId}-{$exampleId}" role="tab" data-toggle="tab">
 														<xsl:value-of select="position()" />
 														:
 														<xsl:value-of select="$document/api:example/@title" />
@@ -348,9 +329,7 @@
 												</li>
 											</xsl:for-each>
 											<li role="presentation" class="active">
-												<a href="#{$resourceId}-hide" aria-controls="{$resourceId}-hide"
-													role="tab" data-toggle="tab"
-												>Hide</a>
+												<a href="#{$resourceId}-hide" aria-controls="{$resourceId}-hide" role="tab" data-toggle="tab">Hide</a>
 											</li>
 										</ul>
 										<div class="tab-content">
@@ -358,8 +337,7 @@
 
 												<xsl:variable name="exampleId" select="generate-id()" />
 												<xsl:apply-templates select=".">
-													<xsl:with-param name="contentId"
-														select="concat($resourceId, '-', $exampleId)" />
+													<xsl:with-param name="contentId" select="concat($resourceId, '-', $exampleId)" />
 												</xsl:apply-templates>
 											</xsl:for-each>
 											<div role="tabpanel" class="tab-pane active text-muted" id="{$resourceId}-hide">
@@ -379,19 +357,15 @@
 
 	<xsl:template match="api:api/api:note">
 
-		<xsl:variable name="note"
-			select="document(concat('../docs/notes/', @src))/api:note" />
+		<xsl:variable name="note" select="document(concat('../docs/notes/', @src))/api:note" />
 
-		<div class="row"
-			style="background-color:#eee; margin:2em; padding:2em; border-top:solid #bbb 2pt;"
-		>
+		<div class="row" style="background-color:#eee; margin:2em; padding:2em; border-top:solid #bbb 2pt;">
 			<div class="col-md-6">
 				<h3 id="{generate-id()}">
 					<xsl:value-of select="$note/@title" />
 					<a href="#top" style="float:right;font-size:smaller;">Back to top</a>
 				</h3>
-				<xsl:copy-of select="$note/*" copy-namespaces="no"
-					exclude-result-prefixes="api" />
+				<xsl:copy-of select="$note/*" copy-namespaces="no" exclude-result-prefixes="api" />
 			</div>
 		</div>
 	</xsl:template>

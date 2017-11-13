@@ -1,27 +1,25 @@
 <example title="Get collection" method="GET" url="/fx-customer-api/currencies" xmlns="http://tradeconfo.com/ns/api">
 <response>
 {
-    "data":[
-        {
-            "id":"EUR",
-            "type":"currencies",
-            "attributes":{
-                "code":12,
-                "name":"EUR",
-                "description":"Euro"
-            }
-        },
-        {
-            "id":"GBP",
-            "type":"currencies",
-            "attributes":{
-                "code":13,
-                "name":"GBP",
-                "description":"British pound",
-                "object-status":"INACTIVE"
-            }
-        }
-    ]
+	"data": [
+		{
+			"id": "EUR",
+			"type": "currencies",
+			"attributes": {
+				"code": 12,
+				"name": "EUR",
+				"description": "Euro"
+			}
+		},
+		{
+			"id": "GBP",
+			"type": "currencies",
+			"attributes": {
+				"code": 13,
+				"name": "GBP"}
+				
+		}
+	]
 }
 </response>
 </example>

@@ -1,30 +1,48 @@
 <example title="Get resource" method="GET" url="/fx-domain-api/customer-accounts/TE9500001002" xmlns="http://tradeconfo.com/ns/api">
 <response>
 {
-    "data":{
-        "id":"TE9500001002",
-        "type":"customer-accounts",
-        "attributes":{
-            "name":"Customer 1",
-            "type":"CORPORATE",
-            "review-status":"DATA_REQUIRED",
-            "last-reviewed":"2016-01-27T09:03:18"
-        },
-        "relationships":{
-            "domain":{
-                "data":{
-                    "id":"1",
-                    "type":"domains"
-                }
-            },
-            "domain-group":{
-                "data":{
-                    "id":"2",
-                    "type":"domain-groups"
-                }
-            }
-        }
-    }
+	"data": {
+		"id": "PL5000080167",
+		"type": "customer-accounts",
+		"attributes": {
+			"review-state": "ACCEPTED",
+			"last-reviewed": "2016-12-15T09:56:30.194Z",
+			"name": "Stephen Flynn",
+			"type": "PERSONAL",
+			"purpose": "TRADING",
+			"account-creation-time": "2016-12-14T15:41:16.661Z",
+			"account-reference": "PL5000080167"
+		},
+		"relationships": {
+			"last-reviewer": {
+				"data": null
+			},
+			"account-manager": {
+				"data": {
+					"id": "15298",
+					"type": "people"
+				}
+			},
+			"subaccounts": {
+				"links": {
+					"related": "subaccounts",
+					"self": "relationships/subaccounts"
+				}
+			},
+			"contacts": {
+				"links": {
+					"related": "contacts",
+					"self": "relationships/contacts"
+				}
+			},
+			"beneficiaries": {
+				"links": {
+					"related": "beneficiaries",
+					"self": "relationships/beneficiaries"
+				}
+			}
+		}
+	}
 }
 </response>
 </example>

@@ -1,0 +1,14 @@
+<resource type="payment-batches" xmlns="http://tradeconfo.com/ns/api">
+
+	<description>
+		Resource that groups together payment instructions or payments.
+	</description>
+
+	<attribute name="status" type="enum" enum="payment.batch.status"
+		required="true" />
+	<attribute name="comment" type="string" required="false" />
+	<attribute name="update-time" type="timestamp" required="false" />
+
+	<relationship name="update-user" resource="people" required="false" />
+
+</resource>

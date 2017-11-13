@@ -14,8 +14,7 @@
 			The time of trade.
 		</comment>
 	</attribute>
-	<attribute name="object-status" type="enum" enum="object-status"
-		required="false" />
+	<attribute name="resource-state" type="enum" enum="resource-state" required="false" />
 
 	<relationship name="ticket" resource="fx-tickets" required="true">
 		<comment>
@@ -23,13 +22,15 @@
 		</comment>
 	</relationship>
 
-	<relationship name="blocks" resource="fx-transaction-blocks"
-		required="true" many="true"
-	>
+	<relationship name="blocks" resource="fx-transaction-blocks" required="true" many="true">
 		<comment>
 			The related transaction blocks
 		</comment>
 	</relationship>
+
+	<url method="GET" url="journal/fx-ticket/:id/transactions">
+		<example file="fx-transactions.json" />
+	</url>
 
 	<url method="GET" url="journal/fx-transactions/:id">
 		<example file="fx-transaction.json" />

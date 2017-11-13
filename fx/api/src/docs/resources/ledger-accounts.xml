@@ -7,8 +7,6 @@
 	<attribute name="name" type="string" required="true" />
 	<attribute name="type" type="enum" enum="ledger.account.type" required="true" />
 
-	<relationship name="domain" resource="domains" required="false" />
-
 	<url method="GET" url="ledger-accounts">
 		<example file="ledger-accounts.json" />
 		<comment>

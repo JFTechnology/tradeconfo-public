@@ -1,0 +1,47 @@
+<resource type="payment-logs" xmlns="http://tradeconfo.com/ns/api">
+
+	<description>
+		Represents a audit item for a payment.
+	</description>
+
+	<attribute name="booking-date" type="date" required="true" />
+	<attribute name="value-date" type="date" required="true" />
+	<attribute name="side" type="enum" enum="payment.side" required="true" />
+	<attribute name="type" type="enum" enum="payment.type" required="true" />
+	<attribute name="status" type="enum" enum="payment.status" required="true" />
+	<attribute name="instruction-status" type="enum" enum="payment.instruction.status" required="true" />
+	<attribute name="comment" type="string" required="false" />
+	<attribute name="remittance-information" type="string" required="false">
+		<comment>
+			Message intended for the beneficiary. Limited to 35 characters.
+		</comment>
+	</attribute>
+	<attribute name="operation-code" type="enum" enum="operation.code" required="false" />
+	<attribute name="charge-code" type="enum" enum="charge.code" required="false" />
+	<attribute name="intermediary" type="string" required="false">
+		<comment>
+			A valid swift institution identifier
+		</comment>
+	</attribute>
+	<attribute name="amount" type="number" required="true" />
+	<attribute name="update-time" type="timestamp" required="false" />
+
+	<relationship name="customer-account" resource="customer-accounts" required="true" />
+	<relationship name="beneficiary-bank-account" resource="bank-accounts" required="true" />
+	<relationship name="currency" resource="currencies" required="true" />
+
+	<relationship name="source-bank-account" resource="bank-accounts" required="false" />
+	<relationship name="charge-bank-account" resource="bank-accounts" required="false" />
+	<relationship name="customer-subaccount" resource="customer-subaccounts" required="false" />
+	<relationship name="scheduling-batch" resource="payment-batches" required="false" />
+	<relationship name="processing-batch" resource="payment-batches" required="false" />
+	<relationship name="instruction-placer" resource="people" required="false" />
+	<relationship name="instruction-confirmer" resource="people" required="false" />
+
+	<relationship name="update-user" resource="people" required="false" />
+
+	<relationship name="resource" resource="payments" required="true" />
+
+	<url method="GET" url="journal/payments/:id/audit-trail" />
+
+</resource>

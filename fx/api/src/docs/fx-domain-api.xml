@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="api.xsl"?>
+<api xmlns="http://tradeconfo.com/ns/api">
+
+	<note src="supported-applications.xml" />
+	<note src="access-tokens.xml" />
+	<note src="fx-customer-api-bootstrapping.xml" />
+	<note src="fx-domain-api-bootstrapping.xml" />
+	<note src="versioning.xml" />
+
+	<application name="fx-domain-api">
+
+		<resource name="bank-accounts" />
+		<resource name="bank-account-field-sets" />
+		<resource name="bank-transactions" />
+		<resource name="bank-transaction-logs" />
+
+		<resource name="countries" />
+		<resource name="currencies" />
+		<resource name="ledger-accounts" />
+		<resource name="ledger-postings" />
+		<resource name="ledger-entries-domain" />
+		<resource name="ledger-balances-domain" />
+
+		<resource name="customer-accounts" />
+		<resource name="customer-contacts" />
+		<resource name="customer-subaccounts" />
+		<resource name="customer-bank-accounts" />
+		<resource name="customer-account-profiles" />
+		<resource name="customer-quote-requests" />
+		<resource name="customer-quotes" />
+
+		<resource name="domains" />
+		<resource name="domain-groups" />
+
+		<resource name="fx-tickets" />
+		<resource name="fx-transactions" />
+		<resource name="fx-transaction-blocks" />
+		<resource name="fx-positions" />
+
+		<resource name="payments" />
+		<resource name="payment-batches" />
+		<resource name="payment-logs" />
+		<resource name="payment-notifications" />
+		<resource name="payment-reasons" />
+
+		<resource name="user-profiles" />
+		<resource name="domain-user-profiles" />
+
+	</application>
+
+</api>

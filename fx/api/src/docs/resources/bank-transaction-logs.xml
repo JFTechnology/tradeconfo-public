@@ -1,0 +1,30 @@
+<resource type="bank-transaction-logs" xmlns="http://tradeconfo.com/ns/api">
+
+	<description>
+		Represents a audit item for a bank transaction.
+	</description>
+
+	<attribute name="value-date" type="date" required="true" />
+	<attribute name="credit" type="currency-amount" required="true" />
+	<attribute name="debit" type="currency-amount" required="true" />
+	<attribute name="local-deduction" type="currency-amount" required="true" />
+	<attribute name="remote-deduction" type="currency-amount" required="true" />
+	<attribute name="type" type="enum" required="true" />
+	<attribute name="charge-code" type="enum" enum="charge.code" required="false" />
+	<attribute name="status" type="enum" enum="bank.transaction.status" required="true" />
+
+	<attribute name="references" type="string" many="true" required="false" />
+	<attribute name="narratives" type="string" many="true" required="false" />
+
+	<relationship name="bank-account" resource="bank-accounts" required="true" />
+	<relationship name="customer-account" resource="customer-accounts" required="false" />
+	<relationship name="customer-subaccount" resource="customer-subaccounts" required="false" />
+	<relationship name="ledger-account" resource="ledger-accounts" required="false" />
+
+	<relationship name="update-user" resource="people" required="false" />
+
+	<relationship name="resource" resource="bank-transactions" required="true" />
+
+	<url method="GET" url="journal/bank-transactions/:id/audit-trail" />
+
+</resource>

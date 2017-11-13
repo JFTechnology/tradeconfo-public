@@ -11,9 +11,7 @@
 		</comment>
 	</attribute>
 
-	<attribute name="trading-limit-utilised" type="currency-amount"
-		required="false"
-	>
+	<attribute name="trading-limit-utilised" type="currency-amount" required="false">
 		<comment>
 			Amount of trading limit currently used.
 		</comment>
@@ -22,9 +20,67 @@
 		</comment>
 	</attribute>
 
-	<relationship name="customer-account" resource="customer-accounts"
-		required="true"
-	>
+	<attribute name="average-transaction-size" type="currency-amount" required="false">
+		<comment>
+			KYC profile detail.
+		</comment>
+	</attribute>
+
+	<attribute name="average-transaction-frequency" type="currency-amount" required="false">
+		<comment>
+			KYC profile detail.
+		</comment>
+	</attribute>
+
+	<attribute name="average-transaction-size" type="currency-amount" required="false">
+		<comment>
+			KYC profile detail.
+		</comment>
+	</attribute>
+
+	<attribute name="relationship" type="enum" enum="customer-contact.relationship" required="false">
+		<comment>
+			Describes relationship between user and customer account.
+		</comment>
+	</attribute>
+
+	<attribute name="credit-notification" type="enum" enum="email.directive" required="false">
+		<comment>
+			Directive for eamils on funds credit.
+		</comment>
+	</attribute>
+
+	<attribute name="debit-notification" type="enum" enum="email.directive" required="false">
+		<comment>
+			Directive for eamils on funds debit.
+		</comment>
+	</attribute>
+
+	<attribute name="confirmation-notification" type="enum" enum="email.directive" required="false">
+		<comment>
+			Directive for eamils on trade.
+		</comment>
+	</attribute>
+
+	<attribute name="trader-notification" type="enum" enum="email.directive" required="false">
+		<comment>
+			Directive for eamils on user trade.
+		</comment>
+	</attribute>
+
+	<attribute name="requires-kyc" type="boolean" required="false">
+		<comment>
+			True if account requires KYC detail
+		</comment>
+	</attribute>
+
+	<attribute name="requires-acceptance" type="boolean" required="false">
+		<comment>
+			True if account has not accepted terms and conditions.
+		</comment>
+	</attribute>
+
+	<relationship name="customer-account" resource="customer-accounts" required="true">
 		<comment>
 			The parent of this profile.
 		</comment>
@@ -34,39 +90,29 @@
 			Calculation currency for this account.
 		</comment>
 	</relationship>
-	<relationship name="beneficiaries" resource="customer-bank-accounts"
-		required="true" many="true"
-	>
+	<relationship name="beneficiaries" resource="customer-bank-accounts" required="true" many="true">
 		<comment>
 			Beneficiary bank accounts to which currency may delivered on behalf of
 			the customer.
 		</comment>
 	</relationship>
-	<relationship name="remittable-currencies" resource="currencies"
-		required="true" many="true"
-	>
+	<relationship name="remittable-currencies" resource="currencies" required="true" many="true">
 		<comment>
 			Currencies which may be accepted from the customer.
 		</comment>
 	</relationship>
-	<relationship name="deliverable-currencies" resource="currencies"
-		required="true" many="true"
-	>
+	<relationship name="deliverable-currencies" resource="currencies" required="true" many="true">
 		<comment>
 			Currencies which may be delivered on behalf of the customer.
 		</comment>
 	</relationship>
-	<relationship name="deliverable-countries" resource="countries"
-		required="true" many="true"
-	>
+	<relationship name="deliverable-countries" resource="countries" required="true" many="true">
 		<comment>
 			Countries to which currency may be delivered on behalf of the
 			customer.
 		</comment>
 	</relationship>
-	<relationship name="payment-reasons" resource="payment-reasons"
-		required="true" many="true"
-	>
+	<relationship name="payment-reasons" resource="payment-reasons" required="true" many="true">
 		<comment>
 			The set of possible resonas that this account may give when requesting
 			a payment

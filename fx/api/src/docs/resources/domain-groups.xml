@@ -4,8 +4,7 @@
 
 	<attribute name="name" type="string" required="true" />
 	<attribute name="description" type="string" required="false" />
-	<attribute name="object-status" type="enum" enum="object-status"
-		required="false" />
+	<attribute name="resource-state" type="enum" enum="resource-state" required="false" />
 
 	<relationship name="domain" resource="domains" />
 
